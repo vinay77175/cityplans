@@ -111,17 +111,12 @@ a {
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Times+New+Roman:wght@400;700&display=swap");
-body {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  
-}
-:root {
+
+.root {
   /* fonts */
   --font-times-new-roman: "Times New Roman";
   --font-inter: Inter;
-  --font-jacques-francois: "Jacques Francois";
+  --head-font: "Jacques Francois";
   --font-poppins: Poppins;
   --font-roboto: Roboto;
   --font-inria-serif: "Inria Serif";
@@ -158,16 +153,12 @@ body {
   --br-31xl: 50px;
   --br-3xs: 10px;
 }
-.container{
+.container {
   /* background-image: url("../Images//header_left_circle.png"); */
   background-repeat: no-repeat;
   background-position: left;
   width: 100%;
-
 }
-.logo{
+.logo {
   color: var(--accent-black);
 }
-
-
-
