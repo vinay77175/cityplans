@@ -14,6 +14,7 @@ const About_section = () => {
         // width: "100%",
         bgcolor: "#B12930",
         backgroundImage: `url(${backImg1.src})`,
+        marginBottom: "20px",
         backgroundSize: "cover",
         alignItems: "center",
         display: "flex",
@@ -228,6 +229,9 @@ const About_section = () => {
                 fontFamily: "Times New Roman ",
                 color: "darkred",
                 backgroundColor: "white",
+                "&:hover": {
+                  backgroundColor: "#CCC",
+                },
               }}
             >
               View More
