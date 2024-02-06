@@ -47,7 +47,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   var slideSettings = {
-    centerPadding: '40px',
+    centerPadding: "40px",
     infinite: true,
     centerMode: true,
     speed: 1000,
@@ -57,23 +57,12 @@ export default function Home() {
     autoplaySpeed: 2500,
   };
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null
-  );
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null
   );
-
-  // const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-  //   setAnchorElNav(event.currentTarget);
-  // };
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
-
-  // const handleCloseNavMenu = () => {
-  //   setAnchorElNav(null);
-  // };
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
@@ -198,7 +187,7 @@ export default function Home() {
                     </IconButton>
                   </Tooltip>
                   <Menu
-                    sx={{ mt: "45px" }}
+                    sx={{ mt: "45px"}}
                     id="menu-appbar"
                     anchorEl={anchorElUser}
                     anchorOrigin={{
@@ -214,7 +203,12 @@ export default function Home() {
                     onClose={handleCloseUserMenu}
                   >
                     {settings.map((setting) => (
-                      <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                      <MenuItem key={setting} onClick={handleCloseUserMenu} sx={{
+                        "&:hover":{
+                          bgcolor:"#B12930",
+                          color:"#fff"
+                        }
+                      }}>
                         <Typography textAlign="center">{setting}</Typography>
                       </MenuItem>
                     ))}
@@ -255,8 +249,8 @@ export default function Home() {
             zIndex: "-1",
             opacity: 0.3,
             filter: "drop-shadow(12px 12px 4px #000)",
-            height: {xs:"35%",md:"100%"},
-            width:{xs:"95%",md:"40%"}
+            height: { xs: "50%", sm: "55%", md: "90%", lg: "100%" },
+            width: { xs: "90%", sm: "80%", md: "50%", lg: "40%" },
           }}
         />
         <Box
@@ -264,43 +258,70 @@ export default function Home() {
           src={backImage2.src}
           sx={{
             position: "absolute",
-            bottom:{xs: 0},
-            top:{md: 0},
+            display: { xs: "none", md: "block" },
+            bottom: { xs: 0 },
+            top: { md: 0 },
             right: 0,
             zIndex: "-1",
             opacity: 0.3,
             filter: "drop-shadow(-12px -12px 4px #000)",
-            height: {xs:"35%",md:"100%"},
-            width:{xs:"95%",md:"40%"}
+            height: { xs: "50%", sm: "55%", md: "90%", lg: "100%" },
+            width: { xs: "95%", md: "40%" },
           }}
         />
 
+        {/* Home Section */}
         <Grid
           container
-          sx={{ display: "flex", justifyContent: "space-between", mt: 10 }}
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            mt: { xs: 1, sm: 5, md: 6, lg: 10 },
+          }}
         >
-          <Grid item xs={12} md={4}>
-            <Box pt={5} pl={5} pb={15} >
+          <Grid item xs={12} sm={10} md={4}>
+            <Box
+              sx={{
+                pt: { xs: 2, md: 5 },
+                pl: { xs: 3, md: 5 },
+                pb: { xs: 5, sm: 10, md: 15 },
+              }}
+            >
               <Typography
                 variant="h1"
-                sx={{ fontSize: "4.5rem", fontFamily: "Jacques Francois" }}
+                sx={{
+                  fontSize: {
+                    xs: "1.5rem",
+                    sm: "2.5rem",
+                    md: "2.9rem",
+                    lg: "4.5rem",
+                  },
+                  pr: { xs: 7, sm: 12, md: 0 },
+                  fontFamily: "Jacques Francois",
+                }}
                 gutterBottom
               >
                 Dolor sit amet, consectetur adipiscing elit. Curabitur
               </Typography>
-              <Typography sx={{ fontSize: "1.5rem", my: 6 }}>
+              <Typography
+                sx={{
+                  fontSize: { xs: "1rem", sm: "1.2rem", lg: "1.5rem" },
+                  pr: { xs: 7, sm: 12, md: 0 },
+                  mt: { xs: 6 },
+                }}
+              >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Curabitur consequat.
               </Typography>
-              <Typography>
+              <Typography mt={{ xs: 5, sm: 10, md: 5, lg: 10 }}>
                 <Button
                   variant="contained"
                   sx={{
                     "&:hover": { backgroundColor: "#000" },
                     backgroundColor: "#222",
-                    px: 7,
-                    py: 3,
-                    fontSize: "1rem",
+                    px: { xs: 3, sm: 5, md: 5, lg: 7 },
+                    py: { xs: 2, md: 2, lg: 3 },
+                    fontSize: { xs: "0.8rem", md: "0.8rem", lg: "1rem" },
                     borderRadius: 12,
                   }}
                 >
@@ -309,26 +330,163 @@ export default function Home() {
               </Typography>
             </Box>
           </Grid>
-          <Grid item xs={12} md={6} px={3.1}>
-            <Box width={"100%"} height={"100%"}>
+
+          {/* Carousel Slider */}
+          <Grid item xs={12} md={6} sx={{ px: 3.1, mt: { xs: 10, md: 0 } }}>
+            <Box sx={{ width: "100%", height: { xs: "50%", lg: "100%" } }}>
               {" "}
-                <Slider {...slideSettings}>
-                <Box sx={{objectFit:"cover"}} > <Box component={"img"} src={slide1.src} height={"600px"} sx={{borderRadius:"40px",maxWidth:"100%",width:"98%"}} /></Box>
-                <Box sx={{objectFit:"cover"}} > <Box component={"img"} src={slide2.src} height={"600px"} sx={{borderRadius:"40px",maxWidth:"100%",width:"98%"}} /></Box>
-                <Box sx={{objectFit:"cover"}} > <Box component={"img"} src={slide3.src} height={"600px"} sx={{borderRadius:"40px",maxWidth:"100%",width:"98%"}} /></Box>
-                <Box sx={{objectFit:"cover"}} > <Box component={"img"} src={slide4.src} height={"600px"} sx={{borderRadius:"40px",maxWidth:"100%",width:"98%"}} /></Box>
-                <Box sx={{objectFit:"cover"}} > <Box component={"img"} src={slide5.src} height={"600px"} sx={{borderRadius:"40px",maxWidth:"100%",width:"98%"}} /></Box>
-                <Box sx={{objectFit:"cover"}} > <Box component={"img"} src={slide6.src} height={"600px"} sx={{borderRadius:"40px",maxWidth:"100%",width:"98%"}} /></Box>
-                <Box sx={{objectFit:"cover"}} > <Box component={"img"} src={slide7.src} height={"600px"} sx={{borderRadius:"40px",maxWidth:"100%",width:"98%"}} /></Box>
-                {/* <Box sx={{objectFit:"cover",mx:1}} > <Box component={"img"} src={slide8.src}  height={"600px"} width={"500px"} sx={{borderRadius:"15px"}} /></Box> */}
+              <Slider {...slideSettings}>
+                <Box sx={{ objectFit: "cover" }}>
+                  {" "}
+                  <Box
+                    component={"img"}
+                    src={slide1.src}
+                    sx={{
+                      borderRadius: "40px",
+                      maxWidth: "100%",
+                      width: "98%",
+                      height: {
+                        xs: "400px",
+                        sm: "500px",
+                        md: "550px",
+                        lg: "600px",
+                      },
+                    }}
+                  />
+                </Box>
+                <Box sx={{ objectFit: "cover" }}>
+                  {" "}
+                  <Box
+                    component={"img"}
+                    src={slide2.src}
+                    sx={{
+                      borderRadius: "40px",
+                      maxWidth: "100%",
+                      width: "98%",
+                      height: {
+                        xs: "400px",
+                        sm: "500px",
+                        md: "550px",
+                        lg: "600px",
+                      },
+                    }}
+                  />
+                </Box>
+                <Box sx={{ objectFit: "cover" }}>
+                  {" "}
+                  <Box
+                    component={"img"}
+                    src={slide3.src}
+                    sx={{
+                      borderRadius: "40px",
+                      maxWidth: "100%",
+                      width: "98%",
+                      height: {
+                        xs: "400px",
+                        sm: "500px",
+                        md: "550px",
+                        lg: "600px",
+                      },
+                    }}
+                  />
+                </Box>
+                <Box sx={{ objectFit: "cover" }}>
+                  {" "}
+                  <Box
+                    component={"img"}
+                    src={slide4.src}
+                    sx={{
+                      borderRadius: "40px",
+                      maxWidth: "100%",
+                      width: "98%",
+                      height: {
+                        xs: "400px",
+                        sm: "500px",
+                        md: "550px",
+                        lg: "600px",
+                      },
+                    }}
+                  />
+                </Box>
+                <Box sx={{ objectFit: "cover" }}>
+                  {" "}
+                  <Box
+                    component={"img"}
+                    src={slide5.src}
+                    sx={{
+                      borderRadius: "40px",
+                      maxWidth: "100%",
+                      width: "98%",
+                      height: {
+                        xs: "400px",
+                        sm: "500px",
+                        md: "550px",
+                        lg: "600px",
+                      },
+                    }}
+                  />
+                </Box>
+                <Box sx={{ objectFit: "cover" }}>
+                  {" "}
+                  <Box
+                    component={"img"}
+                    src={slide6.src}
+                    sx={{
+                      borderRadius: "40px",
+                      maxWidth: "100%",
+                      width: "98%",
+                      height: {
+                        xs: "400px",
+                        sm: "500px",
+                        md: "550px",
+                        lg: "600px",
+                      },
+                    }}
+                  />
+                </Box>
+                <Box sx={{ objectFit: "cover" }}>
+                  {" "}
+                  <Box
+                    component={"img"}
+                    src={slide7.src}
+                    sx={{
+                      borderRadius: "40px",
+                      maxWidth: "100%",
+                      width: "98%",
+                      height: {
+                        xs: "400px",
+                        sm: "500px",
+                        md: "550px",
+                        lg: "600px",
+                      },
+                    }}
+                  />
+                </Box>
+                <Box sx={{ objectFit: "cover" }}>
+                  {" "}
+                  <Box
+                    component={"img"}
+                    src={slide8.src}
+                    sx={{
+                      borderRadius: "40px",
+                      maxWidth: "100%",
+                      width: "98%",
+                      height: {
+                        xs: "400px",
+                        sm: "500px",
+                        md: "550px",
+                        lg: "600px",
+                      },
+                    }}
+                  />
+                </Box>
               </Slider>
             </Box>
           </Grid>
         </Grid>
-        {/* Carousel Slider */}
       </Box>
       <About_section />
-      {/* <Plan_section /> */}
+      <Plan_section />
     </div>
   );
 }

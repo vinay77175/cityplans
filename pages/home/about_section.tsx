@@ -105,7 +105,7 @@ const About_section = () => {
               textAlign: { xs: "center", lg: "left" },
               fontFamily: "Jacques Francois",
               color: "white",
-              paddingX: { xs: "6vh", lg: "0vh" },
+              px: { xs: "3vh", lg: "0vh" },
             }}
           >
             Sit amet, consectetur adipiscing elit.
@@ -113,10 +113,10 @@ const About_section = () => {
 
           <Typography
             sx={{
-              marginTop: { xs: "8vh", lg: "5vh " },
+              marginTop: { xs: "8vh", lg: "5vh" },
               fontFamily: "Times New Roman",
               color: "white",
-              paddingX: { xs: "6vh", lg: "0vh" },
+              paddingX: { xs: "3vh", lg: "0vh" },
               textAlign: { xs: "center", lg: "left" },
               fontSize: { xs: "1.2rem", sm: "1.35rem", lg: "1.4rem" },
               letterSpacing: "2px",
@@ -131,8 +131,8 @@ const About_section = () => {
           <Box
             sx={{
               display: "flex",
-              paddingTop: "5vh ",
-              paddingX: { xs: "6vh", lg: "0vh" },
+              paddingTop: "5vh",
+              paddingX: { xs: "3vh", lg: "0vh" },
             }}
           >
             <Grid
