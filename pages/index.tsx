@@ -255,8 +255,8 @@ export default function Home() {
             zIndex: "-1",
             opacity: 0.3,
             filter: "drop-shadow(12px 12px 4px #000)",
-            height: "100%",
-            width:"40%"
+            height: {xs:"35%",md:"100%"},
+            width:{xs:"95%",md:"40%"}
           }}
         />
         <Box
@@ -264,12 +264,14 @@ export default function Home() {
           src={backImage2.src}
           sx={{
             position: "absolute",
-            top: 0,
+            bottom:{xs: 0},
+            top:{md: 0},
             right: 0,
             zIndex: "-1",
             opacity: 0.3,
             filter: "drop-shadow(-12px -12px 4px #000)",
-            height: "100%",
+            height: {xs:"35%",md:"100%"},
+            width:{xs:"95%",md:"40%"}
           }}
         />
 
@@ -278,7 +280,7 @@ export default function Home() {
           sx={{ display: "flex", justifyContent: "space-between", mt: 10 }}
         >
           <Grid item xs={12} md={4}>
-            <Box pt={5} pl={5}>
+            <Box pt={5} pl={5} pb={15} >
               <Typography
                 variant="h1"
                 sx={{ fontSize: "4.5rem", fontFamily: "Jacques Francois" }}
@@ -326,7 +328,7 @@ export default function Home() {
         {/* Carousel Slider */}
       </Box>
       <About_section />
-      <Plan_section />
+      {/* <Plan_section /> */}
     </div>
   );
 }

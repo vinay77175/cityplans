@@ -3,10 +3,6 @@
 .Home_Container {
   margin: 0;
   padding: 0;
-  background-image: url("../public/Images/1.png"), url("../public/Images/home_back_img2.png");
-  background-repeat: no-repeat;
-  background-position: left top, right top;
-  background-size: 70vh;
   min-height: 100vh;
   /* width: 100vw; */
 }
@@ -22,4 +18,3 @@
   font-size: var(--font-size-lgi);
   font-family: var(--head-font);
 }
-
