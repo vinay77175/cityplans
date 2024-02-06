@@ -255,6 +255,7 @@ export default function Home() {
             opacity: 0.3,
             filter: "drop-shadow(12px 12px 4px #000)",
             height: "100%",
+            width:"40%"
           }}
         />
         <Box
@@ -275,7 +276,7 @@ export default function Home() {
           container
           sx={{ display: "flex", justifyContent: "space-between", mt: 10 }}
         >
-          <Grid item sm={4}>
+          <Grid item xs={12} md={4}>
             <Box pt={5} pl={5}>
               <Typography
                 variant="h1"
@@ -305,7 +306,7 @@ export default function Home() {
               </Typography>
             </Box>
           </Grid>
-          <Grid item sm={6}>
+          <Grid item xs={12} md={6} px={3.1}>
             <Box width={"100%"} height={"100%"}>
               {" "}
                 <Slider {...slideSettings}>
