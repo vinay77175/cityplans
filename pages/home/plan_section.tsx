@@ -10,9 +10,9 @@ const Plan_section = () => {
     <>
       <Grid container>
         <Grid item xs={12} lg={5}>
-          <Box position={"absolute"}>
+          <Box position={"absolute"} sx={{ xs: "100%" }}>
             <img
-              width={"95%"}
+              width=""
               style={{ borderTop: "20px solid white" }}
               src={planImage.src}
               alt=""
@@ -33,7 +33,7 @@ const Plan_section = () => {
             <Typography
               variant="h3"
               sx={{
-                fontFamily: "Times New ROman",
+                fontFamily: "Times New Roman",
                 color: "black",
                 marginTop: { xs: "15vh", lg: "10vh" },
                 textAlign: { xs: "center", lg: "center " },
