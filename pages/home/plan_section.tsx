@@ -8,19 +8,24 @@ import plan4 from "../../public/Images/Plan_4.png";
 const Plan_section = () => {
   return (
     <>
-      <Grid container>
+      <Grid container sx={{ marginBottom: "20vh" }} spacing={5}>
         <Grid item xs={12} lg={5}>
           <Box
             position={"absolute"}
             component={"img"}
             sx={{
-              width: { xs: "95%", lg: "42%" },
-              height: { xs: "100%", sm: "60%", lg: "100%" },
+              width: { xs: "95%", sm: "90%", lg: "42%" },
+              height: {
+                xs: "70%",
+                sm: "60%",
+                md: "90%",
+                lg: "95%",
+                xl: "90%",
+              },
             }}
-            height={"100%"}
             src={planImage.src}
           ></Box>
-          <Box position={"relative"}>
+          <Box>
             <Typography
               variant="h2"
               sx={{
@@ -65,7 +70,12 @@ const Plan_section = () => {
             </Typography>
           </Box>
         </Grid>
-        <Grid item xs={12} lg={7}>
+        <Grid
+          item
+          xs={12}
+          lg={7}
+          sx={{ marginTop: { xs: "10vh", sm: "20vh", lg: "5vh" } }}
+        >
           <Box
             sx={{ display: "flex" }}
             alignItems={"baseline"}
