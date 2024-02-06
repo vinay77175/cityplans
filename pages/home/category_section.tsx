@@ -14,12 +14,25 @@ import category1 from "../../public/Images/category_1.png";
 import category2 from "../../public/Images/category_2.png";
 import category3 from "../../public/Images/category_3.png";
 import category4 from "../../public/Images/category_4.png";
+import { CardData } from "./category_data";
+import { StaticImageData } from "next/image";
 const Category_section = () => {
   const [value, setValue] = React.useState("1");
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
+  interface Data {
+    id: String;
+    value: String;
+    img: StaticImageData;
+    heading: String;
+    price: String;
+    title1: String;
+    title2: String;
+    titleText1: String;
+    titleText2: String;
+  }
   return (
     <>
       <Box>
@@ -41,158 +54,162 @@ const Category_section = () => {
                 onChange={handleChange}
                 aria-label="lab API tabs example"
               >
-                <Box sx={{ display: "flex", justifyContent: "space-around" }}>
-                  <Tab
-                    sx={{
-                      fontSize: {
-                        xs: "14px",
-                        sm: "18px",
-                        md: "22px",
-                        lg: "32px",
-                      },
-                    }}
-                    label="Category 1"
-                    value="1"
-                  />
-                  <Tab
-                    sx={{
-                      fontSize: {
-                        xs: "14px",
-                        sm: "18px",
-                        md: "22px",
-                        lg: "32px",
-                      },
-                    }}
-                    label="Category 2"
-                    value="2"
-                  />
-                  <Tab
-                    sx={{
-                      fontSize: {
-                        xs: "14px",
-                        sm: "18px",
-                        md: "22px",
-                        lg: "32px",
-                      },
-                    }}
-                    label="Category 3"
-                    value="3"
-                  />
-                  <Tab
-                    sx={{
-                      fontSize: {
-                        xs: "14px",
-                        sm: "18px",
-                        md: "22px",
-                        lg: "32px",
-                      },
-                    }}
-                    label="Category 4"
-                    value="4"
-                  />
-                </Box>
+                <Tab
+                  sx={{
+                    fontSize: {
+                      xs: "14px",
+                      sm: "18px",
+                      md: "22px",
+                      lg: "32px",
+                    },
+                  }}
+                  label="Category 1"
+                  value="1"
+                />
+                <Tab
+                  sx={{
+                    fontSize: {
+                      xs: "14px",
+                      sm: "18px",
+                      md: "22px",
+                      lg: "32px",
+                    },
+                  }}
+                  label="Category 2"
+                  value="2"
+                />
+                <Tab
+                  sx={{
+                    fontSize: {
+                      xs: "14px",
+                      sm: "18px",
+                      md: "22px",
+                      lg: "32px",
+                    },
+                  }}
+                  label="Category 3"
+                  value="3"
+                />
+                <Tab
+                  sx={{
+                    fontSize: {
+                      xs: "14px",
+                      sm: "18px",
+                      md: "22px",
+                      lg: "32px",
+                    },
+                  }}
+                  label="Category 4"
+                  value="4"
+                />
               </TabList>
             </Box>
-            <TabPanel value="1">
-              <Grid container>
-                <Grid item xs={12} sm={6} lg={3} xl={4}>
-                  <Card
-                    sx={{
-                      maxWidth: 345,
-                      border: "1px solid #C9C1BA",
-                      borderRadius: "20px",
-                    }}
-                  >
-                    <CardMedia
-                      component="img"
-                      alt="green iguana"
-                      height="200"
-                      src={category1.src}
-                    />
-                    <CardContent>
-                      <Typography
-                        gutterBottom
-                        variant="h5"
-                        component="div"
-                        sx={{
-                          marginTop: { xs: "1vh", lg: "2vh" },
-                        }}
-                      >
-                        In laoreet magna sit
-                      </Typography>
-                      <Typography
-                        color="#B12930"
-                        sx={{
-                          marginTop: { xs: "1vh", lg: "2vh" },
-                          fontSize: { xs: "18px", md: "22px" },
-                        }}
-                      >
-                        $69.00
-                      </Typography>
-                      <Box
-                        display={"flex"}
-                        sx={{
-                          marginTop: "2vh",
-                        }}
-                      >
+            <Grid container>
+              {CardData.map((item: Data) => (
+                <Grid item xs={12} sm={6} lg={3} xl={4} key={String(item.id)}>
+                  <TabPanel value={String(item.value)}>
+                    <Card
+                      sx={{
+                        maxWidth: 345,
+                        border: "1px solid #C9C1BA",
+                        borderRadius: "20px",
+                      }}
+                    >
+                      <CardMedia
+                        component="img"
+                        alt="green iguana"
+                        height="200"
+                        src={item.img.src}
+                      />
+                      <CardContent>
+                        <Typography
+                          gutterBottom
+                          variant="h5"
+                          component="div"
+                          sx={{
+                            marginTop: { xs: "1vh", lg: "2vh" },
+                          }}
+                        >
+                          {item.heading}
+                        </Typography>
+                        <Typography
+                          color="#B12930"
+                          sx={{
+                            marginTop: { xs: "1vh", lg: "2vh" },
+                            fontSize: { xs: "18px", md: "22px" },
+                          }}
+                        >
+                          {item.price}
+                        </Typography>
                         <Box
+                          display={"flex"}
                           sx={{
-                            marginRight: { xs: "4vh", md: "3vh", lg: "4vh" },
+                            marginTop: "2vh",
                           }}
                         >
-                          <Typography variant="body1">eiusmod tempo</Typography>
-                          <Typography variant="body2" color="text.secondary">
-                            eiusmod
-                          </Typography>
+                          <Box
+                            sx={{
+                              marginRight: { xs: "4vh", md: "3vh", lg: "4vh" },
+                            }}
+                          >
+                            <Typography variant="body1">
+                              {item.title1}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                              {item.titleText1}
+                            </Typography>
+                          </Box>
+                          <Box>
+                            <Typography variant="body1">
+                              {item.title2}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                              {item.titleText2}
+                            </Typography>
+                          </Box>
                         </Box>
-                        <Box>
-                          <Typography variant="body1">eiusmod tempo</Typography>
-                          <Typography variant="body2" color="text.secondary">
-                            eiusmod
-                          </Typography>
-                        </Box>
-                      </Box>
-                    </CardContent>
-                    <CardActions>
-                      <Box
-                        width={"100%"}
-                        display={"flex"}
-                        justifyContent={"space-around"}
-                        py="1vh"
-                      >
-                        <Button
-                          sx={{
-                            padding: "1.2vh 4vh",
-                            fontFamily: "Times New Roman ",
-                            color: "white",
-                            backgroundColor: "#B12930",
-                            "&:hover": {
-                              backgroundColor: "hsl(357,62%,55%)",
-                            },
-                          }}
+                      </CardContent>
+                      <CardActions>
+                        <Box
+                          width={"100%"}
+                          display={"flex"}
+                          justifyContent={"space-around"}
+                          py="1vh"
                         >
-                          Buy Now
-                        </Button>
-                        <Button
-                          sx={{
-                            padding: "1.2vh 4vh",
-                            fontFamily: "Times New Roman ",
-                            color: "black",
-                            border: "2px solid black",
-                            "&:hover": {
-                              backgroundColor: "black",
+                          <Button
+                            sx={{
+                              padding: "1.2vh 4vh",
+                              fontFamily: "Times New Roman ",
                               color: "white",
-                            },
-                          }}
-                        >
-                          View More
-                        </Button>
-                      </Box>
-                    </CardActions>
-                  </Card>
+                              backgroundColor: "#B12930",
+                              "&:hover": {
+                                backgroundColor: "hsl(357,62%,55%)",
+                              },
+                            }}
+                          >
+                            Buy Now
+                          </Button>
+                          <Button
+                            sx={{
+                              padding: "1.2vh 4vh",
+                              fontFamily: "Times New Roman ",
+                              color: "black",
+                              border: "2px solid black",
+                              "&:hover": {
+                                backgroundColor: "black",
+                                color: "white",
+                              },
+                            }}
+                          >
+                            View More
+                          </Button>
+                        </Box>
+                      </CardActions>
+                    </Card>
+                  </TabPanel>
                 </Grid>
-              </Grid>
-            </TabPanel>
+              ))}
+            </Grid>
             <TabPanel value="2">
               <Grid container>
                 <Grid item xs={12} sm={6} lg={3} xl={4}>
