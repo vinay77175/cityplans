@@ -20,6 +20,21 @@ const About_section = () => {
       }}
     >
       <Grid container sx={{ display: "flex" }}>
+        <Box width="100%" display="flex" justifyContent="center">
+          <Typography
+            variant="h2"
+            sx={{
+              fontFamily: "Jacques Francois",
+              color: "white",
+              marginTop: { xs: "10vh", lg: "5vh" },
+              display: { xs: "block", lg: "none" },
+              marginBottom: { xs: "7vh" },
+            }}
+          >
+            About Us
+          </Typography>
+        </Box>
+
         <Grid
           item
           sx={{
@@ -77,6 +92,7 @@ const About_section = () => {
               color: "white",
               marginTop: { xs: "15vh", lg: "5vh" },
               textAlign: { xs: "center", lg: "left" },
+              display: { xs: "none", lg: "block" },
             }}
           >
             About Us
@@ -89,6 +105,7 @@ const About_section = () => {
               textAlign: { xs: "center", lg: "left" },
               fontFamily: "Jacques Francois",
               color: "white",
+              paddingX: { xs: "6vh", lg: "0vh" },
             }}
           >
             Sit amet, consectetur adipiscing elit.
@@ -99,8 +116,10 @@ const About_section = () => {
               marginTop: { xs: "8vh", lg: "5vh " },
               fontFamily: "Times New Roman",
               color: "white",
-              marginX: { xs: "20vh", lg: "0vh" },
+              paddingX: { xs: "6vh", lg: "0vh" },
               textAlign: { xs: "center", lg: "left" },
+              fontSize: { xs: "1.2rem", sm: "1.35rem", lg: "1.4rem" },
+              letterSpacing: "2px",
             }}
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
@@ -113,7 +132,7 @@ const About_section = () => {
             sx={{
               display: "flex",
               paddingTop: "5vh ",
-              paddingX: { xs: "10vh", lg: "0vh" },
+              paddingX: { xs: "6vh", lg: "0vh" },
             }}
           >
             <Grid
@@ -127,7 +146,7 @@ const About_section = () => {
                     color: "white",
                     fontSize: "18px",
                     marginBottom: "12px",
-                    paddingX: { xs: "3vh", lg: "0vh" },
+                    paddingX: { xs: "3vh", lg: "1vh" },
                   }}
                 >
                   Sit amet, consectetur adipiscing elit.
@@ -138,7 +157,7 @@ const About_section = () => {
                     color: "white",
                     fontSize: "18px",
                     marginBottom: "12px",
-                    paddingX: { xs: "3vh", lg: "0vh" },
+                    paddingX: { xs: "3vh", lg: "1vh" },
                   }}
                 >
                   Sit amet, consectetur adipiscing elit.
@@ -148,7 +167,7 @@ const About_section = () => {
                     fontFamily: "Times New Roman ",
                     color: "white",
                     fontSize: "18px",
-                    paddingX: { xs: "3vh", lg: "0vh" },
+                    paddingX: { xs: "3vh", lg: "1vh" },
                   }}
                 >
                   Sit amet, consectetur adipiscing elit.
@@ -166,7 +185,7 @@ const About_section = () => {
                     color: "white",
                     fontSize: "18px",
                     marginBottom: "12px",
-                    paddingX: { xs: "3vh", lg: "0vh" },
+                    paddingX: { xs: "3vh", lg: "1vh" },
                   }}
                 >
                   Sit amet, consectetur adipiscing elit.
@@ -177,7 +196,7 @@ const About_section = () => {
                     color: "white",
                     fontSize: "18px",
                     marginBottom: "12px",
-                    paddingX: { xs: "3vh", lg: "0vh" },
+                    paddingX: { xs: "3vh", lg: "1vh" },
                   }}
                 >
                   Sit amet, consectetur adipiscing elit.
@@ -187,7 +206,7 @@ const About_section = () => {
                     fontFamily: "Times New Roman ",
                     color: "white",
                     fontSize: "18px",
-                    paddingX: { xs: "3vh", lg: "0vh" },
+                    paddingX: { xs: "3vh", lg: "1vh" },
                   }}
                 >
                   Sit amet, consectetur adipiscing elit.
@@ -201,14 +220,15 @@ const About_section = () => {
             justifyContent={{ xs: "center", lg: "flex-start" }}
             marginBottom={"10vh"}
             marginTop={"5vh"}
+            paddingLeft={"1vh"}
           >
             <Button
               sx={{
                 padding: "2vh 5vh",
                 fontFamily: "Times New Roman ",
-                color: "white",
+                color: "darkred",
+                backgroundColor: "white",
               }}
-              variant="contained"
             >
               View More
             </Button>

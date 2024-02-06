@@ -37,6 +37,7 @@ import {
   ListItemButton,
   ListItemText,
 } from "@mui/material";
+import Plan_section from "./home/plan_section";
 
 const drawerWidth = 240;
 const pages = ["Home", "About Us", "projects", "Services", "Contact Us"];
@@ -325,6 +326,7 @@ export default function Home() {
         {/* Carousel Slider */}
       </Box>
       <About_section />
+      <Plan_section />
     </div>
   );
 }
