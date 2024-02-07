@@ -37,8 +37,15 @@ const Category_section = () => {
     <>
       <Box>
         <Box>
-          <Typography variant="h4" textAlign={"center"}>
-            Our Plans
+          <Typography
+            variant="h2"
+            sx={{
+              fontFamily: "Jacques Francois",
+              textAlign: "center",
+              marginBottom: { xs: "2vh", sm: "3vh", md: "4vh", lg: "5vh" },
+            }}
+          >
+            Our <span style={{ color: "#B12930" }}>Plan</span>
           </Typography>
         </Box>
         <Box sx={{ width: "100%", typography: "body1" }}>
@@ -106,7 +113,7 @@ const Category_section = () => {
             </Box>
             <Grid container>
               {CardData.map((item: Data) => (
-                <Grid item xs={12} sm={6} lg={3} xl={4} key={String(item.id)}>
+                <Grid item xs={12} sm={6} lg={3} key={String(item.id)}>
                   <TabPanel value={String(item.value)}>
                     <Card
                       sx={{
@@ -210,130 +217,6 @@ const Category_section = () => {
                 </Grid>
               ))}
             </Grid>
-            <TabPanel value="2">
-              <Grid container>
-                <Grid item xs={12} sm={6} lg={3} xl={4}>
-                  <Card sx={{ maxWidth: 345 }}>
-                    <CardMedia
-                      component="img"
-                      alt="green iguana"
-                      height="200"
-                      src={category1.src}
-                    />
-                    <CardContent>
-                      <Typography
-                        gutterBottom
-                        variant="h5"
-                        component="div"
-                        sx={{
-                          marginTop: { xs: "1vh", lg: "2vh" },
-                        }}
-                      >
-                        In laoreet magna sit
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        color="text.secondary"
-                        sx={{
-                          marginTop: { xs: "1vh", lg: "2vh" },
-                        }}
-                      >
-                        $69.00
-                      </Typography>
-                      <Box
-                        display={"flex"}
-                        sx={{
-                          marginTop: "2vh",
-                        }}
-                      >
-                        <Box
-                          sx={{
-                            marginRight: { xs: "4vh", md: "3vh", lg: "4vh" },
-                          }}
-                        >
-                          <Typography variant="body1">eiusmod tempo</Typography>
-                          <Typography variant="body2" color="text.secondary">
-                            eiusmod
-                          </Typography>
-                        </Box>
-                        <Box>
-                          <Typography variant="body1">eiusmod tempo</Typography>
-                          <Typography variant="body2" color="text.secondary">
-                            eiusmod
-                          </Typography>
-                        </Box>
-                      </Box>
-                    </CardContent>
-                    <CardActions>
-                      <Button size="small">Share</Button>
-                      <Button size="small">Learn More</Button>
-                    </CardActions>
-                  </Card>
-                </Grid>
-              </Grid>
-            </TabPanel>
-            <TabPanel value="3">
-              <Grid container>
-                <Grid item xs={12} sm={6} lg={3} xl={4}>
-                  <Card sx={{ maxWidth: 345 }}>
-                    <CardMedia
-                      component="img"
-                      alt="green iguana"
-                      height="200"
-                      src={category1.src}
-                    />
-                    <CardContent>
-                      <Typography
-                        gutterBottom
-                        variant="h5"
-                        component="div"
-                        sx={{
-                          marginTop: { xs: "1vh", lg: "2vh" },
-                        }}
-                      >
-                        In laoreet magna sit
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        color="text.secondary"
-                        sx={{
-                          marginTop: { xs: "1vh", lg: "2vh" },
-                        }}
-                      >
-                        $69.00
-                      </Typography>
-                      <Box
-                        display={"flex"}
-                        sx={{
-                          marginTop: "2vh",
-                        }}
-                      >
-                        <Box
-                          sx={{
-                            marginRight: { xs: "4vh", md: "3vh", lg: "4vh" },
-                          }}
-                        >
-                          <Typography variant="body1">eiusmod tempo</Typography>
-                          <Typography variant="body2" color="text.secondary">
-                            eiusmod
-                          </Typography>
-                        </Box>
-                        <Box>
-                          <Typography variant="body1">eiusmod tempo</Typography>
-                          <Typography variant="body2" color="text.secondary">
-                            eiusmod
-                          </Typography>
-                        </Box>
-                      </Box>
-                    </CardContent>
-                    <CardActions>
-                      <Button size="small">Share</Button>
-                      <Button size="small">Learn More</Button>
-                    </CardActions>
-                  </Card>
-                </Grid>
-              </Grid>
-            </TabPanel>
           </TabContext>
         </Box>
       </Box>
