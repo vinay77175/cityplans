@@ -8,7 +8,7 @@ import plan4 from "../../public/Images/Plan_4.png";
 const Plan_section = () => {
   return (
     <>
-      {/* <Container maxWidth="lg"> */}
+      <Container maxWidth="xl">
       <Grid container sx={{ marginBottom: "20vh" }} spacing={5}>
         <Grid item xs={12} lg={5}>
           <Box
@@ -95,7 +95,7 @@ const Plan_section = () => {
           </Box>
         </Grid>
       </Grid>
-      {/* </Container> */}
+      </Container>
     </>
   );
 };

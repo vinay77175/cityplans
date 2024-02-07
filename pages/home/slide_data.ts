@@ -15,6 +15,7 @@ export const SlideData: Array<slide> = [
   {
     id: "1",
     imgSrc: slide1,
+    
   },
   {
     id: "2",

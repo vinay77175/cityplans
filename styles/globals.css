@@ -171,3 +171,7 @@ a {
   display: flex !important;
   justify-content: space-around !important;
 }
+
+.MuiTabs-indicator{
+  border: 2px solid red;
+}

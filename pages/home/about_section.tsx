@@ -20,7 +20,7 @@ const About_section = () => {
         display: "flex",
       }}
     >
-      {/* <Container maxWidth="lg"> */}
+      <Container maxWidth="xl">
 
       <Grid container sx={{ display: "flex" }}>
         <Box width="100%" display="flex" justifyContent="center">
@@ -241,7 +241,7 @@ const About_section = () => {
           </Box>
         </Grid>
       </Grid>
-      {/* </Container> */}
+      </Container>
 
     </Box>
   );

@@ -150,7 +150,7 @@ const Home_section = () => {
                         color: "#000",
                         px: { sm: 1, md: 2, lg: 4 },
                         border: "1px solid rgb(255,255,255,0)",
-                        borderRadius: "25px",
+                        // borderRadius: "25px",
                         fontSize: { sm: "", md: "18px", lg: "22px" },
                         fontFamily: "Inria Serif",
                         textTransform: "capitalize",
@@ -315,7 +315,7 @@ const Home_section = () => {
                     px: { xs: 3, sm: 5, md: 5, lg: 7 },
                     py: { xs: 2, md: 2, lg: 3 },
                     fontSize: { xs: "0.8rem", md: "0.8rem", lg: "1rem" },
-                    borderRadius: 12,
+                    // borderRadius: 12,
                   }}
                 >
                   Join us now
@@ -335,7 +335,7 @@ const Home_section = () => {
                         component={"img"}
                         src={item.imgSrc.src}
                         sx={{
-                          borderRadius: "40px",
+                          // borderRadius: "40px",
                           maxWidth: "100%",
                           width: "98%", 
                           height: {

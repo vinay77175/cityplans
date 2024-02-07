@@ -1,4 +1,11 @@
-import { Box, Button, Grid, TextField, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  TextField,
+  Typography,
+} from "@mui/material";
 import React from "react";
 import backImg1 from "../../public/Images/contact_back_img.png";
 import Card from "@mui/material/Card";
@@ -9,16 +16,16 @@ import clockIcon from "../../public/Images/Clock.svg";
 import letterIcon from "../../public/Images/Letter.svg";
 const Contact_section = () => {
   return (
-    <div>
-      <Box
-        sx={{
-          //   minHeight: "100vh",
-          backgroundImage: `url(${backImg1.src})`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          py: "9vh",
-        }}
-      >
+    <Box
+      sx={{
+        //   minHeight: "100vh",
+        backgroundImage: `url(${backImg1.src})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        py: "9vh",
+      }}
+    >
+      <Container maxWidth="xl">
         <Box>
           <Typography
             variant="h2"
@@ -27,7 +34,7 @@ const Contact_section = () => {
             <span style={{ color: "#B12930" }}>Contact</span> Us{" "}
           </Typography>
         </Box>
-        <Grid container sx={{ mt: 8 }} px={8}>
+        <Grid container sx={{ mt: 8 }} px={{ xs: 2, lg: 8 }}>
           <Grid item xs={12} lg={5}>
             <Grid container px={5} spacing={6}>
               <Grid
@@ -39,7 +46,6 @@ const Contact_section = () => {
                   sx={{
                     maxWidth: 300,
                     minHeight: 250,
-                    borderRadius: 12,
                     bgcolor: "#fff",
                     p: 3,
                   }}
@@ -76,7 +82,6 @@ const Contact_section = () => {
                   sx={{
                     maxWidth: 300,
                     minHeight: 250,
-                    borderRadius: 12,
                     bgcolor: "#fff",
                     p: 3,
                   }}
@@ -109,7 +114,6 @@ const Contact_section = () => {
                   sx={{
                     maxWidth: 300,
                     minHeight: 250,
-                    borderRadius: 12,
                     bgcolor: "#fff",
                     p: 3,
                   }}
@@ -142,7 +146,6 @@ const Contact_section = () => {
                   sx={{
                     maxWidth: 300,
                     minHeight: 250,
-                    borderRadius: 12,
                     bgcolor: "#fff",
                     p: 3,
                   }}
@@ -168,44 +171,53 @@ const Contact_section = () => {
               </Grid>
             </Grid>
           </Grid>
-          <Grid item xs={12} md={7} px={8}>
+          <Grid item xs={12} lg={7} px={{ xs: 0, lg: 8 }}>
             <Box
-              sx={{ bgcolor: "#fff", borderRadius: 12, height: "100%", p: 5 }}
+              sx={{
+                bgcolor: "#fff",
+                height: "100%",
+                p: 5,
+                mt: { xs: 5, lg: 0 },
+              }}
             >
-              <Box sx={{ width: "100%", display: "flex", mt: 3 }}>
+              <Box
+                sx={{
+                  width: "100%",
+                  display: "flex",
+                  mt: 3,
+                  flexDirection: { xs: "column", sm: "row" },
+                }}
+              >
                 <TextField
                   label="Your Name"
                   id="outlined-size-small"
                   size="medium"
                   fullWidth
-                  InputProps={{ sx: { borderRadius: 4 } }}
                   sx={{ mr: 5 }}
                 />
                 <TextField
                   label="Your Email"
-                  id="outlined-size-small"  
+                  id="outlined-size-small"
                   size="medium"
                   fullWidth
-                  InputProps={{ sx: { borderRadius: 4 } }}
+                  sx={{ mt: { xs: 2, sm: 0 } }}
                 />
               </Box>
               <TextField
-                label="Your Name"
+                label="Subject"
                 id="outlined-size-small"
                 size="medium"
                 fullWidth
-                InputProps={{ sx: { borderRadius: 4 } }}
-                sx={{ mt: 5 }}
+                sx={{ mt: { xs: 2, lg: 5 } }}
               />
               <TextField
-                label="Your Name"
+                label="Message"
                 id="outlined-size-small"
                 size="medium"
                 fullWidth
-                InputProps={{ sx: { borderRadius: 4 } }}
                 rows={6}
                 multiline
-                sx={{ mt: 5 }}
+                sx={{ mt: { xs: 2, lg: 5 } }}
               />
               <Box sx={{ display: "flex", justifyContent: "center", mt: 5 }}>
                 <Button
@@ -213,7 +225,6 @@ const Contact_section = () => {
                   sx={{
                     py: 1.5,
                     px: 3,
-                    borderRadius: 5,
                     bgcolor: "#B12930",
                     "&:hover": {
                       bgcolor: "hsl(357, 62%, 55%)",
@@ -226,8 +237,8 @@ const Contact_section = () => {
             </Box>
           </Grid>
         </Grid>
-      </Box>
-    </div>
+      </Container>
+    </Box>
   );
 };
 

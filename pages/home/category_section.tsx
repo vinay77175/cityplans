@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Container, Grid, Typography } from "@mui/material";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
@@ -34,7 +34,7 @@ const Category_section = () => {
     titleText2: String;
   }
   return (
-    <>
+    <Container maxWidth="xl">
       <Box>
         <Box>
           <Typography
@@ -63,6 +63,12 @@ const Category_section = () => {
                   display: "flex !important",
                   justifyContent: "space-between !important",
                 }}
+                TabIndicatorProps={{
+                  sx: {
+                    backgroundColor: "#B12930",
+                    color: "#B12930",
+                  },
+                }}
               >
                 <Tab
                   sx={{
@@ -72,6 +78,7 @@ const Category_section = () => {
                       md: "22px",
                       lg: "32px",
                     },
+                    
                   }}
                   label="Single Detached"
                   value="1"
@@ -241,7 +248,7 @@ const Category_section = () => {
           </TabContext>
         </Box>
       </Box>
-    </>
+    </Container>
   );
 };
 
