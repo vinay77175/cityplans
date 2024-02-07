@@ -172,6 +172,23 @@ a {
   justify-content: space-around !important;
 }
 
-.MuiTabs-indicator{
-  border: 2px solid red;
+
+.css-1aquho2-MuiTabs-indicator{
+height: 0px !important;
 }
+/* Four category tabs */
+.css-837qtk-MuiButtonBase-root-MuiTab-root.Mui-selected{
+  color:#B12930 !important;
+  border: 2px solid #B12930;
+}
+.css-837qtk-MuiButtonBase-root-MuiTab-root:hover{
+  border: 2px solid #B12930;
+  color:#B12930 !important;
+}
+.css-837qtk-MuiButtonBase-root-MuiTab-root{
+  border: 2px solid black;
+  color:black !important;
+}
+
+
+

@@ -38,7 +38,7 @@ const Category_section = () => {
       <Box>
         <Box>
           <Typography
-            variant="h1"
+            variant="h2"
             sx={{
               fontFamily: "Jacques Francois",
               textAlign: "center",
@@ -75,8 +75,8 @@ const Category_section = () => {
                     fontSize: {
                       xs: "10px",
                       sm: "18px",
-                      md: "22px",
-                      lg: "32px",
+                      md: "20px",
+                      lg: "24px",
                     },
                     
                   }}
@@ -88,8 +88,8 @@ const Category_section = () => {
                     fontSize: {
                       xs: "10px",
                       sm: "18px",
-                      md: "22px",
-                      lg: "32px",
+                      md: "20px",
+                      lg: "24px",
                     },
                   }}
                   label="Semi Detached"
@@ -100,10 +100,9 @@ const Category_section = () => {
                     fontSize: {
                       xs: "10px",
                       sm: "18px",
-                      md: "22px",
-                      lg: "32px",
+                      md: "20px",
+                      lg: "24px",
                     },
-                    marginRight: "10px",
                   }}
                   label="Acreage"
                   value="3"
@@ -113,8 +112,8 @@ const Category_section = () => {
                     fontSize: {
                       xs: "10px",
                       sm: "18px",
-                      md: "22px",
-                      lg: "32px",
+                      md: "20px",
+                      lg: "24px",
                     },
                   }}
                   label="Garage Suite"
