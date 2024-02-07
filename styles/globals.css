@@ -162,3 +162,12 @@ a {
 .logo {
   color: var(--accent-black);
 }
+
+.MuiTabs-root  {
+  width: 100% !important;
+}
+
+.MuiTabs-flexContainer {
+  display: flex !important;
+  justify-content: space-around !important;
+}
