@@ -42,7 +42,7 @@ const Category_section = () => {
             sx={{
               fontFamily: "Jacques Francois",
               textAlign: "center",
-              marginBottom: { xs: "2vh", sm: "3vh", md: "4vh", lg: "5vh" },
+              marginBottom: { xs: "4vh", sm: "5vh", md: "6vh", lg: "7vh" },
             }}
           >
             Our <span style={{ color: "#B12930" }}>Plans</span>
@@ -78,7 +78,6 @@ const Category_section = () => {
                       md: "20px",
                       lg: "24px",
                     },
-                    
                   }}
                   label="Single Detached"
                   value="1"
@@ -131,12 +130,13 @@ const Category_section = () => {
                           width: "100%",
                           border: "1px solid #C9C1BA",
                           borderRadius: "0px",
+                          padding: "0.5vw",
                         }}
                       >
                         <CardMedia
                           component="img"
                           alt="green iguana"
-                          height="200"
+                          height="240vh"
                           src={item.img.src}
                         />
                         <CardContent>
@@ -148,7 +148,7 @@ const Category_section = () => {
                               marginTop: { xs: "1vh", lg: "2vh" },
                             }}
                           >
-                            {item.heading.slice(0, 20)}...
+                            {item.heading.slice(0, 18)}...
                           </Typography>
                           <Typography
                             color="#B12930"
@@ -211,7 +211,7 @@ const Category_section = () => {
                           >
                             <Button
                               sx={{
-                                padding: "1.2vh 4vh",
+                                padding: "1vh 2vh",
                                 fontFamily: "Times New Roman ",
                                 color: "white",
                                 backgroundColor: "#B12930",

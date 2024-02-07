@@ -9,92 +9,104 @@ const Plan_section = () => {
   return (
     <>
       <Container maxWidth="xl">
-      <Grid container sx={{ marginBottom: "20vh" }} spacing={5}>
-        <Grid item xs={12} lg={5}>
-          <Box
-            position={"absolute"}
-            component={"img"}
+        <Grid container sx={{ marginBottom: "20vh" }}>
+          <Grid
+            item
+            xs={12}
+            lg={5}
             sx={{
-              width: { xs: "95%", sm: "90%", lg: "42%" },
-              height: {
-                xs: "70%",
-                sm: "60%",
-                md: "90%",
-                lg: "95%",
-                xl: "90%",
-              },
+              backgroundImage: `url(${planImage.src})`,
+              backgroundRepeat: "round",
+              backgroundSize: "cover",
+              minHeight: "100%",
+              width: "100%",
+              Top: "0vh",
             }}
-            src={planImage.src}
-          ></Box>
-          <Box>
-            <Typography
-              variant="h2"
-              sx={{
-                fontFamily: "Jacques Francois",
-                color: "black",
-                marginTop: { xs: "4vh", lg: "7vh", xl: "10vh" },
-                textAlign: { xs: "center", lg: "center " },
-              }}
-            >
-              Plans
-            </Typography>
-            <Typography
-              sx={{
-                fontFamily: "Times New Roman",
-                color: "black",
-                marginTop: { xs: "4vh", lg: "5vh", xl: "7vh" },
-                textAlign: { xs: "left", lg: "left " },
-                paddingX: { xs: "5vh", lg: "4vh", xl: "5vh" },
-                marginRight: { xs: "3vh", lg: "0vh" },
-                fontSize: { xs: "28px", sm: "40px", md: "32px", lg: "40px" },
-              }}
-            >
-              Cras at magna vitae erat posuere lacinia euid cursus mi
-              condimentum Sed hendrerit arcu vehicula dolor sit amet.
-            </Typography>
-            <Typography
-              sx={{
-                marginTop: { xs: "5vh", md: "6vh", lg: "5vh ", xl: "7vh" },
-                fontFamily: "Times New Roman",
-                color: "black",
-                paddingX: { xs: "5vh", lg: "5vh" },
-                marginRight: { xs: "2vh", lg: "1vh", xl: "5vh" },
-                textAlign: { xs: "left", lg: "left" },
-                fontSize: { sm: "1.4rem", lg: "1.7rem", xl: "2rem" },
-                letterSpacing: { xl: "1px" },
-              }}
-            >
-              Integer pellentesque erat faucibus mollis eleifend.Donec tempor ex
-              ut magna convallis, id cursus mi condimentum.Sed hendrerit arcu
-              vehicula Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Repellendus, doloremque!
-            </Typography>
-          </Box>
-        </Grid>
-        <Grid
-          item
-          xs={12}
-          lg={7}
-          sx={{ marginTop: { xs: "10vh", sm: "20vh", lg: "5vh" } }}
-        >
-          <Box
-            sx={{ display: "flex" }}
-            alignItems={"baseline"}
-            justifyContent={"center"}
           >
-            <Box sx={{ width: "40%" }} component={"img"} src={plan1.src}></Box>
-            <Box sx={{ width: "40%" }} component={"img"} src={plan3.src}></Box>
-          </Box>
-          <Box
-            sx={{ display: "flex" }}
-            alignItems={"start"}
-            justifyContent={"center"}
+            <Box>
+              <Typography
+                variant="h2"
+                sx={{
+                  fontFamily: "Jacques Francois",
+                  color: "black",
+                  marginTop: { xs: "4vh", lg: "7vh", xl: "10vh" },
+                  textAlign: { xs: "center", lg: "center " },
+                }}
+              >
+                Plans
+              </Typography>
+              <Typography
+                sx={{
+                  fontFamily: "Times New Roman",
+                  color: "black",
+                  marginTop: { xs: "4vh", lg: "5vh", xl: "7vh" },
+                  textAlign: { xs: "left", lg: "left " },
+                  paddingX: { xs: "5vh", lg: "4vh", xl: "5vh" },
+                  marginRight: { xs: "3vh", lg: "0vh" },
+                  fontSize: { xs: "28px", sm: "40px", md: "32px", lg: "40px" },
+                }}
+              >
+                Cras at magna vitae erat posuere lacinia euid cursus mi
+                condimentum Sed hendrerit arcu vehicula dolor sit amet.
+              </Typography>
+              <Typography
+                sx={{
+                  marginTop: { xs: "5vh", md: "6vh", lg: "5vh ", xl: "7vh" },
+                  fontFamily: "Times New Roman",
+                  color: "black",
+                  paddingX: { xs: "5vh", lg: "5vh" },
+                  marginRight: { xs: "2vh", lg: "1vh", xl: "5vh" },
+                  textAlign: { xs: "left", lg: "left" },
+                  fontSize: { sm: "1.4rem", lg: "1.7rem", xl: "2rem" },
+                  letterSpacing: { xl: "1px" },
+                }}
+              >
+                Integer pellentesque erat faucibus mollis eleifend.Donec tempor
+                ex ut magna convallis, id cursus mi condimentum.Sed hendrerit
+                arcu vehicula Lorem ipsum dolor sit amet consectetur,
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            lg={7}
+            sx={{ marginTop: { xs: "10vh", sm: "20vh", lg: "5vh" } }}
           >
-            <Box sx={{ width: "40%" }} component={"img"} src={plan4.src}></Box>
-            <Box sx={{ width: "40%" }} component={"img"} src={plan2.src}></Box>
-          </Box>
+            <Box
+              sx={{ display: "flex" }}
+              alignItems={"baseline"}
+              justifyContent={"center"}
+            >
+              <Box
+                sx={{ width: "40%" }}
+                component={"img"}
+                src={plan1.src}
+              ></Box>
+              <Box
+                sx={{ width: "40%" }}
+                component={"img"}
+                src={plan3.src}
+              ></Box>
+            </Box>
+            <Box
+              sx={{ display: "flex" }}
+              alignItems={"start"}
+              justifyContent={"center"}
+            >
+              <Box
+                sx={{ width: "40%" }}
+                component={"img"}
+                src={plan4.src}
+              ></Box>
+              <Box
+                sx={{ width: "40%" }}
+                component={"img"}
+                src={plan2.src}
+              ></Box>
+            </Box>
+          </Grid>
         </Grid>
-      </Grid>
       </Container>
     </>
   );
