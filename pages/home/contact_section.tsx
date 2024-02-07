@@ -1,4 +1,4 @@
-import { Box, Grid, TextField, Typography } from "@mui/material";
+import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 import React from "react";
 import backImg1 from "../../public/Images/contact_back_img.png";
 import Card from "@mui/material/Card";
@@ -172,21 +172,56 @@ const Contact_section = () => {
             <Box
               sx={{ bgcolor: "#fff", borderRadius: 12, height: "100%", p: 5 }}
             >
-              <Box sx={{width:"100%",display:"flex"}}>
+              <Box sx={{ width: "100%", display: "flex", mt: 3 }}>
                 <TextField
                   label="Your Name"
                   id="outlined-size-small"
                   size="medium"
-                  fullWidth 
+                  fullWidth
                   InputProps={{ sx: { borderRadius: 4 } }}
-                  
+                  sx={{ mr: 5 }}
                 />
                 <TextField
                   label="Your Email"
-                  id="outlined-size-small"
+                  id="outlined-size-small"  
                   size="medium"
                   fullWidth
+                  InputProps={{ sx: { borderRadius: 4 } }}
                 />
+              </Box>
+              <TextField
+                label="Your Name"
+                id="outlined-size-small"
+                size="medium"
+                fullWidth
+                InputProps={{ sx: { borderRadius: 4 } }}
+                sx={{ mt: 5 }}
+              />
+              <TextField
+                label="Your Name"
+                id="outlined-size-small"
+                size="medium"
+                fullWidth
+                InputProps={{ sx: { borderRadius: 4 } }}
+                rows={6}
+                multiline
+                sx={{ mt: 5 }}
+              />
+              <Box sx={{ display: "flex", justifyContent: "center", mt: 5 }}>
+                <Button
+                  variant="contained"
+                  sx={{
+                    py: 1.5,
+                    px: 3,
+                    borderRadius: 5,
+                    bgcolor: "#B12930",
+                    "&:hover": {
+                      bgcolor: "hsl(357, 62%, 55%)",
+                    },
+                  }}
+                >
+                  Send Message
+                </Button>
               </Box>
             </Box>
           </Grid>

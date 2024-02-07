@@ -21,6 +21,7 @@ import React from "react";
 import profileIcon from "../../public/Images/Male User.svg";
 import { SlideData } from "./slide_data";
 import {
+  Container,
   Divider,
   Grid,
   List,
@@ -91,7 +92,6 @@ const Home_section = () => {
     </Box>
   );
   return (
-    <div>
       <Box
         sx={{
           minHeight: "100vh",
@@ -354,7 +354,6 @@ const Home_section = () => {
           </Grid>
         </Grid>
       </Box>
-    </div>
   );
 };
 

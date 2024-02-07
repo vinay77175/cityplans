@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import React from "react";
@@ -20,6 +20,8 @@ const About_section = () => {
         display: "flex",
       }}
     >
+      {/* <Container maxWidth="lg"> */}
+
       <Grid container sx={{ display: "flex" }}>
         <Box width="100%" display="flex" justifyContent="center">
           <Typography
@@ -239,6 +241,8 @@ const About_section = () => {
           </Box>
         </Grid>
       </Grid>
+      {/* </Container> */}
+
     </Box>
   );
 };

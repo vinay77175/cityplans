@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Container, Grid, Typography } from "@mui/material";
 import React from "react";
 import planImage from "../../public/Images/plan_image_1.png";
 import plan1 from "../../public/Images/Plan_1.png";
@@ -8,6 +8,7 @@ import plan4 from "../../public/Images/Plan_4.png";
 const Plan_section = () => {
   return (
     <>
+      {/* <Container maxWidth="lg"> */}
       <Grid container sx={{ marginBottom: "20vh" }} spacing={5}>
         <Grid item xs={12} lg={5}>
           <Box
@@ -94,6 +95,7 @@ const Plan_section = () => {
           </Box>
         </Grid>
       </Grid>
+      {/* </Container> */}
     </>
   );
 };

@@ -156,7 +156,11 @@ const Category_section = () => {
                         >
                           <Box
                             sx={{
-                              marginRight: { xs: "4vh", md: "3vh", lg: "4vh" },
+                              marginRight: {
+                                xs: "4vh",
+                                md: "3vh",
+                                lg: "4vh",
+                              },
                             }}
                           >
                             <Typography variant="body1">
