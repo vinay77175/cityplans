@@ -29,17 +29,22 @@ const Contact_section = () => {
         <Box>
           <Typography
             variant="h2"
-            sx={{ fontFamily: "Jacques Francois", textAlign: "center" }}
+            sx={{
+              fontFamily: "Jacques Francois",
+              textAlign: "center",
+              fontSize: { xs: "3.1rem" },
+            }}
           >
             <span style={{ color: "#B12930" }}>Contact</span> Us{" "}
           </Typography>
         </Box>
         <Grid container sx={{ mt: 8 }} px={{ xs: 2, lg: 8 }}>
           <Grid item xs={12} lg={5}>
-            <Grid container px={5} spacing={6}>
+            <Grid container spacing={{ xs: 3, sm: 6 }}>
               <Grid
                 item
-                xs={6}
+                xs={12}
+                sm={6}
                 sx={{ display: "flex", justifyContent: "center" }}
               >
                 <Card
@@ -75,7 +80,8 @@ const Contact_section = () => {
               </Grid>
               <Grid
                 item
-                xs={6}
+                xs={12}
+                sm={6}
                 sx={{ display: "flex", justifyContent: "center" }}
               >
                 <Card
@@ -107,7 +113,8 @@ const Contact_section = () => {
               </Grid>
               <Grid
                 item
-                xs={6}
+                xs={12}
+                sm={6}
                 sx={{ display: "flex", justifyContent: "center" }}
               >
                 <Card
@@ -139,7 +146,8 @@ const Contact_section = () => {
               </Grid>
               <Grid
                 item
-                xs={6}
+                xs={12}
+                sm={6}
                 sx={{ display: "flex", justifyContent: "center" }}
               >
                 <Card
@@ -171,12 +179,12 @@ const Contact_section = () => {
               </Grid>
             </Grid>
           </Grid>
-          <Grid item xs={12} lg={7} px={{ xs: 0, lg: 8 }}>
+          <Grid item xs={12} lg={7} px={{ xs: 0, md: 6, lg: 8 }}>
             <Box
               sx={{
                 bgcolor: "#fff",
                 height: "100%",
-                p: 5,
+                p: { xs: 2, lg: 5 },
                 mt: { xs: 5, lg: 0 },
               }}
             >
