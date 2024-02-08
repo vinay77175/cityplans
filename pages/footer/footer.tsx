@@ -163,6 +163,7 @@ const Footer = () => {
               justifyContent: "space-between",
               alignItems: "center",
               flexDirection: { xs: "column", sm: "row" },
+              color:"#ddd"
             }}
           >
             <Typography>
@@ -170,7 +171,7 @@ const Footer = () => {
               <span style={{ fontWeight: 700 }}>CityPlans</span>. All Rights
               Reserved
             </Typography>
-            <Typography>Designed by RMT</Typography>
+            <Typography>Designed by <span style={{ fontWeight: 700 }}>RMT</span></Typography>
           </Box>
         </Container>
       </Box>
