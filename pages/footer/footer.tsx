@@ -24,7 +24,7 @@ const Footer = () => {
         bgcolor: "#010101",
         color: "#fff",
         // minHeight: "50vh",
-        backgroundImage: `url(${backImg1.src}),url(${backImg2.src})`,
+        backgroundImage: `url(${backImg1?.src}),url(${backImg2?.src})`,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "bottom -30px left,top -30px right",
         backgroundSize: "contain",
@@ -49,22 +49,20 @@ const Footer = () => {
       <Container maxWidth="xl">
         <Grid container py={5} spacing={8}>
           <Grid item xs={12} sm={6} md={3}>
-            <Typography>
-              <Box component={"img"} src={logo.src} />
-              <Typography
-                sx={{ fontFamily: "Jacques Francois", fontSize: "1rem" }}
-                gutterBottom
-              >
-                Shop our entire lineup of fine faves in store, get styled and
-                join the Fine Crew.
-              </Typography>
-              <Typography sx={{ display: "flex", gap: 2, mt: 5 }}>
-                <TwitterLogo SvgClass="SvgClass" IconClass="IconClass" />
-                <FacebookLogo SvgClass="SvgClass" IconClass="IconClass" />
-                <InstaLogo SvgClass="SvgClass" IconClass="IconClass" />
-                <GitLogo SvgClass="SvgClass" IconClass="IconClass" />
-              </Typography>
+            <Box component={"img"} src={logo.src}></Box>
+            <Typography
+              sx={{ fontFamily: "Jacques Francois", fontSize: "1rem" }}
+              gutterBottom
+            >
+              Shop our entire lineup of fine faves in store, get styled and join
+              the Fine Crew.
             </Typography>
+            <Box sx={{ display: "flex", gap: 2, mt: 5 }}>
+              <TwitterLogo SvgClass="SvgClass" IconClass="IconClass" />
+              <FacebookLogo SvgClass="SvgClass" IconClass="IconClass" />
+              <InstaLogo SvgClass="SvgClass" IconClass="IconClass" />
+              <GitLogo SvgClass="SvgClass" IconClass="IconClass" />
+            </Box>
           </Grid>
           <Grid item xs={6} sm={3} md={2}>
             <Typography
@@ -163,7 +161,7 @@ const Footer = () => {
               justifyContent: "space-between",
               alignItems: "center",
               flexDirection: { xs: "column", sm: "row" },
-              color:"#ddd"
+              color: "#ddd",
             }}
           >
             <Typography>
@@ -171,7 +169,9 @@ const Footer = () => {
               <span style={{ fontWeight: 700 }}>CityPlans</span>. All Rights
               Reserved
             </Typography>
-            <Typography>Designed by <span style={{ fontWeight: 700 }}>RMT</span></Typography>
+            <Typography>
+              Designed by <span style={{ fontWeight: 700 }}>RMT</span>
+            </Typography>
           </Box>
         </Container>
       </Box>
