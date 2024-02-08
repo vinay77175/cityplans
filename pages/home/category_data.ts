@@ -110,6 +110,30 @@ export const categoryList:Array<Record<string,any>>=[
                 "titleText1": "eiusmod",
                 "titleText2": "eiusmod",
             },
+            
+            {
+                "id":"product 5",
+                "name":"name",
+                "img": category1,
+                "heading": "In laoreet magna sit",
+                "price": `$69.00`,
+                "title1": "eiusmod tempo",
+                "title2": "eiusmod tempo",
+                "titleText1": "eiusmod",
+                "titleText2": "eiusmod",
+            },
+            
+            {
+                "id":"product 6",
+                "name":"name",
+                "img": category1,
+                "heading": "In laoreet magna sit",
+                "price": `$69.00`,
+                "title1": "eiusmod tempo",
+                "title2": "eiusmod tempo",
+                "titleText1": "eiusmod",
+                "titleText2": "eiusmod",
+            },
           
         
         ],

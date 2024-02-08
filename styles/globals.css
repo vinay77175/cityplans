@@ -163,7 +163,7 @@ a {
   color: var(--accent-black);
 }
 
-.MuiTabs-root  {
+.MuiTabs-root {
   width: 100% !important;
 }
 
@@ -172,31 +172,36 @@ a {
   justify-content: space-around !important;
 }
 
-
-.css-1aquho2-MuiTabs-indicator{
-height: 0px !important;
+.css-1aquho2-MuiTabs-indicator {
+  height: 0px !important;
 }
 /* Four category tabs */
-.css-837qtk-MuiButtonBase-root-MuiTab-root.Mui-selected{
-  color:#B12930 !important;
-  border: 2px solid #B12930;
-  font-family: "Jacques Francois";
-  font-size: 20px;
-  
-}
-.css-837qtk-MuiButtonBase-root-MuiTab-root:hover{
-  border-bottom: 2px solid #B12930;
-  color:#B12930 !important;
+.css-837qtk-MuiButtonBase-root-MuiTab-root.Mui-selected {
+  color: #b12930 !important;
+  border: 2px solid #b12930;
   font-family: "Jacques Francois";
   font-size: 20px;
 }
-.css-837qtk-MuiButtonBase-root-MuiTab-root{
- 
-  color:black !important;
+.css-837qtk-MuiButtonBase-root-MuiTab-root:hover {
+  border-bottom: 2px solid #b12930;
+  color: #b12930 !important;
+  font-family: "Jacques Francois";
+  font-size: 20px;
+}
+.css-837qtk-MuiButtonBase-root-MuiTab-root {
+  color: black !important;
   font-family: "Jacques Francois";
   font-size: 20px;
 }
 
+/* social Media Link Classess */
+.SvgClass:hover {
+  fill: white;
+  cursor: pointer;
+}
+.SvgClass:hover .IconClass {
+  fill: red;
+}
 
 .homeImage_1{
   /* width: 80%; */

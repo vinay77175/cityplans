@@ -325,12 +325,12 @@ const Home_section = () => {
           </Grid>
 
           {/* Carousel Slider */}
-          <Grid item xs={12} md={6} sx={{ px: 3.1, mt: { xs: 10, md: 0 } }}>
+          <Grid item xs={12} md={6} sx={{ px: 3.1, mt: { xs: 10,sm:30, md: 0 } }}>
             <Box sx={{ width: "100%", height: { xs: "50%", lg: "100%" } }}>
               <Slider {...slideSettings}>
                 {SlideData.map((item) => {
                   return (
-                    <Box sx={{ objectFit: "cover" }}>
+                    <Box sx={{ objectFit: "cover" }} key={item.id}>
                       <Box
                         component={"img"}
                         src={item.imgSrc.src}
