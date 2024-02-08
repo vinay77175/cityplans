@@ -185,13 +185,13 @@ height: 0px !important;
   
 }
 .css-837qtk-MuiButtonBase-root-MuiTab-root:hover{
-  border: 2px solid #B12930;
+  border-bottom: 2px solid #B12930;
   color:#B12930 !important;
   font-family: "Jacques Francois";
   font-size: 20px;
 }
 .css-837qtk-MuiButtonBase-root-MuiTab-root{
-  border: 2px solid black;
+ 
   color:black !important;
   font-family: "Jacques Francois";
   font-size: 20px;

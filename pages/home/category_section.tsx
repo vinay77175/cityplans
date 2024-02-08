@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -14,25 +14,39 @@ import category1 from "../../public/Images/category_1.png";
 import category2 from "../../public/Images/category_2.png";
 import category3 from "../../public/Images/category_3.png";
 import category4 from "../../public/Images/category_4.png";
-import { CardData } from "./category_data";
+import { categoryList } from "./category_data";
 import { StaticImageData } from "next/image";
 const Category_section = () => {
+  const [selectedCategory, setSelectedCategory] = useState<string | null>("");
+
   const [value, setValue] = React.useState("1");
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
+    setSelectedCategory(newValue);
   };
-  interface Data {
-    id: String;
-    value: String;
-    img: StaticImageData;
-    heading: String;
-    price: String;
-    title1: String;
-    title2: String;
-    titleText1: String;
-    titleText2: String;
+  useEffect(() => {
+    if (categoryList.length > 0) {
+      setSelectedCategory(categoryList[0].id);
+    }
+  }, [categoryList]);
+  interface Category {
+    id: string;
+    name: string;
+    products: Product[];
   }
+  interface Product {
+    id: string;
+    name: string;
+    img: StaticImageData;
+    heading: string;
+    price: string;
+    title1: string;
+    title2: string;
+    titleText1: string;
+    titleText2: string;
+  }
+
   return (
     <Container maxWidth="xl">
       <Box>
@@ -49,26 +63,11 @@ const Category_section = () => {
           </Typography>
         </Box>
         <Box sx={{ width: "100%", typography: "body1" }}>
-          <TabContext value={value}>
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "space-around !important",
-              }}
-            >
+          <TabContext value={selectedCategory || ""}>
+            <Box>
               <TabList
                 onChange={handleChange}
                 aria-label="lab API tabs example"
-                sx={{
-                  display: "flex !important",
-                  justifyContent: "space-between !important",
-                }}
-                TabIndicatorProps={{
-                  sx: {
-                    backgroundColor: "#B12930",
-                    color: "#B12930",
-                  },
-                }}
               >
                 <Tab
                   sx={{
@@ -120,129 +119,128 @@ const Category_section = () => {
                 />
               </TabList>
             </Box>
+
             <Grid container>
-              {CardData.filter((item) => item.value === "1").map(
-                (item: Data) => (
-                  <Grid item xs={12} sm={6} lg={3} key={String(item.id)}>
-                    <TabPanel value={String(item.value)}>
-                      <Card
-                        sx={{
-                          width: "100%",
-                          border: "1px solid #C9C1BA",
-                          borderRadius: "0px",
-                          padding: "0.5vw",
-                        }}
-                      >
-                        <CardMedia
-                          component="img"
-                          alt="green iguana"
-                          height="240vh"
-                          src={item.img.src}
-                        />
-                        <CardContent>
-                          <Typography
-                            gutterBottom
-                            variant="h5"
-                            component="div"
+              {selectedCategory &&
+                categoryList.map((category) => {
+                  if (category.id === selectedCategory) {
+                    return category.products.map((product: Product) => (
+                      <Grid item xs={12} sm={6} lg={3} key={product.id}>
+                        <TabPanel value={selectedCategory}>
+                          <Card
                             sx={{
-                              marginTop: { xs: "1vh", lg: "2vh" },
+                              maxWidth: 345,
+                              border: "1px solid #C9C1BA",
+                              borderRadius: "20px",
                             }}
                           >
-                            {item.heading.slice(0, 18)}...
-                          </Typography>
-                          <Typography
-                            color="#B12930"
-                            sx={{
-                              marginTop: { xs: "1vh", lg: "2vh" },
-                              fontSize: { xs: "18px", md: "22px" },
-                            }}
-                          >
-                            {item.price}
-                          </Typography>
-                          <Box
-                            display={"flex"}
-                            sx={{
-                              marginRight: {
-                                xs: "4vh",
-                                md: "3vh",
-                                lg: "4vh",
-                              },
-                              marginTop: "2vh",
-                            }}
-                          >
-                            <Box
-                              sx={{
-                                marginRight: {
-                                  xs: "4vh",
-                                  md: "3vh",
-                                  lg: "4vh",
-                                },
-                              }}
-                            >
-                              <Typography variant="body1">
-                                {item.title1}
+                            <CardMedia
+                              component="img"
+                              alt="green iguana"
+                              height="200"
+                              src={product.img.src}
+                            />
+                            <CardContent>
+                              <Typography
+                                gutterBottom
+                                variant="h5"
+                                component="div"
+                                sx={{
+                                  marginTop: { xs: "1vh", lg: "2vh" },
+                                }}
+                              >
+                                {product.heading.slice(0, 20)}...
                               </Typography>
                               <Typography
-                                variant="body2"
-                                color="text.secondary"
+                                color="#B12930"
+                                sx={{
+                                  marginTop: { xs: "1vh", lg: "2vh" },
+                                  fontSize: { xs: "18px", md: "22px" },
+                                }}
                               >
-                                {item.titleText1}
+                                {product.price}
                               </Typography>
-                            </Box>
-                            <Box>
-                              <Typography variant="body1">
-                                {item.title2}
-                              </Typography>
-                              <Typography
-                                variant="body2"
-                                color="text.secondary"
+                              <Box
+                                display={"flex"}
+                                sx={{
+                                  marginTop: "2vh",
+                                }}
                               >
-                                {item.titleText2}
-                              </Typography>
-                            </Box>
-                          </Box>
-                        </CardContent>
-                        <CardActions>
-                          <Box
-                            width={"100%"}
-                            display={"flex"}
-                            justifyContent={"space-around"}
-                            py="1vh"
-                          >
-                            <Button
-                              sx={{
-                                padding: "1vh 2vh",
-                                fontFamily: "Times New Roman ",
-                                color: "white",
-                                backgroundColor: "#B12930",
-                                "&:hover": {
-                                  backgroundColor: "hsl(357,62%,55%)",
-                                },
-                              }}
-                            >
-                              Buy Now
-                            </Button>
-                            <Button
-                              sx={{
-                                padding: "1.2vh 4vh",
-                                fontFamily: "Times New Roman ",
-                                color: "black",
-                                border: "2px solid black",
-                                "&:hover": {
-                                  backgroundColor: "black",
-                                  color: "white",
-                                },
-                              }}
-                            >
-                              View More
-                            </Button>
-                          </Box>
-                        </CardActions>
-                      </Card>
-                    </TabPanel>
-                  </Grid>
-                )
-              )}
+                                <Box
+                                  sx={{
+                                    marginRight: {
+                                      xs: "4vh",
+                                      md: "3vh",
+                                      lg: "4vh",
+                                    },
+                                  }}
+                                >
+                                  <Typography variant="body1">
+                                    {product.title1}
+                                  </Typography>
+                                  <Typography
+                                    variant="body2"
+                                    color="text.secondary"
+                                  >
+                                    {product.titleText1}
+                                  </Typography>
+                                </Box>
+                                <Box>
+                                  <Typography variant="body1">
+                                    {product.title2}
+                                  </Typography>
+                                  <Typography
+                                    variant="body2"
+                                    color="text.secondary"
+                                  >
+                                    {product.titleText2}
+                                  </Typography>
+                                </Box>
+                              </Box>
+                            </CardContent>
+                            <CardActions>
+                              <Box
+                                width={"100%"}
+                                display={"flex"}
+                                justifyContent={"space-around"}
+                                py="1vh"
+                              >
+                                <Button
+                                  sx={{
+                                    padding: "1.2vh 4vh",
+                                    fontFamily: "Times New Roman ",
+                                    color: "white",
+                                    backgroundColor: "#B12930",
+                                    "&:hover": {
+                                      backgroundColor: "hsl(357,62%,55%)",
+                                    },
+                                  }}
+                                >
+                                  Buy Now
+                                </Button>
+                                <Button
+                                  sx={{
+                                    padding: "1.2vh 4vh",
+                                    fontFamily: "Times New Roman ",
+                                    color: "black",
+                                    border: "2px solid black",
+                                    "&:hover": {
+                                      backgroundColor: "black",
+                                      color: "white",
+                                    },
+                                  }}
+                                >
+                                  View More
+                                </Button>
+                              </Box>
+                            </CardActions>
+                          </Card>
+                        </TabPanel>
+                      </Grid>
+                    ));
+                  }
+                  return null;
+                })}
             </Grid>
           </TabContext>
         </Box>
