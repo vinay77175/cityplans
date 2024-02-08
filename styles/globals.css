@@ -198,4 +198,123 @@ height: 0px !important;
 }
 
 
+.homeImage_1{
+  /* width: 80%; */
+  z-index: 3;
+ 
+}
+.homeImage_2{
+  /* width: 40%; */
+  margin-left: -7vw;
+  z-index: 5;
+
+}
+/* .dotImage_1{
+  width: 20%;
+  position: absolute;
+  top: 0vw;
+  right: 12vw,
+} */
+/* .dotImage_2{
+  width: 20%;
+  position: absolute;
+  bottom: 4vw;
+  right: 12vw;
+  transform: scaleY(-1);
+} */
+
+.homeImage_1 {
+  --s: 15px;  /* size of the frame */
+  --b: 2px;   /* border thickness */
+  --w: 35vw; /* width of the image */
+  --c: #ffffff;
+  
+  width: var(--w);
+  aspect-ratio: 1;
+  object-fit: cover;
+  padding: calc(2*var(--s));
+  --_g: var(--c) var(--b),#81818100 0 calc(100% - var(--b)),var(--c) 0;
+  background:
+    linear-gradient(      var(--_g)) 50%/100% var(--_i,100%) no-repeat,
+    linear-gradient(90deg,var(--_g)) 50%/var(--_i,100%) 100% no-repeat;
+    outline: calc(var(--w)/2) solid rgba(134, 134, 134, 0.165);
+  outline-offset: calc(var(--w)/-2 - 2*var(--s));
+  transition: .4s;
+  cursor: pointer;
+}
+
+.homeImage_2 {
+  --s: 1vw;  /* size of the frame */
+  --b: .15vw;   /* border thickness */
+  --w: 20vw; /* width of the image */
+  --c: #ffffff;
+  
+  width: var(--w);
+  aspect-ratio: 1;
+  object-fit: cover;
+  padding: calc(2*var(--s));
+  --_g: var(--c) var(--b),#81818100 0 calc(100% - var(--b)),var(--c) 0;
+  background:
+    linear-gradient(      var(--_g)) 50%/100% var(--_i,100%) no-repeat,
+    linear-gradient(90deg,var(--_g)) 50%/var(--_i,100%) 100% no-repeat;
+  outline: calc(var(--w)/2) solid rgba(134, 134, 134, 0.165);
+  outline-offset: calc(var(--w)/-2 - 2*var(--s));
+  transition: .4s;
+  cursor: pointer;
+}
+.homeImage_2:hover {
+  outline: var(--b) solid var(--c);
+  outline-offset: calc(var(--s)/-2);
+  --_i: calc(100% - 2*var(--s));
+}
+.homeImage_1:hover {
+  outline: var(--b) solid var(--c);
+  outline-offset: calc(var(--s)/-2);
+  --_i: calc(100% - 2*var(--s));
+}
+@media (max-width:1370px) {
+
+
+}
+
+
+@media (max-width:1240px) {
+
+  
+  .homeImage_2{
+   
+    margin-left: -14vw;
+  }
+}
+
+
+
+
+/* @media (max-width:1160px) {
+
+} */
+
+@media (max-width:991px) {
+
+ 
+  .homeImage_2{
+   
+    margin-left: -13vw;
+  }
+}
+
+
+@media (max-width:1020px) {
+
+}
+
+@media (max-width:767px) {
+
+  .homeImage_2{
+   
+    margin-left: -12vw;
+   }
+  
+}
+
 

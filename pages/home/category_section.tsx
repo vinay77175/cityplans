@@ -131,7 +131,6 @@ const Category_section = () => {
                             sx={{
                               maxWidth: 345,
                               border: "1px solid #C9C1BA",
-                              borderRadius: "20px",
                             }}
                           >
                             <CardMedia

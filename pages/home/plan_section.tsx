@@ -9,7 +9,18 @@ const Plan_section = () => {
   return (
     <>
       <Container maxWidth="xl">
-        <Grid container sx={{ marginBottom: "20vh" }}>
+        <Grid
+          container
+          sx={{
+            marginBottom: {
+              xs: "13vh",
+              sm: "8vh",
+              md: "10vh",
+              lg: "15vh",
+              xl: "",
+            },
+          }}
+        >
           <Grid
             item
             xs={12}
@@ -39,11 +50,12 @@ const Plan_section = () => {
                 sx={{
                   fontFamily: "Times New Roman",
                   color: "black",
-                  marginTop: { xs: "4vh", lg: "5vh", xl: "7vh" },
+                  marginTop: { xs: "4vh", lg: "5vh", xl: "5vh" },
                   textAlign: { xs: "left", lg: "left " },
                   paddingX: { xs: "5vh", lg: "4vh", xl: "5vh" },
                   marginRight: { xs: "3vh", lg: "0vh" },
-                  fontSize: { xs: "28px", sm: "40px", md: "32px", lg: "40px" },
+                  fontSize: { xs: "28px", sm: "34px", lg: "40px" },
+                  fontWeight: 550,
                 }}
               >
                 Cras at magna vitae erat posuere lacinia euid cursus mi
@@ -51,13 +63,18 @@ const Plan_section = () => {
               </Typography>
               <Typography
                 sx={{
-                  marginTop: { xs: "5vh", md: "6vh", lg: "5vh ", xl: "7vh" },
+                  marginTop: { xs: "5vh", md: "6vh", lg: "5vh" },
                   fontFamily: "Times New Roman",
                   color: "black",
-                  paddingX: { xs: "5vh", lg: "5vh" },
-                  marginRight: { xs: "2vh", lg: "1vh", xl: "5vh" },
+                  paddingRight: { xs: "14vw", md: "7vw", lg: "5vw" },
+                  paddingLeft: { xs: "5vh", lg: "5.2vh" },
+                  paddingBottom: { xs: "5vh", xl: "5vh" },
                   textAlign: { xs: "left", lg: "left" },
-                  fontSize: { sm: "1.4rem", lg: "1.7rem", xl: "2rem" },
+                  fontSize: {
+                    xs: "1.6rem",
+                    lg: "1.7rem",
+                    xl: "2rem",
+                  },
                   letterSpacing: { xl: "1px" },
                 }}
               >
@@ -71,7 +88,7 @@ const Plan_section = () => {
             item
             xs={12}
             lg={7}
-            sx={{ marginTop: { xs: "10vh", sm: "20vh", lg: "5vh" } }}
+            sx={{ marginTop: { xs: "7vh", lg: "5vh" } }}
           >
             <Box
               sx={{ display: "flex" }}
