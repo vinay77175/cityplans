@@ -301,6 +301,17 @@ height: 0px !important;
    
     margin-left: -13vw;
   }
+  .MuiTabs-root  {
+    max-width: 100% !important;
+  }
+  .MuiTabs-flexContainer {
+    display: flex !important;
+    justify-content: space-around !important;
+  }
+  .css-34381o-MuiButtonBase-root-MuiTab-root{
+    padding: 10px 16px;
+  }
+
 }
 
 
@@ -314,7 +325,17 @@ height: 0px !important;
    
     margin-left: -12vw;
    }
-  
+   .css-34381o-MuiButtonBase-root-MuiTab-root{
+    padding: 10px 1px;
+    font-size: 1px;
+  }
+  .plans_tabs button{
+     font-size: 13px !important;
+     min-height: 35px;
+     padding: 6px;
+  }
+
 }
+
 
 

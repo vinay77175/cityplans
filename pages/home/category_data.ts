@@ -12,8 +12,9 @@ export const categoryList:Array<Record<string,any>>=[
         "id":"1",
         "name":"Single Detached",
         "products":[
+         
             {
-                "id":"1",
+                "id":"product 1",
                 "name":"name",
                 "img": category1,
                 "heading": "In laoreet magna sit",
@@ -26,7 +27,7 @@ export const categoryList:Array<Record<string,any>>=[
             {
                 "id":"product 2",
                 "name":"name",
-                "img": category1,
+                "img": category2,
                 "heading": "In laoreet magna sit",
                 "price": `$69.00`,
                 "title1": "eiusmod tempo",
@@ -37,7 +38,7 @@ export const categoryList:Array<Record<string,any>>=[
             {
                 "id":"product 3",
                 "name":"name",
-                "img": category1,
+                "img": category3,
                 "heading": "In laoreet magna sit",
                 "price": `$69.00`,
                 "title1": "eiusmod tempo",
@@ -48,7 +49,7 @@ export const categoryList:Array<Record<string,any>>=[
             {
                 "id":"product 4",
                 "name":"name",
-                "img": category1,
+                "img": category4,
                 "heading": "In laoreet magna sit",
                 "price": `$69.00`,
                 "title1": "eiusmod tempo",
@@ -66,7 +67,7 @@ export const categoryList:Array<Record<string,any>>=[
             {
                 "id":"product 1",
                 "name":"name",
-                "img": category1,
+                "img": category4,
                 "heading": "In laoreet magna sit",
                 "price": `$69.00`,
                 "title1": "eiusmod tempo",
@@ -77,7 +78,7 @@ export const categoryList:Array<Record<string,any>>=[
             {
                 "id":"product 2",
                 "name":"name",
-                "img": category1,
+                "img": category3,
                 "heading": "In laoreet magna sit",
                 "price": `$69.00`,
                 "title1": "eiusmod tempo",
@@ -88,7 +89,7 @@ export const categoryList:Array<Record<string,any>>=[
             {
                 "id":"product 3",
                 "name":"name",
-                "img": category1,
+                "img": category2,
                 "heading": "In laoreet magna sit",
                 "price": `$69.00`,
                 "title1": "eiusmod tempo",
@@ -96,6 +97,8 @@ export const categoryList:Array<Record<string,any>>=[
                 "titleText1": "eiusmod",
                 "titleText2": "eiusmod",
             },
+        
+       
             {
                 "id":"product 4",
                 "name":"name",
@@ -198,17 +201,7 @@ export const categoryList:Array<Record<string,any>>=[
                 "titleText1": "eiusmod",
                 "titleText2": "eiusmod",
             },
-            {
-                "id":"product 4",
-                "name":"name",
-                "img": category1,
-                "heading": "In laoreet magna sit",
-                "price": `$69.00`,
-                "title1": "eiusmod tempo",
-                "title2": "eiusmod tempo",
-                "titleText1": "eiusmod",
-                "titleText2": "eiusmod",
-            },
+      
            
 
         ],
