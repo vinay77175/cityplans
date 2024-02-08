@@ -27,7 +27,7 @@ import styles from "../../styles/Home.module.css";
 
 import React from "react";
 const drawerWidth = 240;
-const pages = ["Home", "About Us", "projects", "Services", "Contact Us"];
+const pages = ["Header", "About Us", "projects", "Services", "Contact Us"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 const Header = () => {
     const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -112,7 +112,7 @@ const Header = () => {
                   src={Logo.src}
                   alt="Logo1"
                   sx={{ height: "100%", width: { xs: "155px", md: "255px" } }}
-                />
+                />sdsd
               </Typography>
             </Grid>
             <Grid item xs={0} sm={8} textAlign={"center"}>

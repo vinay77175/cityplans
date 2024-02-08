@@ -22,6 +22,7 @@ const Contact_section = () => {
         backgroundImage: `url(${backImg1.src})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
+        // backgroundAttachment:"fixed",
         py: "9vh",
       }}
     >
