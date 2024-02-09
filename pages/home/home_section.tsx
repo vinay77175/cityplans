@@ -333,34 +333,36 @@ const Home_section = () => {
           sx={{ px: 3.1, mt: { xs: 10, sm: 30, md: 0 } }}
         >
           <Box sx={{ width: "100%", height: { xs: "50%", lg: "100%" } }}>
-            <Slider {...slideSettings}>
+            <Slider {...slideSettings} >
               {SlideData?.map((item) => {
                 return (
-                  <Box sx={{ objectFit: "cover" }} key={item.id}>
+                  <Box
+                    sx={{ 
+                      // objectFit: "cover", 
+                      height: {
+                        xs: "350px",
+                        sm: "500px",
+                        md: "550px",
+                        lg: "600px",
+                      },
+                      
+                  }}
+                    // component={"div"}
+                    key={item.id}
+                  >
                     <Image
                       src={item.imgSrc.src}
                       height={600}
-                      width={600}
+                      width={750}
+                      // fill
+                      layout="intrinsic"
+                      objectFit="contain"
                       alt="slider_image"
-                      quality={50}
+                      quality={100}               
                       priority={true}
+                      // sizes="(max-width: 768px) 33vw, (max-width: 1200px) 33vw, 33vw"
                     />
 
-                    {/* <Box
-                      component={"img"}
-                      src={item.imgSrc.src}
-                      sx={{
-                        // borderRadius: "40px",
-                        maxWidth: "100%",
-                        width: "98%",
-                        height: {
-                          xs: "400px",
-                          sm: "500px",
-                          md: "550px",
-                          lg: "600px",
-                        },
-                      }}
-                    /> */}
                   </Box>
                 );
               })}
