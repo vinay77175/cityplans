@@ -182,6 +182,13 @@ a {
   font-family: "Jacques Francois";
   font-size: 20px;
 }
+.tab1{
+  color: #b12930 !important;
+  border: 2px solid #b12930;
+}
+.tab0{
+  color: #000000 !important;
+}
 .css-837qtk-MuiButtonBase-root-MuiTab-root:hover {
   border-bottom: 2px solid #b12930;
   color: #b12930 !important;
@@ -192,6 +199,9 @@ a {
   color: black !important;
   font-family: "Jacques Francois";
   font-size: 20px;
+}
+.plans_tabs::selection{
+  color: #6246e5;
 }
 
 /* social Media Link Classess */

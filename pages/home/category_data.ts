@@ -10,11 +10,13 @@ import category4 from "../../public/Images/category_4.png";
 export const categoryList:Array<Record<string,any>>=[
     {
         "id":"1",
+        "isChecked":true,
         "name":"Single Detached",
         "products":[
          
             {
                 "id":"product 1",
+                
                 "name":"name",
                 "img": category1,
                 "heading": "In laoreet magna sit",
@@ -62,6 +64,7 @@ export const categoryList:Array<Record<string,any>>=[
     },
     {
         "id":"2",
+        "isChecked":false,
         "name":"Semi Detached",
         "products":[
             {
@@ -140,6 +143,7 @@ export const categoryList:Array<Record<string,any>>=[
     },
     {
         "id":"3",
+        "isChecked":false,
         "name":"Acreage",
         "products":[
             {
@@ -190,6 +194,7 @@ export const categoryList:Array<Record<string,any>>=[
     },
     {
         "id":"4",
+        "isChecked":false,
         "name":"Garage Suite",
         "products":[
             {
