@@ -17,24 +17,70 @@ import category4 from "../../public/Images/category_4.png";
 import { categoryList } from "./category_data";
 import { StaticImageData } from "next/image";
 const Category_section = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string>("1");
-  console.log(selectedCategory);
-  //   const [value, setValue] = React.useState("1");
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
+  let [isSelected1, setIsSelected1] = useState<boolean>(true);
+  let [isSelected2, setIsSelected2] = useState<boolean>(false);
+  let [isSelected3, setIsSelected3] = useState<boolean>(false);
+  let [isSelected4, setIsSelected4] = useState<boolean>(false);
+  // [{isSelected1 = true;
+  //     isSelected2 = false;
+  //     isSelected3 = false;
+  //     isSelected4 = false;}]
+  // const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+  //   setValue(newValue);
+  //   console.log(newValue, "newValue");
 
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
-    // setValue(newValue);
-    console.log(newValue, "newValue");
-
-    setSelectedCategory(newValue);
-  };
+  //   setSelectedCategory(newValue);
+  // };
   const handleCategoryChange = (categoryId: string) => {
     setSelectedCategory(categoryId);
+    if (categoryId == "1") {
+      isSelected1 = true;
+      isSelected2 = false;
+      isSelected3 = false;
+      isSelected4 = false;
+      setIsSelected1(isSelected1);
+      setIsSelected2(isSelected2);
+      setIsSelected3(isSelected3);
+      setIsSelected4(isSelected4);
+    }
+    if (categoryId == "2") {
+      isSelected1 = false;
+      isSelected2 = true;
+      isSelected3 = false;
+      isSelected4 = false;
+      setIsSelected1(isSelected1);
+      setIsSelected2(isSelected2);
+      setIsSelected3(isSelected3);
+      setIsSelected4(isSelected4);
+    }
+    if (categoryId == "3") {
+      isSelected1 = false;
+      isSelected2 = false;
+      isSelected3 = true;
+      isSelected4 = false;
+      setIsSelected1(isSelected1);
+      setIsSelected2(isSelected2);
+      setIsSelected3(isSelected3);
+      setIsSelected4(isSelected4);
+    }
+    if (categoryId == "4") {
+      isSelected1 = false;
+      isSelected2 = false;
+      isSelected3 = false;
+      isSelected4 = true;
+      setIsSelected1(isSelected1);
+      setIsSelected2(isSelected2);
+      setIsSelected3(isSelected3);
+      setIsSelected4(isSelected4);
+    }
   };
-  //   useEffect(() => {
-  //     if (categoryList.length > 0) {
-  //       setSelectedCategory(categoryList[0].id);
-  //     }
-  //   }, [categoryList]);
+
+  useEffect(() => {
+    if (categoryList.length > 0) {
+      setSelectedCategory(categoryList[0].id);
+    }
+  }, [categoryList]);
   interface Category {
     id: string;
     name: string;
@@ -259,6 +305,7 @@ const Category_section = () => {
           sx={{
             display: "flex",
             justifyContent: "space-around",
+            marginBottom: "2vh",
           }}
         >
           <Button
@@ -268,6 +315,15 @@ const Category_section = () => {
                 sm: "18px",
                 md: "20px",
                 lg: "24px",
+              },
+              color: isSelected1 ? "#b12930" : "black",
+              border: isSelected1 ? "2px solid #b12930" : "none",
+              fontFamily: "Jacques Francois",
+
+              ":hover": {
+                boxShadow: "none",
+                borderBottom: "2px solid #b12930",
+                color: "#b12930 !important",
               },
             }}
             onClick={() => handleCategoryChange("1")}
@@ -282,6 +338,17 @@ const Category_section = () => {
                 md: "20px",
                 lg: "24px",
               },
+              color: isSelected2 ? "#b12930" : "black",
+              border: isSelected2 ? "2px solid #b12930" : "none",
+              fontFamily: "Jacques Francois",
+              "::selection": {
+                color: "#b12930 !important",
+              },
+              ":hover": {
+                boxShadow: "none",
+                borderBottom: "2px solid #b12930",
+                color: "#b12930 !important",
+              },
             }}
             onClick={() => handleCategoryChange("2")}
           >
@@ -295,6 +362,17 @@ const Category_section = () => {
                 md: "20px",
                 lg: "24px",
               },
+              color: isSelected3 ? "#b12930" : "black",
+              border: isSelected3 ? "2px solid #b12930" : "none",
+              fontFamily: "Jacques Francois",
+              "::selection": {
+                color: "#b12930 !important",
+              },
+              ":hover": {
+                boxShadow: "none",
+                borderBottom: "2px solid #b12930",
+                color: "#b12930 !important",
+              },
             }}
             onClick={() => handleCategoryChange("3")}
           >
@@ -307,6 +385,17 @@ const Category_section = () => {
                 sm: "18px",
                 md: "20px",
                 lg: "24px",
+              },
+              color: isSelected4 ? "#b12930" : "black",
+              border: isSelected4 ? "2px solid #b12930" : "none",
+              fontFamily: "Jacques Francois",
+              "&:active": {
+                color: "#b12930 !important",
+              },
+              ":hover": {
+                boxShadow: "none",
+                borderBottom: "2px solid #b12930",
+                color: "#b12930 !important",
               },
             }}
             onClick={() => handleCategoryChange("4")}
