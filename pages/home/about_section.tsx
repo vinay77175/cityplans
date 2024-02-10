@@ -1,6 +1,7 @@
 import { Box, Container, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
+import Image from "next/image";
 import React from "react";
 import backImg1 from "../../public/Images/about_back.png";
 import backImg2 from "../../public/Images/about_image_1.png";
@@ -44,17 +45,42 @@ const About_section = () => {
             item
             sx={{
               alignItems: "center",
+              justifyContent: "center",
               display: "flex",
-              padding: "30px 0px 0px 40px",
-              position: "relative",
+              // position: "relative",
             }}
             sm={12}
             md={12}
             lg={7}
           >
             {/* <img className="dotImage_1" src={backImg4.src} alt="image" /> */}
-            <img className="homeImage_1" src={backImg2.src} alt="image_1" />
-            <img className="homeImage_2" src={backImg3.src} alt="image_1" />
+            <Image
+              className="homeImage_1"
+              src={backImg2.src}
+              alt="image_1"
+              height={600}
+              width={750}
+              // fill
+              layout="intrinsic"
+              objectFit="contain"
+              quality={100}
+              priority={true}
+              // sizes="(max-width: 768px) 33vw, (max-width: 1200px) 33vw, 33vw"
+            />
+            <Image
+              className="homeImage_2"
+              src={backImg3.src}
+              alt="image_1"
+              height={600}
+              width={750}
+              // fill
+              layout="intrinsic"
+              objectFit="contain"
+              quality={100}
+              priority={true}
+              // sizes="(max-width: 768px) 33vw, (max-width: 1200px) 33vw, 33vw"
+            />
+
             {/* <img className="dotImage_2" src={backImg4.src} alt="" /> */}
           </Grid>
           <Grid item sm={12} md={12} lg={5}>

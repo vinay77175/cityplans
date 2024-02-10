@@ -321,7 +321,7 @@ const Category_section = () => {
               },
               marginX: "1vh",
               color: isSelected1 ? "#b12930" : "black",
-              border: isSelected1 ? "2px solid #b12930" : "none",
+              border: isSelected1 ? "2px solid #b12930" : "2px solid white",
               fontFamily: "Jacques Francois",
 
               ":hover": {
@@ -344,7 +344,7 @@ const Category_section = () => {
               },
               marginX: "1vh",
               color: isSelected2 ? "#b12930" : "black",
-              border: isSelected2 ? "2px solid #b12930" : "none",
+              border: isSelected2 ? "2px solid #b12930" : "2px solid white",
               fontFamily: "Jacques Francois",
               "::selection": {
                 color: "#b12930 !important",
@@ -369,7 +369,7 @@ const Category_section = () => {
               },
               marginX: "1vh",
               color: isSelected3 ? "#b12930" : "black",
-              border: isSelected3 ? "2px solid #b12930" : "none",
+              border: isSelected3 ? "2px solid #b12930" : "2px solid white",
               fontFamily: "Jacques Francois",
               "::selection": {
                 color: "#b12930 !important",
@@ -394,7 +394,7 @@ const Category_section = () => {
               },
               marginX: "1vh",
               color: isSelected4 ? "#b12930" : "black",
-              border: isSelected4 ? "2px solid #b12930" : "none",
+              border: isSelected4 ? "2px solid #b12930" : "2px solid white",
               fontFamily: "Jacques Francois",
               "&:active": {
                 color: "#b12930 !important",
