@@ -75,7 +75,7 @@ const About_section = () => {
               variant="h3"
               sx={{
                 marginTop: { xs: "15vh", lg: "15vh", xl: "8vh" },
-                textAlign: { xs: "center", lg: "left" },
+                textAlign: { xs: "justify", lg: "left" },
                 fontFamily: "Jacques Francois",
                 color: "white",
                 px: { xs: "3vh", md: "2vh", lg: "0vh" },
@@ -90,7 +90,7 @@ const About_section = () => {
                 fontFamily: "Times New Roman",
                 color: "white",
                 paddingX: { xs: "3vh", lg: "0vh" },
-                textAlign: { xs: "center", lg: "left" },
+                textAlign: { xs: "justify", lg: "justify" },
                 fontSize: { xs: "1.2rem", sm: "1.35rem", lg: "1.4rem" },
                 letterSpacing: "2px",
               }}
@@ -123,7 +123,9 @@ const About_section = () => {
                         lg: "22px",
                       },
                       marginBottom: { xs: "12px", xl: "15px" },
-                      paddingX: { xs: "2vh", md: "1vh" },
+                      paddingLeft: { xs: "2vh", md: "1vh" },
+                      paddingRight: { xs: "3vh", lg: "2vh" },
+                      textAlign: { xs: "justify", lg: "justify" },
                     }}
                   >
                     Sit amet, consectetur adipiscing elit.
@@ -138,7 +140,9 @@ const About_section = () => {
                         lg: "22px",
                       },
                       marginBottom: { xs: "12px", xl: "15px" },
-                      paddingX: { xs: "2vh", md: "1vh" },
+                      paddingLeft: { xs: "2vh", md: "1vh" },
+                      paddingRight: { xs: "3vh", lg: "2vh" },
+                      textAlign: { xs: "justify", lg: "justify" },
                     }}
                   >
                     Sit amet, consectetur adipiscing elit.
@@ -153,7 +157,9 @@ const About_section = () => {
                         lg: "22px",
                       },
                       marginBottom: { xs: "12px", xl: "15px" },
-                      paddingX: { xs: "2vh", md: "1vh" },
+                      paddingLeft: { xs: "2vh", md: "1vh" },
+                      paddingRight: { xs: "3vh", lg: "2vh" },
+                      textAlign: { xs: "justify", lg: "justify" },
                     }}
                   >
                     Sit amet, consectetur adipiscing elit.
@@ -175,7 +181,9 @@ const About_section = () => {
                         lg: "22px",
                       },
                       marginBottom: { xs: "12px", xl: "15px" },
-                      paddingX: { xs: "2vh", md: "1vh" },
+                      paddingLeft: { xs: "2vh", md: "1vh" },
+                      paddingRight: { xs: "2vh", lg: "2vh" },
+                      textAlign: { xs: "justify", lg: "justify" },
                     }}
                   >
                     Sit amet, consectetur adipiscing elit.
@@ -190,7 +198,9 @@ const About_section = () => {
                         lg: "22px",
                       },
                       marginBottom: { xs: "12px", xl: "15px" },
-                      paddingX: { xs: "2vh", md: "1vh" },
+                      paddingLeft: { xs: "2vh", md: "1vh" },
+                      paddingRight: { xs: "2vh", lg: "2vh" },
+                      textAlign: { xs: "justify", lg: "justify" },
                     }}
                   >
                     Sit amet, consectetur adipiscing elit.
@@ -205,7 +215,9 @@ const About_section = () => {
                         lg: "22px",
                       },
                       marginBottom: { xs: "12px", xl: "15px" },
-                      paddingX: { xs: "2vh", md: "1vh" },
+                      paddingLeft: { xs: "2vh", md: "1vh" },
+                      paddingRight: { xs: "2vh", lg: "2vh" },
+                      textAlign: { xs: "justify", lg: "justify" },
                     }}
                   >
                     Sit amet, consectetur adipiscing elit.

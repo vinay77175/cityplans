@@ -19,7 +19,7 @@ export const categoryList:Array<Record<string,any>>=[
                 
                 "name":"name",
                 "img": category1,
-                "heading": "In laoreet magna sit",
+                "heading": "In laoreet magna sit dsdcsadwe",
                 "price": `$69.00`,
                 "title1": "eiusmod tempo",
                 "title2": "eiusmod tempo",

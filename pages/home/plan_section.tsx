@@ -51,10 +51,11 @@ const Plan_section = () => {
                   fontFamily: "Times New Roman",
                   color: "black",
                   marginTop: { xs: "4vh", lg: "5vh", xl: "5vh" },
-                  textAlign: { xs: "left", lg: "left " },
+                  textAlign: { xs: "justify", lg: "justify" },
                   paddingX: { xs: "5vh", lg: "4vh", xl: "5vh" },
                   marginRight: { xs: "3vh", lg: "0vh" },
                   fontSize: { xs: "28px", sm: "34px", lg: "40px" },
+
                   fontWeight: 550,
                 }}
               >
@@ -69,7 +70,7 @@ const Plan_section = () => {
                   paddingRight: { xs: "14vw", md: "7vw", lg: "5vw" },
                   paddingLeft: { xs: "5vh", lg: "5.2vh" },
                   paddingBottom: { xs: "5vh", xl: "5vh" },
-                  textAlign: { xs: "left", lg: "left" },
+                  textAlign: { xs: "justify", lg: "justify" },
                   fontSize: {
                     xs: "1.6rem",
                     lg: "1.7rem",
@@ -80,7 +81,7 @@ const Plan_section = () => {
               >
                 Integer pellentesque erat faucibus mollis eleifend.Donec tempor
                 ex ut magna convallis, id cursus mi condimentum.Sed hendrerit
-                arcu vehicula Lorem ipsum dolor sit amet consectetur,
+                arcu vehicula,
               </Typography>
             </Box>
           </Grid>

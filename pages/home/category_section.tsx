@@ -16,7 +16,10 @@ import category3 from "../../public/Images/category_3.png";
 import category4 from "../../public/Images/category_4.png";
 import { categoryList } from "./category_data";
 import { StaticImageData } from "next/image";
+import { useMediaQuery } from "@mui/material";
 const Category_section = () => {
+  const isMobile = useMediaQuery("(max-width:600px)");
+
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   let [isSelected1, setIsSelected1] = useState<boolean>(true);
   let [isSelected2, setIsSelected2] = useState<boolean>(false);
@@ -305,7 +308,7 @@ const Category_section = () => {
           sx={{
             display: "flex",
             justifyContent: "space-around",
-            marginBottom: "2vh",
+            marginBottom: "3vh",
           }}
         >
           <Button
@@ -316,6 +319,7 @@ const Category_section = () => {
                 md: "20px",
                 lg: "24px",
               },
+              marginX: "1vh",
               color: isSelected1 ? "#b12930" : "black",
               border: isSelected1 ? "2px solid #b12930" : "none",
               fontFamily: "Jacques Francois",
@@ -338,6 +342,7 @@ const Category_section = () => {
                 md: "20px",
                 lg: "24px",
               },
+              marginX: "1vh",
               color: isSelected2 ? "#b12930" : "black",
               border: isSelected2 ? "2px solid #b12930" : "none",
               fontFamily: "Jacques Francois",
@@ -362,6 +367,7 @@ const Category_section = () => {
                 md: "20px",
                 lg: "24px",
               },
+              marginX: "1vh",
               color: isSelected3 ? "#b12930" : "black",
               border: isSelected3 ? "2px solid #b12930" : "none",
               fontFamily: "Jacques Francois",
@@ -386,6 +392,7 @@ const Category_section = () => {
                 md: "20px",
                 lg: "24px",
               },
+              marginX: "1vh",
               color: isSelected4 ? "#b12930" : "black",
               border: isSelected4 ? "2px solid #b12930" : "none",
               fontFamily: "Jacques Francois",
@@ -405,40 +412,65 @@ const Category_section = () => {
         </Box>
 
         <Box>
-          <Grid container>
+          <Grid
+            container
+            sx={{
+              marginBottom: "2vh",
+              paddingX: "0vh",
+            }}
+          >
             {categoryList.map(
               (category) =>
                 category.id === selectedCategory &&
                 category.products.map((product: Product) => (
-                  <Grid item xs={12} sm={6} lg={3} key={product.id}>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={6}
+                    lg={3}
+                    key={product.id}
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
+                  >
                     <Card
                       sx={{
-                        maxWidth: 345,
+                        padding: "1vh 1vh 0vh 1vh",
+                        marginBottom: "4vh",
+                        mx: { sm: "1vh" },
+
                         border: "1px solid #C9C1BA",
                       }}
                     >
                       <CardMedia
                         component="img"
                         alt="green iguana"
-                        height="200"
+                        sx={{
+                          height: { xs: "220px", lg: "170px" },
+                        }}
                         src={product.img.src}
                       />
-                      <CardContent>
+                      <CardContent sx={{ paddingTop: "0vh" }}>
                         <Typography
-                          gutterBottom
-                          variant="h5"
                           component="div"
                           sx={{
                             marginTop: { xs: "1vh", lg: "2vh" },
+                            fontSize: { xs: "22px", sm: "20px", lg: "22px" },
+                            fontFamily: "Times New Roman",
                           }}
                         >
-                          {product.heading.slice(0, 20)}...
+                          {isMobile
+                            ? product.heading.slice(0, 20)
+                            : product.heading.slice(0, 20)}
+                          ...
                         </Typography>
                         <Typography
                           color="#B12930"
                           sx={{
                             marginTop: { xs: "1vh", lg: "2vh" },
-                            fontSize: { xs: "18px", md: "22px" },
+                            fontSize: { xs: "22px", sm: "20px", lg: "22px" },
+                            fontFamily: "Times New Roman",
                           }}
                         >
                           {product.price}
@@ -458,19 +490,77 @@ const Category_section = () => {
                               },
                             }}
                           >
-                            <Typography variant="body1">
-                              {product.title1}
+                            <Typography
+                              variant="body1"
+                              sx={{
+                                fontFamily: "Times New Roman",
+                                textTransform: "capitalize",
+                                fontSize: {
+                                  xs: "18px",
+                                  sm: "16px",
+                                  lg: "18px",
+                                },
+                              }}
+                            >
+                              {isMobile
+                                ? product.title1.slice(0, 20)
+                                : product.title1.slice(0, 10)}
+                              ...
                             </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                              {product.titleText1}
+                            <Typography
+                              variant="body1"
+                              color="text.secondary"
+                              sx={{
+                                fontFamily: "Times New Roman",
+                                textTransform: "capitalize",
+                                fontSize: {
+                                  xs: "18px",
+                                  sm: "16px",
+                                  lg: "18px",
+                                },
+                              }}
+                            >
+                              {isMobile
+                                ? product.titleText1.slice(0, 10)
+                                : product.titleText1.slice(0, 10)}
+                              ...
                             </Typography>
                           </Box>
                           <Box>
-                            <Typography variant="body1">
-                              {product.title2}
+                            <Typography
+                              variant="body1"
+                              sx={{
+                                fontFamily: "Times New Roman",
+                                textTransform: "capitalize",
+                                fontSize: {
+                                  xs: "18px",
+                                  sm: "16px",
+                                  lg: "18px",
+                                },
+                              }}
+                            >
+                              {isMobile
+                                ? product.title2.slice(0, 20)
+                                : product.title2.slice(0, 10)}
+                              ...
                             </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                              {product.titleText2}
+                            <Typography
+                              variant="body1"
+                              color="text.secondary"
+                              sx={{
+                                fontFamily: "Times New Roman",
+                                textTransform: "capitalize",
+                                fontSize: {
+                                  xs: "18px",
+                                  sm: "16px",
+                                  lg: "18px",
+                                },
+                              }}
+                            >
+                              {isMobile
+                                ? product.titleText2.slice(0, 10)
+                                : product.titleText2.slice(0, 10)}
+                              ...
                             </Typography>
                           </Box>
                         </Box>
@@ -484,7 +574,8 @@ const Category_section = () => {
                         >
                           <Button
                             sx={{
-                              padding: "1.2vh 4vh",
+                              mx: "1vh",
+                              padding: "1vh 2.3vh",
                               fontFamily: "Times New Roman ",
                               color: "white",
                               backgroundColor: "#B12930",
@@ -497,7 +588,8 @@ const Category_section = () => {
                           </Button>
                           <Button
                             sx={{
-                              padding: "1.2vh 4vh",
+                              mx: "1vh",
+                              padding: "1vh 2vh",
                               fontFamily: "Times New Roman ",
                               color: "black",
                               border: "2px solid black",
