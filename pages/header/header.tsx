@@ -143,7 +143,6 @@ const Header = () => {
                     sx={{
                       display: "flex",
                       justifyContent: "flex-start",
-                      
                     }}
                   >
                     {/* <Box
@@ -191,7 +190,7 @@ const Header = () => {
                 ))}
               </Box>
             </Grid> */}
-                <Grid item xs={0} sm={5}>
+                {/* <Grid item xs={0} sm={5}>
                   <Box sx={{ display: "flex" }}>
                     <TextField
                       size="small"
@@ -211,7 +210,7 @@ const Header = () => {
                       Search <SearchIcon fontSize="small" sx={{ ml: 1 }} />
                     </Button>
                   </Box>
-                </Grid>
+                </Grid> */}
                 <Grid item xs={1} sm={1} textAlign={"end"}>
                   <Box>
                     <Tooltip title="Open settings">
@@ -263,13 +262,17 @@ const Header = () => {
             </Toolbar>
           </Container>
           <Divider />
-          <Box sx={{ py: 2 }}>
-            <Container maxWidth="xl" >
-              <Grid container sx={{px:3}}>
+          {/* <Box sx={{ py: 2 }}>
+            <Container maxWidth="xl">
+              <Grid container sx={{ px: 3 }}>
                 <Grid item sm={1.5}>
                   <FormControl sx={{ minWidth: 150 }} size="small">
-                    <InputLabel id="demo-select-small-label" >
-                      <Image src={categoryIcon} alt="category Icon" style={{marginRight:5}}/>
+                    <InputLabel id="demo-select-small-label">
+                      <Image
+                        src={categoryIcon}
+                        alt="category Icon"
+                        style={{ marginRight: 5 }}
+                      />
                       Category
                     </InputLabel>
                     <Select
@@ -286,10 +289,14 @@ const Header = () => {
                     </Select>
                   </FormControl>
                 </Grid>
-                <Divider orientation="vertical" flexItem  sx={{border:"1px solid #b12930"}}/>
+                <Divider
+                  orientation="vertical"
+                  flexItem
+                  sx={{ border: "1px solid #b12930" }}
+                />
               </Grid>
             </Container>
-          </Box>
+          </Box> */}
         </AppBar>
       </Box>
 
