@@ -19,6 +19,7 @@ import {
   InputLabel,
   Menu,
   MenuItem,
+  Modal,
   Paper,
   Select,
   SelectChangeEvent,
@@ -37,13 +38,26 @@ import {
 } from "@mui/material";
 import styles from "../../styles/Home.module.css";
 import categoryIcon from "../../public/Images/category_Icon.svg";
-
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 const drawerWidth = 240;
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const style = {
+  position: "absolute" as "absolute",
+  top: "10%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: {xs:100,sm:100,md:600},
+  bgcolor: "background.paper",
+  boxShadow: 50,
+  borderRadius: "12px",
+};
+
 const Header = () => {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const [age, setAge] = React.useState("");
 
   const handleChange = (event: SelectChangeEvent) => {
@@ -178,12 +192,13 @@ const Header = () => {
         <AppBar
           component="nav"
           className={styles.Header_AppBar}
-          sx={{ position: "static",
-          // top:"3vh"
-         }}
+          sx={{
+            position: "static",
+            // top:"3vh"
+          }}
         >
           <Container maxWidth="xl">
-            <Toolbar sx={{ py: 2 }}>
+            <Toolbar sx={{ py: 1 }}>
               <Grid container display={"flex"} alignItems={"center"}>
                 <Grid item xs={1} sm={0} display={{ xs: "flex", sm: "none" }}>
                   <IconButton
@@ -230,7 +245,7 @@ const Header = () => {
                           px: { sm: 1, md: 2, lg: 4 },
                           border: "1px solid rgb(255,255,255,0)",
                           // borderRadius: "25px",
-                          fontSize: { sm: "", md: "18px", lg: "22px" },
+                          fontSize: { sm: "16px", md: "17px", lg: "20px" },
                           fontFamily: "Inria Serif",
                           textTransform: "capitalize",
                         }}
@@ -251,7 +266,7 @@ const Header = () => {
                           px: { sm: 1, md: 2, lg: 4 },
                           border: "1px solid rgb(255,255,255,0)",
                           // borderRadius: "25px",
-                          fontSize: { sm: "", md: "18px", lg: "22px" },
+                          fontSize: { sm: "", md: "18px", lg: "20px" },
                           fontFamily: "Inria Serif",
                           textTransform: "capitalize",
                         }}
@@ -272,7 +287,7 @@ const Header = () => {
                           px: { sm: 1, md: 2, lg: 4 },
                           border: "1px solid rgb(255,255,255,0)",
                           // borderRadius: "25px",
-                          fontSize: { sm: "", md: "18px", lg: "22px" },
+                          fontSize: { sm: "", md: "18px", lg: "20px" },
                           fontFamily: "Inria Serif",
                           textTransform: "capitalize",
                         }}
@@ -293,7 +308,7 @@ const Header = () => {
                           px: { sm: 1, md: 2, lg: 4 },
                           border: "1px solid rgb(255,255,255,0)",
                           // borderRadius: "25px",
-                          fontSize: { sm: "", md: "18px", lg: "22px" },
+                          fontSize: { sm: "", md: "18px", lg: "20px" },
                           fontFamily: "Inria Serif",
                           textTransform: "capitalize",
                         }}
@@ -324,8 +339,10 @@ const Header = () => {
                         ml: 1,
                         flex: 1,
                         display: { xs: "none", md: "block" },
+                        height: "100%",
                       }}
                       placeholder="Search Plans"
+                      onClick={handleOpen}
                     />
                     <Button
                       variant="contained"
@@ -336,11 +353,59 @@ const Header = () => {
                         bgcolor: "#B12930",
                         minWidth: 5,
                       }}
+                      onClick={handleOpen}
                     >
                       {/* <Box sx={{ display: { xs: "none", sm: "block" } }}>Search</Box>{" "} */}
                       <SearchIcon fontSize="small" sx={{ m: 0, p: 0 }} />
                     </Button>
                   </Paper>
+                  <Modal
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                  >
+                    <Box sx={style}>
+                      <Paper
+                        component="form"
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          borderRadius: "6px",
+                          overflow: "hidden",
+                          width: { xs: 50, md: "auto" },
+                          height:"50px"
+                        }}
+                      >
+                        <InputBase
+                          sx={{
+                            ml: 1,
+                            flex: 1,
+                            display: { xs: "none", md: "block" },
+                            height: "100%",
+                            p:1
+                          }}
+                          placeholder="Search Plans"
+                          onClick={handleOpen}
+                        />
+                        <Button
+                          variant="contained"
+                          sx={{
+                            "&:hover": {
+                              bgcolor: "hsl(357, 62%, 55%)",
+                            },
+                            bgcolor: "#B12930",
+                            minWidth: "70px",
+                            height:"100%"
+                          }}
+                          onClick={handleOpen}
+                        >  
+                          {/* <Box sx={{ display: { xs: "none", sm: "block" } }}>Search</Box>{" "} */}
+                          <SearchIcon fontSize="small" sx={{ m: 0, p: 0 }} />
+                        </Button>
+                      </Paper>
+                    </Box>
+                  </Modal>
                 </Grid>
                 <Grid item xs={2} sm={0.5} textAlign={"end"}>
                   <Box sx={{ flexGrow: 0 }}>

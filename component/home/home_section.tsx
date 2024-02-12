@@ -210,7 +210,7 @@ const Home_section = () => {
                       px: { sm: 1, md: 2, lg: 4 },
                       border: "1px solid rgb(255,255,255,0)",
                       // borderRadius: "25px",
-                      fontSize: { sm: "", md: "18px", lg: "22px" },
+                      fontSize: { sm: "", md: "18px", lg: "20px" },
                       fontFamily: "Inria Serif",
                       textTransform: "capitalize",
                     }}
@@ -231,7 +231,7 @@ const Home_section = () => {
                       px: { sm: 1, md: 2, lg: 4 },
                       border: "1px solid rgb(255,255,255,0)",
                       // borderRadius: "25px",
-                      fontSize: { sm: "", md: "18px", lg: "22px" },
+                      fontSize: { sm: "", md: "18px", lg: "20px" },
                       fontFamily: "Inria Serif",
                       textTransform: "capitalize",
                     }}
@@ -252,7 +252,7 @@ const Home_section = () => {
                       px: { sm: 1, md: 2, lg: 4 },
                       border: "1px solid rgb(255,255,255,0)",
                       // borderRadius: "25px",
-                      fontSize: { sm: "", md: "18px", lg: "22px" },
+                      fontSize: { sm: "", md: "18px", lg: "20px" },
                       fontFamily: "Inria Serif",
                       textTransform: "capitalize",
                     }}
@@ -274,7 +274,7 @@ const Home_section = () => {
                       px: { sm: 1, md: 2, lg: 4 },
                       border: "1px solid rgb(255,255,255,0)",
                       // borderRadius: "25px",
-                      fontSize: { sm: "", md: "18px", lg: "22px" },
+                      fontSize: { sm: "", md: "18px", lg: "20px" },
                       fontFamily: "Inria Serif",
                       textTransform: "capitalize",
                     }}

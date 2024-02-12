@@ -7,9 +7,13 @@ const layout = (props) => {
 
   return (
     <div>
-      {pathname !== "/" && <Header />}
+      {pathname == "/" || pathname == "/login" || pathname == "/register" ? (
+        ""
+      ) : (
+        <Header />
+      )}
       <main>{props.children}</main>
-      <Footer />
+      {pathname == "/login" || pathname == "/register" ? "" : <Footer />}
     </div>
   );
 };

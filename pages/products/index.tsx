@@ -172,11 +172,11 @@ const Product_Details = () => {
               </Select>
             </FormControl>
           </Grid>
-          <Divider
+          {/* <Divider
             orientation="vertical"
             flexItem
             sx={{ border: "1px solid #b12930", marginLeft: "1vh" }}
-          />
+          /> */}
           {/* <Grid item xs={0} sm={5} marginLeft={10}>
             <Box sx={{ display: "flex" }}>
               <div>
