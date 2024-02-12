@@ -15,35 +15,91 @@ import {
   SelectChangeEvent,
   TextField,
   Typography,
+  Modal,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { categoryList } from "../../component/home/category_data"
+import { categoryList } from "../../component/home/category_data";
 import Image, { StaticImageData } from "next/image";
 import SearchIcon from "@mui/icons-material/Search";
 import { useMediaQuery } from "@mui/material";
 import categoryIcon from "../../public/Images/category_Icon.svg";
 
+//Modal Styles
+const style = {
+  position: "absolute" as "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  pt: 2,
+  px: 4,
+  pb: 3,
+};
+
+//Child Modal function
+function ChildModal() {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  return (
+    <React.Fragment>
+      <Button onClick={handleOpen}>Open Child Modal</Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="child-modal-title"
+        aria-describedby="child-modal-description"
+      >
+        <Box sx={{ ...style, width: 200 }}>
+          <h2 id="child-modal-title">Text in a child modal</h2>
+          <p id="child-modal-description">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          </p>
+          <Button onClick={handleClose}>Close Child Modal</Button>
+        </Box>
+      </Modal>
+    </React.Fragment>
+  );
+}
+
 const Product_Details = () => {
   const isMobile = useMediaQuery("(max-width:600px)");
+  //category dropdown
+  const [age, setAge] = React.useState("");
+
+  // const handleChange = (event: SelectChangeEvent) => {
+  //   setAge(event.target.value as string);
+  // };
+  //card selected category
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
 
   // const [selectedCategory, setSelectedCategory] = useState<string>("");
   const handleCategoryChange = (categoryId: string) => {
     // setSelectedCategory(categoryId);
+
     const selectedCategory = categoryList.find(
       (category) => category.id === categoryId
     );
-    console.log("filtered Products", filteredProducts);
 
-    console.log("selected Category", selectedCategory);
     if (selectedCategory) {
       setFilteredProducts(selectedCategory.products);
     } else {
       setFilteredProducts([]);
     }
+
+    setAge(categoryId);
   };
 
+  //show full list of card from the very starting
   useEffect(() => {
     const allProducts: Product[] = [];
     categoryList.forEach((category) => {
@@ -51,6 +107,15 @@ const Product_Details = () => {
     });
     setFilteredProducts(allProducts);
   }, [categoryList]);
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   interface Category {
     id: string;
     name: string;
@@ -70,10 +135,20 @@ const Product_Details = () => {
   return (
     <Container maxWidth="xl">
       <Box sx={{ py: 2 }}>
-        <Grid container sx={{ mx: 4 }}>
-          <Grid item sm={1.5}>
-            <FormControl sx={{ minWidth: 150 }} size="small">
-              <InputLabel id="demo-select-small-label">
+        <Grid container sx={{ marginLeft: 1 }}>
+          <Grid
+            item
+            xs={6}
+            sm={4}
+            md={3}
+            lg={2}
+            sx={{ borderRight: "2px solid black", paddingRight: "5vh" }}
+          >
+            <FormControl sx={{ width: "100%" }} size="medium">
+              <InputLabel
+                id="demo-select-small-label"
+                sx={{ backgroundColor: "white", paddingRight: "1vh" }}
+              >
                 {/* <Image
                   src={categoryIcon}
                   alt="category Icon"
@@ -82,45 +157,44 @@ const Product_Details = () => {
                 Category
               </InputLabel>
               <Select
-                value={selectedCategory}
-                // label={"Age"}
+                value={age}
+                label={"Age"}
                 onChange={(event) => handleCategoryChange(event.target.value)}
               >
                 <MenuItem value="1">
                   <em>Single Detached</em>
                 </MenuItem>
                 <MenuItem value={"2"}>Semi Detached</MenuItem>
+
                 <MenuItem value={"3"}>Acreage</MenuItem>
-                <MenuItem value={"4"}>Garage Suit</MenuItem>
+                <MenuItem value={"4"}>Garage Suite</MenuItem>
+                <MenuItem value={"5"}>FourPlex</MenuItem>
               </Select>
             </FormControl>
           </Grid>
-          <Divider
-            orientation="vertical"
-            flexItem
-            sx={{ border: "1px solid #b12930", marginLeft: "1vh" }}
-          />
-          <Grid item xs={0} sm={5} marginLeft={10}>
+
+          {/* <Grid item xs={0} sm={5} display={"flex"} justifyContent={"flex-end"}>
             <Box sx={{ display: "flex" }}>
-              <TextField
-                size="small"
-                fullWidth
-                placeholder="Search Product"
-              ></TextField>
-              <Button
-                variant="contained"
-                sx={{
-                  "&:hover": {
-                    bgcolor: "hsl(357, 62%, 55%)",
-                  },
-                  px: 5,
-                  bgcolor: "#B12930",
-                }}
-              >
-                Search <SearchIcon fontSize="small" sx={{ ml: 1 }} />
-              </Button>
+              <div>
+                <Button onClick={handleOpen}>Open modal</Button>
+                <Modal
+                  open={open}
+                  onClose={handleClose}
+                  aria-labelledby="parent-modal-title"
+                  aria-describedby="parent-modal-description"
+                >
+                  <Box sx={{ ...style, width: 400 }}>
+                    <h2 id="parent-modal-title">Text in a modal</h2>
+                    <p id="parent-modal-description">
+                      Duis mollis, est non commodo luctus, nisi erat porttitor
+                      ligula.
+                    </p>
+                    <ChildModal />
+                  </Box>
+                </Modal>
+              </div>
             </Box>
-          </Grid>
+          </Grid> */}
         </Grid>
       </Box>
       <Box>
@@ -136,7 +210,8 @@ const Product_Details = () => {
               item
               xs={12}
               sm={6}
-              lg={3}
+              lg={4}
+              xl={4}
               key={product.id}
               sx={{
                 display: "flex",
@@ -148,7 +223,7 @@ const Product_Details = () => {
                   padding: "1vh 1vh 0vh 1vh",
                   marginBottom: "4vh",
                   mx: { sm: "1vh" },
-
+                  width: "100%",
                   border: "1px solid #C9C1BA",
                 }}
               >
