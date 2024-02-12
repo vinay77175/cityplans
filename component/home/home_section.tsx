@@ -1,3 +1,4 @@
+import SearchIcon from "@mui/icons-material/Search";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -18,16 +19,18 @@ import MenuItem from "@mui/material/MenuItem";
 import backImage1 from "../../public/Images/1.png";
 import backImage2 from "../../public/Images/home_back_img2.png";
 import React from "react";
-import profileIcon from "../../public/Images/Male User.svg";
+import profileIcon from "../../public/Images/Male User red.svg";
 import { SlideData } from "./slide_data";
 import {
   Container,
   Divider,
   Grid,
+  InputBase,
   List,
   ListItem,
   ListItemButton,
   ListItemText,
+  Paper,
 } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
@@ -72,7 +75,7 @@ const Home_section = () => {
       </Typography>
       <Divider />
       <List>
-        <Link href={"/"} className="navLink"> 
+        <Link href={"/"} className="navLink">
           <ListItem disablePadding>
             <ListItemButton
               sx={{
@@ -90,7 +93,7 @@ const Home_section = () => {
             </ListItemButton>
           </ListItem>
         </Link>
-        <Link href={"/about"} className="navLink"> 
+        <Link href={"/about"} className="navLink">
           <ListItem disablePadding>
             <ListItemButton
               sx={{
@@ -108,7 +111,7 @@ const Home_section = () => {
             </ListItemButton>
           </ListItem>
         </Link>
-        <Link href={"/products"} className="navLink"> 
+        <Link href={"/products"} className="navLink">
           <ListItem disablePadding>
             <ListItemButton
               sx={{
@@ -126,25 +129,8 @@ const Home_section = () => {
             </ListItemButton>
           </ListItem>
         </Link>
-        <Link href={"/services"} className="navLink"> 
-          <ListItem disablePadding>
-            <ListItemButton
-              sx={{
-                "&:hover": {
-                  bgcolor: "#B12930",
-                  color: "#fff",
-                },
-                textAlign: "center",
-                color: "#000",
-                fontFamily: "Inria Serif",
-                textTransform: "capitalize",
-              }}
-            >
-              <ListItemText primary="Services" />
-            </ListItemButton>
-          </ListItem>
-        </Link>
-        <Link href={"/contact"} className="navLink"> 
+
+        <Link href={"/contact"} className="navLink">
           <ListItem disablePadding>
             <ListItemButton
               sx={{
@@ -191,7 +177,7 @@ const Home_section = () => {
                 <MenuIcon sx={{ color: "#000" }} />
               </IconButton>
             </Grid>
-            <Grid item xs={10} sm={3}>
+            <Grid item xs={7} sm={3}>
               <Typography
                 // variant="h6"
                 component="div"
@@ -209,7 +195,7 @@ const Home_section = () => {
                 ></Box>
               </Typography>
             </Grid>
-            <Grid item xs={0} sm={8} textAlign={"center"}>
+            <Grid item xs={0} sm={6.5} textAlign={"center"}>
               <Box sx={{ display: { xs: "none", sm: "block" } }}>
                 <Link href={"/"}>
                   <Button
@@ -274,27 +260,7 @@ const Home_section = () => {
                     Plans
                   </Button>
                 </Link>
-                <Link href={"/services"}>
-                  <Button
-                    sx={{
-                      "&:hover": {
-                        color: "#B12930",
-                        borderColor: "#B12930",
-                        backgroundColor: "rgb(255,255,255,0)",
-                      },
-                      fontWeight: 550,
-                      color: "#000",
-                      px: { sm: 1, md: 2, lg: 4 },
-                      border: "1px solid rgb(255,255,255,0)",
-                      // borderRadius: "25px",
-                      fontSize: { sm: "", md: "18px", lg: "22px" },
-                      fontFamily: "Inria Serif",
-                      textTransform: "capitalize",
-                    }}
-                  >
-                    Services
-                  </Button>
-                </Link>
+
                 <Link href={"/contact"}>
                   <Button
                     sx={{
@@ -318,7 +284,42 @@ const Home_section = () => {
                 </Link>
               </Box>
             </Grid>
-            <Grid item xs={1} sm={1} textAlign={"center"}>
+            <Grid
+              item
+              xs={2}
+              md={2}
+              sx={{ display: "flex", justifyContent: "center" }}
+            >
+              <Paper
+                component="form"
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  borderRadius: "6px",
+                  overflow: "hidden",
+                  width: { xs: 50, md: "auto" },
+                }}
+              >
+                <InputBase
+                  sx={{ ml: 1, flex: 1, display: { xs: "none", md: "block" } }}
+                  placeholder="Search Plans"
+                />
+                <Button
+                  variant="contained"
+                  sx={{
+                    "&:hover": {
+                      bgcolor: "hsl(357, 62%, 55%)",
+                    },
+                    bgcolor: "#B12930",
+                    minWidth: 5,
+                  }}
+                >
+                  {/* <Box sx={{ display: { xs: "none", sm: "block" } }}>Search</Box>{" "} */}
+                  <SearchIcon fontSize="small" sx={{ m: 0, p: 0 }} />
+                </Button>
+              </Paper>
+            </Grid>
+            <Grid item xs={2} sm={0.5} textAlign={"center"}>
               <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

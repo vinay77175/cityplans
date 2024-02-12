@@ -100,7 +100,7 @@ const Product_Details = () => {
             flexItem
             sx={{ border: "1px solid #b12930", marginLeft: "1vh" }}
           />
-          <Grid item xs={0} sm={5} marginLeft={10}>
+          {/* <Grid item xs={0} sm={5} marginLeft={10}>
             <Box sx={{ display: "flex" }}>
               <TextField
                 size="small"
@@ -120,7 +120,7 @@ const Product_Details = () => {
                 Search <SearchIcon fontSize="small" sx={{ ml: 1 }} />
               </Button>
             </Box>
-          </Grid>
+          </Grid> */}
         </Grid>
       </Box>
       <Box>
