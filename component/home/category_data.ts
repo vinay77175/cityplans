@@ -15,7 +15,7 @@ export const categoryList:Array<Record<string,any>>=[
         "products":[
          
             {
-                "id":"product 1",
+                "id":"singleD1",
                 "name":"name",
                 "img": category1,
                 "heading": "Single Detached",
@@ -26,7 +26,7 @@ export const categoryList:Array<Record<string,any>>=[
                 "titleText2": "eiusmod",
             },
             {
-                "id":"product 2",
+                "id":"singleD2",
                 "name":"name",
                 "img": category2,
                 "heading": "In laoreet magna sit",
@@ -37,7 +37,7 @@ export const categoryList:Array<Record<string,any>>=[
                 "titleText2": "eiusmod",
             },
             {
-                "id":"product 3",
+                "id":"singleD3",
                 "name":"name",
                 "img": category3,
                 "heading": "In laoreet magna sit",
@@ -48,7 +48,7 @@ export const categoryList:Array<Record<string,any>>=[
                 "titleText2": "eiusmod",
             },
             {
-                "id":"product 4",
+                "id":"singleD4",
                 "name":"name",
                 "img": category4,
                 "heading": "In laoreet magna sit",
@@ -67,7 +67,7 @@ export const categoryList:Array<Record<string,any>>=[
         "name":"Semi Detached",
         "products":[
             {
-                "id":"product 1",
+                "id":"semiD1",
                 "name":"name",
                 "img": category4,
                 "heading": " Semi Detached",
@@ -78,7 +78,7 @@ export const categoryList:Array<Record<string,any>>=[
                 "titleText2": "eiusmod",
             },
             {
-                "id":"product 2",
+                "id":"semmiD2",
                 "name":"name",
                 "img": category3,
                 "heading": " Semi Detached",
@@ -89,7 +89,7 @@ export const categoryList:Array<Record<string,any>>=[
                 "titleText2": "eiusmod",
             },
             {
-                "id":"product 3",
+                "id":"semiD3",
                 "name":"name",
                 "img": category2,
                 "heading": " Semi Detached",
@@ -102,7 +102,7 @@ export const categoryList:Array<Record<string,any>>=[
         
        
             {
-                "id":"product 4",
+                "id":"semiD4",
                 "name":"name",
                 "img": category1,
                 "heading": " Semi Detached",
@@ -114,7 +114,7 @@ export const categoryList:Array<Record<string,any>>=[
             },
             
             {
-                "id":"product 5",
+                "id":"semiD5",
                 "name":"name",
                 "img": category1,
                 "heading": " Semi Detached",
@@ -126,7 +126,7 @@ export const categoryList:Array<Record<string,any>>=[
             },
             
             {
-                "id":"product 6",
+                "id":"semiD6",
                 "name":"name",
                 "img": category1,
                 "heading": " Semi Detached",
@@ -146,7 +146,7 @@ export const categoryList:Array<Record<string,any>>=[
         "name":"Acreage",
         "products":[
             {
-                "id":"product 1",
+                "id":"acr1",
                 "name":"name",
                 "img": category1,
                 "heading": "Acreage",
@@ -157,7 +157,7 @@ export const categoryList:Array<Record<string,any>>=[
                 "titleText2": "eiusmod",
             },
             {
-                "id":"product 2",
+                "id":"acr2",
                 "name":"name",
                 "img": category1,
                 "heading": "Acreage",
@@ -168,7 +168,7 @@ export const categoryList:Array<Record<string,any>>=[
                 "titleText2": "eiusmod",
             },
             {
-                "id":"product 3",
+                "id":"acr3",
                 "name":"name",
                 "img": category1,
                 "heading": "Acreage",
@@ -179,7 +179,7 @@ export const categoryList:Array<Record<string,any>>=[
                 "titleText2": "eiusmod",
             },
             {
-                "id":"product 4",
+                "id":"acr4",
                 "name":"name",
                 "img": category1,
                 "heading": "Acreage",
@@ -197,10 +197,10 @@ export const categoryList:Array<Record<string,any>>=[
         "name":"Garage Suite",
         "products":[
             {
-                "id":"product 1",
+                "id":"gs1",
                 "name":"name",
                 "img": category1,
-                "heading": "Garage Suit",
+                "heading": "Garage Suite",
                 "price": `$69.00`,
                 "title1": "eiusmod tempo",
                 "title2": "eiusmod tempo",
@@ -208,10 +208,10 @@ export const categoryList:Array<Record<string,any>>=[
                 "titleText2": "eiusmod",
             },
             {
-                "id":"product 2",
+                "id":"gs2",
                 "name":"name",
                 "img": category1,
-                "heading": "Garage Suit",
+                "heading": "Garage Suite",
                 "price": `$69.00`,
                 "title1": "eiusmod tempo",
                 "title2": "eiusmod tempo",
@@ -219,10 +219,10 @@ export const categoryList:Array<Record<string,any>>=[
                 "titleText2": "eiusmod",
             },
             {
-                "id":"product 3",
+                "id":"gs3",
                 "name":"name",
                 "img": category1,
-                "heading": "Garage Suit",
+                "heading": "Garage Suite",
                 "price": `$69.00`,
                 "title1": "eiusmod tempo",
                 "title2": "eiusmod tempo",
