@@ -430,3 +430,7 @@ a {
     cursor: pointer;
   }
 }
+
+.navLink{
+  text-decoration: none !important;
+}

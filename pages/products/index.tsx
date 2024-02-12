@@ -17,7 +17,7 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { categoryList } from "../home/category_data";
+import { categoryList } from "../../component/home/category_data"
 import Image, { StaticImageData } from "next/image";
 import SearchIcon from "@mui/icons-material/Search";
 import { useMediaQuery } from "@mui/material";

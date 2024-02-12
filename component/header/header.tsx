@@ -38,8 +38,8 @@ import categoryIcon from "../../public/Images/category_Icon.svg";
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 const drawerWidth = 240;
-const pages = ["Header", "About Us", "projects", "Services", "Contact Us"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 const Header = () => {
   const [age, setAge] = React.useState("");
@@ -73,8 +73,8 @@ const Header = () => {
       </Typography>
       <Divider />
       <List>
-        {pages.map((item) => (
-          <ListItem key={item} disablePadding>
+        <Link href={"/"} className="navLink">
+          <ListItem disablePadding>
             <ListItemButton
               sx={{
                 "&:hover": {
@@ -87,10 +87,82 @@ const Header = () => {
                 textTransform: "capitalize",
               }}
             >
-              <ListItemText primary={item} />
+              <ListItemText primary="Home" />
             </ListItemButton>
           </ListItem>
-        ))}
+        </Link>
+        <Link href={"/about"} className="navLink">
+          <ListItem disablePadding>
+            <ListItemButton
+              sx={{
+                "&:hover": {
+                  bgcolor: "#B12930",
+                  color: "#fff",
+                },
+                textAlign: "center",
+                color: "#000",
+                fontFamily: "Inria Serif",
+                textTransform: "capitalize",
+              }}
+            >
+              <ListItemText primary="About Us" />
+            </ListItemButton>
+          </ListItem>
+        </Link>
+        <Link href={"/products"} className="navLink">
+          <ListItem disablePadding>
+            <ListItemButton
+              sx={{
+                "&:hover": {
+                  bgcolor: "#B12930",
+                  color: "#fff",
+                },
+                textAlign: "center",
+                color: "#000",
+                fontFamily: "Inria Serif",
+                textTransform: "capitalize",
+              }}
+            >
+              <ListItemText primary="Plans" />
+            </ListItemButton>
+          </ListItem>
+        </Link>
+        <Link href={"/services"} className="navLink">
+          <ListItem disablePadding>
+            <ListItemButton
+              sx={{
+                "&:hover": {
+                  bgcolor: "#B12930",
+                  color: "#fff",
+                },
+                textAlign: "center",
+                color: "#000",
+                fontFamily: "Inria Serif",
+                textTransform: "capitalize",
+              }}
+            >
+              <ListItemText primary="Services" />
+            </ListItemButton>
+          </ListItem>
+        </Link>
+        <Link href={"/contact"} className="navLink">
+          <ListItem disablePadding>
+            <ListItemButton
+              sx={{
+                "&:hover": {
+                  bgcolor: "#B12930",
+                  color: "#fff",
+                },
+                textAlign: "center",
+                color: "#000",
+                fontFamily: "Inria Serif",
+                textTransform: "capitalize",
+              }}
+            >
+              <ListItemText primary="Contact Us" />
+            </ListItemButton>
+          </ListItem>
+        </Link>
       </List>
     </Box>
   );
@@ -102,6 +174,7 @@ const Header = () => {
             bgcolor: "#000",
             color: "#fff",
             py: "1vh",
+            display:{xs:"none",sm:"flex"}
           }}
         >
           <Container maxWidth="xl">
@@ -136,8 +209,8 @@ const Header = () => {
                     <MenuIcon sx={{ color: "#000" }} />
                   </IconButton>
                 </Grid>
-                <Grid item xs={10} sm={6}>
-                  <Typography
+                <Grid item xs={10} sm={3}>
+                  <Box
                     // variant="h6"
                     component="div"
                     sx={{
@@ -162,57 +235,120 @@ const Header = () => {
                       width={250}
                       sizes="100vw"
                     ></Image>
-                  </Typography>
-                </Grid>
-                {/* <Grid item xs={0} sm={8} textAlign={"center"}>
-              <Box sx={{ display: { xs: "none", sm: "block" } }}>
-                {pages.map((item) => (
-                  <Button
-                    key={item}
-                    sx={{
-                      "&:hover": {
-                        color: "#B12930",
-                        borderColor: "#B12930",
-                        backgroundColor: "rgb(255,255,255,0)",
-                      },
-                      fontWeight: 550,
-                      color: "#000",
-                      px: { sm: 1, md: 2, lg: 4 },
-                      border: "1px solid rgb(255,255,255,0)",
-                      borderRadius: "25px",
-                      fontSize: { sm: "", md: "18px", lg: "22px" },
-                      fontFamily: "Inria Serif",
-                      textTransform: "capitalize",
-                    }}
-                  >
-                    {item}
-                  </Button>
-                ))}
-              </Box>
-            </Grid> */}
-                {/* <Grid item xs={0} sm={5}>
-                  <Box sx={{ display: "flex" }}>
-                    <TextField
-                      size="small"
-                      fullWidth
-                      placeholder="Search Product"
-                    ></TextField>
-                    <Button
-                      variant="contained"
-                      sx={{
-                        "&:hover": {
-                          bgcolor: "hsl(357, 62%, 55%)",
-                        },
-                        px: 5,
-                        bgcolor: "#B12930",
-                      }}
-                    >
-                      Search <SearchIcon fontSize="small" sx={{ ml: 1 }} />
-                    </Button>
                   </Box>
-                </Grid> */}
+                </Grid>
+                
+                <Grid item xs={0} sm={8} textAlign={"center"}>
+                  <Box sx={{ display: { xs: "none", sm: "block" } }}>
+                    <Link href={"/"}>
+                      <Button
+                        sx={{
+                          "&:hover": {
+                            color: "#B12930",
+                            borderColor: "#B12930",
+                            backgroundColor: "rgb(255,255,255,0)",
+                          },
+                          fontWeight: 550,
+                          color: "#000",
+                          px: { sm: 1, md: 2, lg: 4 },
+                          border: "1px solid rgb(255,255,255,0)",
+                          // borderRadius: "25px",
+                          fontSize: { sm: "", md: "18px", lg: "22px" },
+                          fontFamily: "Inria Serif",
+                          textTransform: "capitalize",
+                        }}
+                      >
+                        Home
+                      </Button>
+                    </Link>
+                    <Link href={"/about"}>
+                      <Button
+                        sx={{
+                          "&:hover": {
+                            color: "#B12930",
+                            borderColor: "#B12930",
+                            backgroundColor: "rgb(255,255,255,0)",
+                          },
+                          fontWeight: 550,
+                          color: "#000",
+                          px: { sm: 1, md: 2, lg: 4 },
+                          border: "1px solid rgb(255,255,255,0)",
+                          // borderRadius: "25px",
+                          fontSize: { sm: "", md: "18px", lg: "22px" },
+                          fontFamily: "Inria Serif",
+                          textTransform: "capitalize",
+                        }}
+                      >
+                        About Us
+                      </Button>
+                    </Link>
+                    <Link href={"/products"}>
+                      <Button
+                        sx={{
+                          "&:hover": {
+                            color: "#B12930",
+                            borderColor: "#B12930",
+                            backgroundColor: "rgb(255,255,255,0)",
+                          },
+                          fontWeight: 550,
+                          color: "#000",
+                          px: { sm: 1, md: 2, lg: 4 },
+                          border: "1px solid rgb(255,255,255,0)",
+                          // borderRadius: "25px",
+                          fontSize: { sm: "", md: "18px", lg: "22px" },
+                          fontFamily: "Inria Serif",
+                          textTransform: "capitalize",
+                        }}
+                      >
+                        Plans
+                      </Button>
+                    </Link>
+                    <Link href={"/services"}>
+                      <Button
+                        sx={{
+                          "&:hover": {
+                            color: "#B12930",
+                            borderColor: "#B12930",
+                            backgroundColor: "rgb(255,255,255,0)",
+                          },
+                          fontWeight: 550,
+                          color: "#000",
+                          px: { sm: 1, md: 2, lg: 4 },
+                          border: "1px solid rgb(255,255,255,0)",
+                          // borderRadius: "25px",
+                          fontSize: { sm: "", md: "18px", lg: "22px" },
+                          fontFamily: "Inria Serif",
+                          textTransform: "capitalize",
+                        }}
+                      >
+                        Services
+                      </Button>
+                    </Link>
+                    <Link href={"/contact"}>
+                      <Button
+                        sx={{
+                          "&:hover": {
+                            color: "#B12930",
+                            borderColor: "#B12930",
+                            backgroundColor: "rgb(255,255,255,0)",
+                          },
+                          fontWeight: 550,
+                          color: "#000",
+                          px: { sm: 1, md: 2, lg: 4 },
+                          border: "1px solid rgb(255,255,255,0)",
+                          // borderRadius: "25px",
+                          fontSize: { sm: "", md: "18px", lg: "22px" },
+                          fontFamily: "Inria Serif",
+                          textTransform: "capitalize",
+                        }}
+                      >
+                        Contact Us
+                      </Button>
+                    </Link>
+                  </Box>
+                </Grid>
                 <Grid item xs={1} sm={1} textAlign={"end"}>
-                  <Box>
+                  <Box sx={{ flexGrow: 0 }}>
                     <Tooltip title="Open settings">
                       <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                         <Avatar

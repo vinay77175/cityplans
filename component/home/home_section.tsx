@@ -30,8 +30,9 @@ import {
   ListItemText,
 } from "@mui/material";
 import Image from "next/image";
+import Link from "next/link";
 const drawerWidth = 240;
-const pages = ["Home", "About Us", "projects", "Services", "Contact Us"];
+const pages = ["home", "about Us", "plans", "Services", "Contact Us"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 const Home_section = () => {
   var slideSettings = {
@@ -71,8 +72,8 @@ const Home_section = () => {
       </Typography>
       <Divider />
       <List>
-        {pages.map((item) => (
-          <ListItem key={item} disablePadding>
+        <Link href={"/"} className="navLink"> 
+          <ListItem disablePadding>
             <ListItemButton
               sx={{
                 "&:hover": {
@@ -85,10 +86,82 @@ const Home_section = () => {
                 textTransform: "capitalize",
               }}
             >
-              <ListItemText primary={item} />
+              <ListItemText primary="Home" />
             </ListItemButton>
           </ListItem>
-        ))}
+        </Link>
+        <Link href={"/about"} className="navLink"> 
+          <ListItem disablePadding>
+            <ListItemButton
+              sx={{
+                "&:hover": {
+                  bgcolor: "#B12930",
+                  color: "#fff",
+                },
+                textAlign: "center",
+                color: "#000",
+                fontFamily: "Inria Serif",
+                textTransform: "capitalize",
+              }}
+            >
+              <ListItemText primary="About Us" />
+            </ListItemButton>
+          </ListItem>
+        </Link>
+        <Link href={"/products"} className="navLink"> 
+          <ListItem disablePadding>
+            <ListItemButton
+              sx={{
+                "&:hover": {
+                  bgcolor: "#B12930",
+                  color: "#fff",
+                },
+                textAlign: "center",
+                color: "#000",
+                fontFamily: "Inria Serif",
+                textTransform: "capitalize",
+              }}
+            >
+              <ListItemText primary="Plans" />
+            </ListItemButton>
+          </ListItem>
+        </Link>
+        <Link href={"/services"} className="navLink"> 
+          <ListItem disablePadding>
+            <ListItemButton
+              sx={{
+                "&:hover": {
+                  bgcolor: "#B12930",
+                  color: "#fff",
+                },
+                textAlign: "center",
+                color: "#000",
+                fontFamily: "Inria Serif",
+                textTransform: "capitalize",
+              }}
+            >
+              <ListItemText primary="Services" />
+            </ListItemButton>
+          </ListItem>
+        </Link>
+        <Link href={"/contact"} className="navLink"> 
+          <ListItem disablePadding>
+            <ListItemButton
+              sx={{
+                "&:hover": {
+                  bgcolor: "#B12930",
+                  color: "#fff",
+                },
+                textAlign: "center",
+                color: "#000",
+                fontFamily: "Inria Serif",
+                textTransform: "capitalize",
+              }}
+            >
+              <ListItemText primary="Contact Us" />
+            </ListItemButton>
+          </ListItem>
+        </Link>
       </List>
     </Box>
   );
@@ -138,9 +211,8 @@ const Home_section = () => {
             </Grid>
             <Grid item xs={0} sm={8} textAlign={"center"}>
               <Box sx={{ display: { xs: "none", sm: "block" } }}>
-                {pages.map((item) => (
+                <Link href={"/"}>
                   <Button
-                    key={item}
                     sx={{
                       "&:hover": {
                         color: "#B12930",
@@ -157,13 +229,97 @@ const Home_section = () => {
                       textTransform: "capitalize",
                     }}
                   >
-                    {item}
+                    Home
                   </Button>
-                ))}
+                </Link>
+                <Link href={"/about"}>
+                  <Button
+                    sx={{
+                      "&:hover": {
+                        color: "#B12930",
+                        borderColor: "#B12930",
+                        backgroundColor: "rgb(255,255,255,0)",
+                      },
+                      fontWeight: 550,
+                      color: "#000",
+                      px: { sm: 1, md: 2, lg: 4 },
+                      border: "1px solid rgb(255,255,255,0)",
+                      // borderRadius: "25px",
+                      fontSize: { sm: "", md: "18px", lg: "22px" },
+                      fontFamily: "Inria Serif",
+                      textTransform: "capitalize",
+                    }}
+                  >
+                    About Us
+                  </Button>
+                </Link>
+                <Link href={"/products"}>
+                  <Button
+                    sx={{
+                      "&:hover": {
+                        color: "#B12930",
+                        borderColor: "#B12930",
+                        backgroundColor: "rgb(255,255,255,0)",
+                      },
+                      fontWeight: 550,
+                      color: "#000",
+                      px: { sm: 1, md: 2, lg: 4 },
+                      border: "1px solid rgb(255,255,255,0)",
+                      // borderRadius: "25px",
+                      fontSize: { sm: "", md: "18px", lg: "22px" },
+                      fontFamily: "Inria Serif",
+                      textTransform: "capitalize",
+                    }}
+                  >
+                    Plans
+                  </Button>
+                </Link>
+                <Link href={"/services"}>
+                  <Button
+                    sx={{
+                      "&:hover": {
+                        color: "#B12930",
+                        borderColor: "#B12930",
+                        backgroundColor: "rgb(255,255,255,0)",
+                      },
+                      fontWeight: 550,
+                      color: "#000",
+                      px: { sm: 1, md: 2, lg: 4 },
+                      border: "1px solid rgb(255,255,255,0)",
+                      // borderRadius: "25px",
+                      fontSize: { sm: "", md: "18px", lg: "22px" },
+                      fontFamily: "Inria Serif",
+                      textTransform: "capitalize",
+                    }}
+                  >
+                    Services
+                  </Button>
+                </Link>
+                <Link href={"/contact"}>
+                  <Button
+                    sx={{
+                      "&:hover": {
+                        color: "#B12930",
+                        borderColor: "#B12930",
+                        backgroundColor: "rgb(255,255,255,0)",
+                      },
+                      fontWeight: 550,
+                      color: "#000",
+                      px: { sm: 1, md: 2, lg: 4 },
+                      border: "1px solid rgb(255,255,255,0)",
+                      // borderRadius: "25px",
+                      fontSize: { sm: "", md: "18px", lg: "22px" },
+                      fontFamily: "Inria Serif",
+                      textTransform: "capitalize",
+                    }}
+                  >
+                    Contact Us
+                  </Button>
+                </Link>
               </Box>
             </Grid>
             <Grid item xs={1} sm={1} textAlign={"center"}>
-              <Box>
+              <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                     <Avatar
@@ -333,20 +489,19 @@ const Home_section = () => {
           sx={{ px: 3.1, mt: { xs: 10, sm: 30, md: 0 } }}
         >
           <Box sx={{ width: "100%", height: { xs: "50%", lg: "100%" } }}>
-            <Slider {...slideSettings} >
+            <Slider {...slideSettings}>
               {SlideData?.map((item) => {
                 return (
                   <Box
-                    sx={{ 
-                      // objectFit: "cover", 
+                    sx={{
+                      // objectFit: "cover",
                       height: {
                         xs: "350px",
                         sm: "500px",
                         md: "550px",
                         lg: "600px",
                       },
-                      
-                  }}
+                    }}
                     // component={"div"}
                     key={item.id}
                   >
@@ -358,11 +513,10 @@ const Home_section = () => {
                       layout="intrinsic"
                       objectFit="contain"
                       alt="slider_image"
-                      quality={100}               
+                      quality={100}
                       priority={true}
                       // sizes="(max-width: 768px) 33vw, (max-width: 1200px) 33vw, 33vw"
                     />
-
                   </Box>
                 );
               })}
