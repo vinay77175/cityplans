@@ -98,7 +98,7 @@ const Product_Details = () => {
   //show full list of card from the very starting
   useEffect(() => {
     const allProducts: Product[] = [];
-    categoryList.forEach((category) => {
+    categoryList?.forEach((category) => {
       allProducts.push(...category.products);
     });
     setFilteredProducts(allProducts);

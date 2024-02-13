@@ -1,8 +1,9 @@
 import Google from "../../public/Images/Google.svg";
-import backImage from "../../public/Images/CarouselImages/2.jpg";
+import backImage from "../../public/Images/CarouselImages/7.jpg";
 import {
   Box,
   Button,
+  Checkbox,
   Container,
   Divider,
   FormControl,
@@ -21,17 +22,17 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-const Login = () => {
+const Register = () => {
   const router = useRouter();
   const [showPassword, setShowPassword] = React.useState(false);
   const [userName, setuserName] = useState<Record<string, string>>({
     userName: "",
     password: "",
   });
-  const loginObj = {
-    userName: "admin",
-    password: "123456789",
-  };
+  // const loginObj = {
+  //   userName: "admin",
+  //   password: "123456789",
+  // };
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   const handleMouseDownPassword = (
@@ -43,16 +44,17 @@ const Login = () => {
     // console.log(value);
     setuserName((prev) => ({ ...prev, [name]: value }));
   };
-  const handleSubmit = () => {
-    if (
-      userName["userName"] === loginObj.userName &&
-      userName["password"] === loginObj.password
-    ) {
-      router.push("/");
-    } else {
-      alert("Invalid User Details");
-    }
-  };
+  // const handleSubmit = () => {
+  //   if (
+  //     userName["userName"] === loginObj.userName &&
+  //     userName["password"] === loginObj.password
+  //   ) {
+  //     router.push("/");
+  //     // alert("Register");
+  //   } else {
+  //     alert("Invalid User Details");
+  //   }
+  // };
   return (
     <div>
       <Box sx={{ minHeight: "100vh" }}>
@@ -87,7 +89,7 @@ const Login = () => {
                     variant="h3"
                     sx={{ fontSize: "2.3rem", fontWeight: 600 }}
                   >
-                    Sign In Page
+                    Sign Up Page
                   </Typography>
                 </Box>
                 <Box
@@ -129,9 +131,9 @@ const Login = () => {
                 <Box my={5} display={"flex"} flexDirection={"column"} gap={5}>
                   <TextField
                     variant="outlined"
-                    label="Username"
+                    label="Email Address"
                     size="medium"
-                    name="userName"
+                    name="email"
                     fullWidth
                     onChange={(e) =>
                       handleChange(e.target.name, e.target.value)
@@ -140,6 +142,20 @@ const Login = () => {
                   <FormControl variant="outlined">
                     <InputLabel htmlFor="outlined-adornment-password">
                       Password
+                    </InputLabel>
+                    <OutlinedInput
+                      name="password"
+                      onChange={(e) =>
+                        handleChange(e.target.name, e.target.value)
+                      }
+                      id="outlined-adornment-password"
+                      type={showPassword ? "text" : "password"}
+                      label="Password"
+                    />
+                  </FormControl>
+                  <FormControl variant="outlined">
+                    <InputLabel htmlFor="outlined-adornment-password">
+                      Confirm Password
                     </InputLabel>
                     <OutlinedInput
                       name="password"
@@ -160,14 +176,38 @@ const Login = () => {
                           </IconButton>
                         </InputAdornment>
                       }
-                      label="Password"
+                      label="Confirm Password"
                     />
                   </FormControl>
-                  <Link href={"/login/email_verify"} style={{ color: "#000" }}>
-                    <Typography>Forgot your password ?</Typography>
-                  </Link>
                 </Box>
                 <Box>
+                  <Typography>
+                    <Checkbox
+                      // {...label}
+                      // defaultChecked
+                      sx={{
+                        color: "#000",
+                        "&.Mui-checked": {
+                          color: "#000",
+                        },
+                      }}
+                    />
+                    Agree to our Term of use and Privacy Policy
+                  </Typography>
+                  <Typography>
+                    <Checkbox
+                      // {...label}
+                      sx={{
+                        color: "#000",
+                        "&.Mui-checked": {
+                          color: "#000",
+                        },
+                      }}
+                    />
+                    Subscribe to our Monthly newsletter
+                  </Typography>
+                </Box>
+                <Box mt={3}>
                   <Button
                     variant="contained"
                     sx={{
@@ -177,14 +217,14 @@ const Login = () => {
                       minWidth: 150,
                       bgcolor: "#b12930",
                     }}
-                    onClick={handleSubmit}
+                    // onClick={handleSubmit}
                   >
-                    Sign In
+                    Sign Up
                   </Button>
                   <Typography mt={3}>
-                    Don't have an account?{" "}
-                    <Link href="/register" style={{ color: "#000" }}>
-                      Sign up
+                    Already have an account?{" "}
+                    <Link href="/login" style={{ color: "#000" }}>
+                      Sign In
                     </Link>
                   </Typography>
                 </Box>
@@ -197,4 +237,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
