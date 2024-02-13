@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "public/Images/facebook_logo.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "public/Images/facebook_logo.jsx", "pages/test/index.jsx"],
   "exclude": ["node_modules"]
 }

@@ -1,10 +1,10 @@
-import Google from "../../public/Images/Google.svg";
-import backImage from "../../public/Images/CarouselImages/2.jpg";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import backImage from "../../../public/Images/CarouselImages/6.jpg";
 import {
   Box,
   Button,
   Container,
-  Divider,
   FormControl,
   Grid,
   IconButton,
@@ -16,22 +16,20 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import React, { useState } from "react";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-const Login = () => {
+const ResetPwd = () => {
   const router = useRouter();
   const [showPassword, setShowPassword] = React.useState(false);
   const [userName, setuserName] = useState<Record<string, string>>({
     userName: "",
     password: "",
   });
-  const loginObj = {
-    userName: "admin",
-    password: "123456789",
-  };
+  // const loginObj = {
+  //   userName: "admin",
+  //   password: "123456789",
+  // };
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   const handleMouseDownPassword = (
@@ -44,14 +42,14 @@ const Login = () => {
     setuserName((prev) => ({ ...prev, [name]: value }));
   };
   const handleSubmit = () => {
-    if (
-      userName["userName"] === loginObj.userName &&
-      userName["password"] === loginObj.password
-    ) {
-      router.push("/");
-    } else {
-      alert("Invalid User Details");
-    }
+    // if (
+    //   userName["userName"] === loginObj.userName &&
+    //   userName["password"] === loginObj.password
+    // ) {
+    router.push("/login");
+    // } else {
+    //   alert("Invalid User Details");
+    // }
   };
   return (
     <div>
@@ -87,59 +85,29 @@ const Login = () => {
                     variant="h3"
                     sx={{ fontSize: "2.3rem", fontWeight: 600 }}
                   >
-                    Sign In Page
+                    Set Password
                   </Typography>
+                  <Typography>Enter Your New Password</Typography>
                 </Box>
-                <Box
-                  sx={{
-                    my: 5,
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 3,
-                  }}
-                >
-                  <Button
-                    variant="outlined"
-                    fullWidth
-                    sx={{
-                      "&:hover": {
-                        color: "#fff",
-                        bgcolor: "#b12930",
-                        borderColor: "#fff",
-                      },
-                      borderRadius: "8px",
-                      height: "5vh",
-                      border: "1px solid black",
-                      color: "#b12930",
-                      fontWeight: 600,
-                      fontSize: 16,
-                    }}
-                  >
-                    <Image
-                      src={Google.src}
-                      height={25}
-                      width={25}
-                      alt="google"
-                      style={{ marginRight: "8px" }}
-                    />
-                    Continue with Google
-                  </Button>
-                </Box>
-                <Divider>OR</Divider>
+
                 <Box my={5} display={"flex"} flexDirection={"column"} gap={5}>
-                  <TextField
-                    variant="outlined"
-                    label="Username"
-                    size="medium"
-                    name="userName"
-                    fullWidth
-                    onChange={(e) =>
-                      handleChange(e.target.name, e.target.value)
-                    }
-                  />
                   <FormControl variant="outlined">
                     <InputLabel htmlFor="outlined-adornment-password">
                       Password
+                    </InputLabel>
+                    <OutlinedInput
+                      name="password"
+                      onChange={(e) =>
+                        handleChange(e.target.name, e.target.value)
+                      }
+                      id="outlined-adornment-password"
+                      type={showPassword ? "text" : "password"}
+                      label="Password"
+                    />
+                  </FormControl>
+                  <FormControl variant="outlined">
+                    <InputLabel htmlFor="outlined-adornment-password">
+                      Confirm Password
                     </InputLabel>
                     <OutlinedInput
                       name="password"
@@ -160,12 +128,9 @@ const Login = () => {
                           </IconButton>
                         </InputAdornment>
                       }
-                      label="Password"
+                      label="Confirm Password"
                     />
                   </FormControl>
-                  <Link href={"/login/email_verify"} style={{ color: "#000" }}>
-                    <Typography>Forgot your password ?</Typography>
-                  </Link>
                 </Box>
                 <Box>
                   <Button
@@ -179,14 +144,8 @@ const Login = () => {
                     }}
                     onClick={handleSubmit}
                   >
-                    Sign In
+                    submit
                   </Button>
-                  <Typography mt={3}>
-                    Don't have an account?{" "}
-                    <Link href="/register" style={{ color: "#000" }}>
-                      Sign up
-                    </Link>
-                  </Typography>
                 </Box>
               </Box>
             </Container>
@@ -197,4 +156,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ResetPwd;

@@ -7,13 +7,30 @@ const layout = (props) => {
 
   return (
     <div>
-      {pathname == "/" || pathname == "/login" || pathname == "/register" ? (
-        ""
-      ) : (
-        <Header />
-      )}
+      {/* {
+      ((pathname !== "/" )|
+      (pathname !== "/login") |
+     ( pathname !== "/register") |
+     ( pathname !== "/login/email_verify/verification" )|
+      (pathname !== "/login/email_verify/reset_pwd") |
+      (pathname !== "/login/email_verify")) && <Header />
+      } */}
+      {!(
+        pathname == "/" ||
+        pathname == "/login" ||
+        pathname == "/register" ||
+        pathname == "/login/email_verify/verification" ||
+        pathname == "/login/email_verify/reset_pwd" ||
+        pathname == "/login/email_verify"
+      ) && <Header />}
       <main>{props.children}</main>
-      {pathname == "/login" || pathname == "/register" ? "" : <Footer />}
+      {!(
+        pathname == "/login" ||
+        pathname == "/register" ||
+        pathname == "/login/email_verify/verification" ||
+        pathname == "/login/email_verify/reset_pwd" ||
+        pathname == "/login/email_verify"
+      ) && <Footer />}
     </div>
   );
 };
