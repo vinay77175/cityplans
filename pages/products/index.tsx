@@ -16,7 +16,13 @@ import {
   TextField,
   Typography,
   Modal,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
 } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import React, { useEffect, useState } from "react";
 import { categoryList } from "../../component/home/category_data";
 import Image, { StaticImageData } from "next/image";
@@ -28,10 +34,10 @@ import KeyboardDoubleArrowRightRoundedIcon from "@mui/icons-material/KeyboardDou
 //Modal Styles
 const style = {
   position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
+  top: "30%",
+  left: "40%",
   transform: "translate(-50%, -50%)",
-  width: 400,
+  width: 600,
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
@@ -39,136 +45,25 @@ const style = {
   px: 4,
   pb: 3,
 };
+// const style1 = {
+//   position: "absolute",
+//   top: "50%",
+//   left: "60%",
+//   transform: "translate(-50%, -50%)",
+//   width: 400,
+//   bgcolor: "background.paper",
+//   border: "2px solid #000",
+
+//   pt: 2,
+//   px: 4,
+//   pb: 3,
+// };
 
 //Child Modal function
 
-function ChildModal1() {
-  const [open1, setOpen1] = useState(false);
-  const handleOpen = () => {
-    setOpen1(true);
-  };
-  const handleClose = () => {
-    setOpen1(false);
-  };
-
-  return (
-    <React.Fragment>
-      <Button onClick={handleOpen} fullWidth>
-        {" "}
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            marginY: { xs: "1.5vh", lg: "2vh" },
-          }}
-          // onClick={ChildModal}
-        >
-          <Typography
-            sx={{
-              fontSize: {
-                xs: "12px",
-                sm: "14px",
-                md: "16px",
-                lg: "22px",
-                xl: "24px",
-              },
-              fontFamily: "Times New Roman",
-              marginY: { xs: "0vh", lg: "1vh" },
-            }}
-          >
-            Dealers{" "}
-          </Typography>
-          <KeyboardDoubleArrowRightRoundedIcon
-            sx={{
-              color: "#b12930",
-              fontSize: "30px",
-            }}
-          />
-        </Box>
-      </Button>
-      <Modal
-        open={open1}
-        onClose={handleClose}
-        aria-labelledby="child-modal-title"
-        aria-describedby="child-modal-description"
-      >
-        <Box sx={{ ...style, width: 200 }}>
-          <h2 id="child-modal-title">Text in a child modal</h2>
-          <p id="child-modal-description">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          </p>
-          <Button onClick={handleClose}>Close Child Modal</Button>
-        </Box>
-      </Modal>
-    </React.Fragment>
-  );
-}
-function ChildModal() {
-  const [open1, setOpen1] = useState(false);
-  const handleOpen = () => {
-    setOpen1(true);
-  };
-  const handleClose = () => {
-    setOpen1(false);
-  };
-
-  return (
-    <React.Fragment>
-      <Button onClick={handleOpen} fullWidth>
-        {" "}
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            marginY: { xs: "1.5vh", lg: "2vh" },
-          }}
-          // onClick={ChildModal}
-        >
-          <Typography
-            sx={{
-              fontSize: {
-                xs: "12px",
-                sm: "14px",
-                md: "16px",
-                lg: "22px",
-                xl: "24px",
-              },
-              fontFamily: "Times New Roman",
-              marginY: { xs: "0vh", lg: "1vh" },
-            }}
-          >
-            Dealers{" "}
-          </Typography>
-          <KeyboardDoubleArrowRightRoundedIcon
-            sx={{
-              color: "#b12930",
-              fontSize: "30px",
-            }}
-          />
-        </Box>
-      </Button>
-      <Modal
-        open={open1}
-        onClose={handleClose}
-        aria-labelledby="child-modal-title"
-        aria-describedby="child-modal-description"
-      >
-        <Box sx={{ ...style, width: 200 }}>
-          <h2 id="child-modal-title">Text in a child modal</h2>
-          <p id="child-modal-description">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          </p>
-          <Button onClick={handleClose}>Close Child Modal</Button>
-        </Box>
-      </Modal>
-    </React.Fragment>
-  );
-}
-
-export default function Product_Details() {
+const Product_Details = () => {
   const isMobile = useMediaQuery("(max-width:600px)");
+
   //category dropdown
   const [age, setAge] = React.useState("");
 
@@ -179,11 +74,11 @@ export default function Product_Details() {
   //card selected category
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+  let [openModal, setOpenModal] = useState<boolean>(false);
+  const [open1, setOpen1] = useState(false);
 
-  // const [selectedCategory, setSelectedCategory] = useState<string>("");
   const handleCategoryChange = (categoryId: string) => {
     // setSelectedCategory(categoryId);
-
     const selectedCategory = categoryList.find(
       (category) => category.id === categoryId
     );
@@ -206,15 +101,37 @@ export default function Product_Details() {
     setFilteredProducts(allProducts);
   }, [categoryList]);
 
-  //filter Modal
+  //filter Parent Modal
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => {
     setOpen(true);
   };
   const handleClose = () => {
     setOpen(false);
+    setOpenModal(false);
   };
-
+  // function ChildModal1() {
+  //   return (
+  //     <React.Fragment>
+  //       <Modal
+  //         open={openModal}
+  //         onClose={handleClose}
+  //         aria-labelledby="child-modal-title"
+  //         aria-describedby="child-modal-description"
+  //       >
+  //         <Box sx={{ ...style1, width: 400 }}>
+  //           <Typography>Hello</Typography>
+  //         </Box>
+  //       </Modal>
+  //     </React.Fragment>
+  //   );
+  // }
+  const handleOpenModal = (modalId: String) => {
+    if (modalId == "1") {
+      openModal = true;
+      setOpenModal(openModal);
+    }
+  };
   interface Category {
     id: string;
     name: string;
@@ -404,19 +321,13 @@ export default function Product_Details() {
                   Featured
                 </Button>
               </Box>
-
               <Modal
                 open={open}
                 onClose={handleClose}
                 aria-labelledby="parent-modal-title"
                 aria-describedby="parent-modal-description"
               >
-                <Box sx={{ ...style, width: 400 }}>
-                  {/* <h2 id="parent-modal-title">Text in a modal</h2>
-                  <p id="parent-modal-description">
-                    Duis mollis, est non commodo luctus, nisi erat porttitor
-                    ligula.
-                  </p> */}
+                <Box sx={{ ...style, width: 600 }}>
                   <Typography
                     sx={{
                       fontSize: {
@@ -454,10 +365,10 @@ export default function Product_Details() {
                       alignItems: "center",
                       justifyContent: "space-between",
                       marginY: { xs: "1.5vh", lg: "2vh" },
+                      cursor: "pointer",
                     }}
-                    // onClick={ChildModal}
+                    onClick={() => handleOpenModal("1")}
                   >
-                    <ChildModal />
                     <Typography
                       sx={{
                         fontSize: {
@@ -480,7 +391,21 @@ export default function Product_Details() {
                       }}
                     />
                   </Box> */}
-                  <ChildModal1 />
+                  {/* {openModal && <ChildModal1 />} */}
+                  <Box width={"100%"}>
+                    <Accordion sx={{ color: "blue", backgroundColor: "white" }}>
+                      <AccordionSummary expandIcon={<ArrowDownwardIcon />}>
+                        <Typography>Accordion 1</Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <Typography>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit. Suspendisse malesuada lacus ex, sit amet blandit
+                          leo lobortis eget.
+                        </Typography>
+                      </AccordionDetails>
+                    </Accordion>
+                  </Box>
                   <Divider />
                 </Box>
               </Modal>
@@ -686,4 +611,6 @@ export default function Product_Details() {
       </Box>
     </Container>
   );
-}
+};
+
+export default Product_Details;
