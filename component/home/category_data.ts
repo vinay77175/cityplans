@@ -229,6 +229,71 @@ export const categoryList:Array<Record<string,any>>=[
                 "titleText1": "eiusmod",
                 "titleText2": "eiusmod",
             },
+            {
+                "id":"gs4",
+                "name":"name",
+                "img": category1,
+                "heading": "Garage Suite",
+                "price": `$69.00`,
+                "title1": "eiusmod tempo",
+                "title2": "eiusmod tempo",
+                "titleText1": "eiusmod",
+                "titleText2": "eiusmod",
+            },
+      
+           
+
+        ],
+    },
+    {
+        "id":"5",
+        "isChecked":false,
+        "name":"FourPlex",
+        "products":[
+            {
+                "id":"FP1",
+                "name":"name",
+                "img": category1,
+                "heading": "FourPLex",
+                "price": `$69.00`,
+                "title1": "eiusmod tempo",
+                "title2": "eiusmod tempo",
+                "titleText1": "eiusmod",
+                "titleText2": "eiusmod",
+            },
+            {
+                "id":"FP2",
+                "name":"name",
+                "img": category1,
+                "heading": "FourPLex",
+                "price": `$69.00`,
+                "title1": "eiusmod tempo",
+                "title2": "eiusmod tempo",
+                "titleText1": "eiusmod",
+                "titleText2": "eiusmod",
+            },
+            {
+                "id":"FP3",
+                "name":"name",
+                "img": category1,
+                "heading": "FourPLex",
+                "price": `$69.00`,
+                "title1": "eiusmod tempo",
+                "title2": "eiusmod tempo",
+                "titleText1": "eiusmod",
+                "titleText2": "eiusmod",
+            },
+            {
+                "id":"FP4",
+                "name":"name",
+                "img": category1,
+                "heading": "FourPLex",
+                "price": `$69.00`,
+                "title1": "eiusmod tempo",
+                "title2": "eiusmod tempo",
+                "titleText1": "eiusmod",
+                "titleText2": "eiusmod",
+            },
       
            
 

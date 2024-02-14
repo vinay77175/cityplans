@@ -83,8 +83,71 @@ const Product_Details = () => {
   let [openModal, setOpenModal] = useState<boolean>(false);
   const [open1, setOpen1] = useState(false);
 
+  //category change state
+  let [isSelected1, setIsSelected1] = useState<boolean>(false);
+  let [isSelected2, setIsSelected2] = useState<boolean>(false);
+  let [isSelected3, setIsSelected3] = useState<boolean>(false);
+  let [isSelected4, setIsSelected4] = useState<boolean>(false);
+  let [isSelected5, setIsSelected5] = useState<boolean>(false);
+
   const handleCategoryChange = (categoryId: string) => {
     // setSelectedCategory(categoryId);
+    if (categoryId == "1") {
+      isSelected1 = true;
+      isSelected2 = false;
+      isSelected3 = false;
+      isSelected4 = false;
+      isSelected5 = false;
+      setIsSelected1(isSelected1);
+      setIsSelected2(isSelected2);
+      setIsSelected3(isSelected3);
+      setIsSelected4(isSelected4);
+      setIsSelected5(isSelected5);
+    } else if (categoryId == "2") {
+      isSelected1 = false;
+      isSelected2 = true;
+      isSelected3 = false;
+      isSelected4 = false;
+      isSelected5 = false;
+      setIsSelected1(isSelected1);
+      setIsSelected2(isSelected2);
+      setIsSelected3(isSelected3);
+      setIsSelected4(isSelected4);
+      setIsSelected5(isSelected5);
+    } else if (categoryId == "3") {
+      isSelected1 = false;
+      isSelected2 = false;
+      isSelected3 = true;
+      isSelected4 = false;
+      isSelected5 = false;
+      setIsSelected1(isSelected1);
+      setIsSelected2(isSelected2);
+      setIsSelected3(isSelected3);
+      setIsSelected4(isSelected4);
+      setIsSelected5(isSelected5);
+    } else if (categoryId == "4") {
+      isSelected1 = false;
+      isSelected2 = false;
+      isSelected3 = false;
+      isSelected4 = true;
+      isSelected5 = false;
+      setIsSelected1(isSelected1);
+      setIsSelected2(isSelected2);
+      setIsSelected3(isSelected3);
+      setIsSelected4(isSelected4);
+      setIsSelected5(isSelected5);
+    } else if (categoryId == "5") {
+      isSelected1 = false;
+      isSelected2 = false;
+      isSelected3 = false;
+      isSelected4 = false;
+      isSelected5 = true;
+      setIsSelected1(isSelected1);
+      setIsSelected2(isSelected2);
+      setIsSelected3(isSelected3);
+      setIsSelected4(isSelected4);
+      setIsSelected5(isSelected5);
+    }
     const selectedCategory = categoryList.find(
       (category) => category.id === categoryId
     );
@@ -334,13 +397,13 @@ const Product_Details = () => {
   };
 
   const handleInputChangeLot = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValueLot(event.target.value === "" ? 0 : Number(event.target.value));
+    setValueLot(event.target.value === " " ? 0 : Number(event.target.value));
   };
 
   const handleBlurLot = () => {
-    if (value < 0) {
-      setValueLot(0);
-    } else if (value > 100) {
+    if (valueLot < 16) {
+      setValueLot(16);
+    } else if (valueLot > 100) {
       setValueLot(100);
     }
   };
@@ -394,7 +457,7 @@ const Product_Details = () => {
     <Container maxWidth="xl">
       <Box sx={{ py: 2 }}>
         <Grid container sx={{ marginLeft: 1 }}>
-          <Grid
+          {/* <Grid
             item
             xs={6}
             sm={4}
@@ -416,11 +479,11 @@ const Product_Details = () => {
                   fontFamily: "Jacques Francois",
                 }}
               >
-                {/* <Image
+                <Image
                   src={categoryIcon}
                   alt="category Icon"
                   style={{ marginRight: 5 }}
-                /> */}
+                />
                 Category
               </InputLabel>
               <Select
@@ -503,18 +566,15 @@ const Product_Details = () => {
                 </MenuItem>
               </Select>
             </FormControl>
-          </Grid>
+          </Grid> */}
 
           <Grid
             item
-            xs={6}
-            sm={8}
-            md={9}
-            lg={10}
+            xs={12}
             sx={{
               display: "flex",
               justifyContent: "flex-end",
-              paddingRight: "1vh",
+              marginRight: "3vh",
             }}
           >
             <Box>
@@ -572,7 +632,7 @@ const Product_Details = () => {
                 <Box
                   sx={{
                     ...style,
-                    width: { xs: 300, sm: 400, md: 500, lg: 600 },
+                    width: { xs: 300, sm: 400, md: 500, lg: 700 },
                     height: { xs: 300, sm: 400, md: 500, lg: 600 },
                     overflowY: "scroll",
                   }}
@@ -635,42 +695,63 @@ const Product_Details = () => {
                       Property Type
                     </Typography>
                     <Box>
-                      <Grid container sx={{ marginBottom: "1vh" }}>
+                      <Grid container sx={{ marginBottom: "3vh" }}>
                         <Grid
                           item
                           xs={6}
                           sm={4}
                           md={4}
                           sx={{
-                            border: "1px solid white",
-                            paddingBottom: "1vh",
-                            paddingTop: "1vh",
-                            paddingLeft: "2vh",
-
-                            ":hover": {
-                              border: "1px solid #b12930",
-                              borderRadius: "10px",
-                              cursor: "pointer",
-                            },
+                            display: "flex",
+                            padding: "2px",
                           }}
                         >
-                          <HomeIcon sx={{ fontSize: "30px" }} />
-
-                          <Typography
+                          <Button
                             sx={{
-                              fontSize: {
-                                xs: "10px",
-                                sm: "12px",
-                                md: "14px",
-                                lg: "22px",
-                                xl: "20px",
+                              color: isSelected1 ? "#b12930" : "black",
+                              border: isSelected1
+                                ? "2px solid #b12930"
+                                : "2px solid white",
+                              backgroundColor: "#D4ECFF",
+                              borderRadius: "10px",
+                              width: "100%",
+                              height: "100%",
+                              ":hover": {
+                                backgroundColor: "#D4ECFF",
                               },
-                              fontFamily: "Times New Roman",
-                              marginY: "2vh",
                             }}
+                            onClick={() => handleCategoryChange("1")}
                           >
-                            Single Detached
-                          </Typography>
+                            <Box
+                              sx={{
+                                textAlign: "left",
+                                width: "100%",
+                                height: "100%",
+                              }}
+                            >
+                              <HomeIcon
+                                sx={{
+                                  fontSize: "4vh",
+                                }}
+                              />
+
+                              <Typography
+                                sx={{
+                                  fontSize: {
+                                    xs: "10px",
+                                    sm: "12px",
+                                    md: "14px",
+                                    lg: "18px",
+                                    xl: "20px",
+                                  },
+                                  fontFamily: "Times New Roman",
+                                  marginTop: "2vh",
+                                }}
+                              >
+                                Single Detached
+                              </Typography>
+                            </Box>
+                          </Button>
                         </Grid>
                         <Grid
                           item
@@ -678,35 +759,56 @@ const Product_Details = () => {
                           sm={4}
                           md={4}
                           sx={{
-                            border: "1px solid white",
-                            paddingBottom: "1vh",
-                            paddingTop: "1vh",
-                            paddingLeft: "2vh",
-
-                            ":hover": {
-                              border: "1px solid #b12930",
-                              borderRadius: "10px",
-                              cursor: "pointer",
-                            },
+                            display: "flex",
+                            padding: "2px",
                           }}
                         >
-                          <HomeIcon sx={{ fontSize: "30px" }} />
-
-                          <Typography
+                          <Button
                             sx={{
-                              fontSize: {
-                                xs: "10px",
-                                sm: "12px",
-                                md: "14px",
-                                lg: "22px",
-                                xl: "20px",
+                              color: isSelected2 ? "#b12930" : "black",
+                              border: isSelected2
+                                ? "2px solid #b12930"
+                                : "2px solid white",
+                              backgroundColor: "#D4ECFF",
+                              borderRadius: "10px",
+                              width: "100%",
+                              height: "100%",
+                              ":hover": {
+                                backgroundColor: "#D4ECFF",
                               },
-                              fontFamily: "Times New Roman",
-                              marginY: "2vh",
                             }}
+                            onClick={() => handleCategoryChange("2")}
                           >
-                            Semi Detached
-                          </Typography>
+                            <Box
+                              sx={{
+                                textAlign: "left",
+                                width: "100%",
+                                height: "100%",
+                              }}
+                            >
+                              <HomeIcon
+                                sx={{
+                                  fontSize: "4vh",
+                                }}
+                              />
+
+                              <Typography
+                                sx={{
+                                  fontSize: {
+                                    xs: "10px",
+                                    sm: "12px",
+                                    md: "14px",
+                                    lg: "18px",
+                                    xl: "20px",
+                                  },
+                                  fontFamily: "Times New Roman",
+                                  marginTop: "2vh",
+                                }}
+                              >
+                                Semi Detached
+                              </Typography>
+                            </Box>
+                          </Button>
                         </Grid>
                         <Grid
                           item
@@ -714,107 +816,176 @@ const Product_Details = () => {
                           sm={4}
                           md={4}
                           sx={{
-                            border: "1px solid white",
-                            paddingBottom: "1vh",
-                            paddingTop: "1vh",
-                            paddingLeft: "2vh",
-
-                            ":hover": {
-                              border: "1px solid #b12930",
-                              borderRadius: "10px",
-                              cursor: "pointer",
-                            },
+                            display: "flex",
+                            padding: "2px",
                           }}
                         >
-                          <HomeIcon sx={{ fontSize: "30px" }} />
-
-                          <Typography
+                          <Button
                             sx={{
-                              fontSize: {
-                                xs: "10px",
-                                sm: "12px",
-                                md: "14px",
-                                lg: "22px",
-                                xl: "20px",
+                              color: isSelected3 ? "#b12930" : "black",
+                              border: isSelected3
+                                ? "2px solid #b12930"
+                                : "2px solid white",
+                              backgroundColor: "#D4ECFF",
+                              borderRadius: "10px",
+                              width: "100%",
+                              height: "100%",
+                              ":hover": {
+                                backgroundColor: "#D4ECFF",
+                                boxShadow: "none",
                               },
-                              fontFamily: "Times New Roman",
-                              marginY: "2vh",
+                              "::selection": {
+                                color: "red !important",
+                              },
                             }}
+                            onClick={() => handleCategoryChange("3")}
                           >
-                            FourPlex
-                          </Typography>
+                            <Box
+                              sx={{
+                                textAlign: "left",
+                                width: "100%",
+                                height: "100%",
+                              }}
+                            >
+                              <HomeIcon
+                                sx={{
+                                  fontSize: "4vh",
+                                }}
+                              />
+
+                              <Typography
+                                sx={{
+                                  fontSize: {
+                                    xs: "10px",
+                                    sm: "12px",
+                                    md: "14px",
+                                    lg: "18px",
+                                    xl: "20px",
+                                  },
+                                  fontFamily: "Times New Roman",
+                                  marginTop: "2vh",
+                                }}
+                              >
+                                Acreage
+                              </Typography>
+                            </Box>
+                          </Button>
                         </Grid>
                         <Grid
                           item
                           xs={6}
                           sm={4}
                           md={4}
+                          lg={6}
                           sx={{
-                            border: "1px solid white",
-                            paddingBottom: "1vh",
-                            paddingTop: "1vh",
-                            paddingLeft: "2vh",
-
-                            ":hover": {
-                              border: "1px solid #b12930",
-                              borderRadius: "10px",
-                              cursor: "pointer",
-                            },
+                            display: "flex",
+                            padding: "2px",
                           }}
                         >
-                          <HomeIcon sx={{ fontSize: "30px" }} />
-
-                          <Typography
+                          <Button
                             sx={{
-                              fontSize: {
-                                xs: "10px",
-                                sm: "12px",
-                                md: "14px",
-                                lg: "22px",
-                                xl: "20px",
+                              color: isSelected4 ? "#b12930" : "black",
+                              border: isSelected4
+                                ? "2px solid #b12930"
+                                : "2px solid white",
+                              backgroundColor: "#D4ECFF",
+                              borderRadius: "10px",
+                              width: "100%",
+                              height: "100%",
+                              ":hover": {
+                                backgroundColor: "#D4ECFF",
                               },
-                              fontFamily: "Times New Roman",
-                              marginY: "2vh",
                             }}
+                            onClick={() => handleCategoryChange("4")}
                           >
-                            Acreage
-                          </Typography>
+                            <Box
+                              sx={{
+                                textAlign: "left",
+                                width: "100%",
+                                height: "100%",
+                              }}
+                            >
+                              <HomeIcon
+                                sx={{
+                                  fontSize: "4vh",
+                                }}
+                              />
+
+                              <Typography
+                                sx={{
+                                  fontSize: {
+                                    xs: "10px",
+                                    sm: "12px",
+                                    md: "14px",
+                                    lg: "18px",
+                                    xl: "20px",
+                                  },
+                                  fontFamily: "Times New Roman",
+                                  marginTop: "2vh",
+                                }}
+                              >
+                                Garage Suite
+                              </Typography>
+                            </Box>
+                          </Button>
                         </Grid>
                         <Grid
                           item
-                          xs={6}
+                          xs={12}
                           sm={4}
                           md={4}
+                          lg={6}
                           sx={{
-                            border: "1px solid white",
-                            paddingBottom: "1vh",
-                            paddingTop: "1vh",
-                            paddingLeft: "2vh",
-
-                            ":hover": {
-                              border: "1px solid #b12930",
-                              borderRadius: "10px",
-                              cursor: "pointer",
-                            },
+                            display: "flex",
+                            padding: "2px",
                           }}
                         >
-                          <HomeIcon sx={{ fontSize: "30px" }} />
-
-                          <Typography
+                          <Button
                             sx={{
-                              fontSize: {
-                                xs: "10px",
-                                sm: "12px",
-                                md: "14px",
-                                lg: "22px",
-                                xl: "20px",
+                              color: isSelected5 ? "#b12930" : "black",
+                              border: isSelected5
+                                ? "2px solid #b12930"
+                                : "2px solid white",
+                              backgroundColor: "#D4ECFF",
+                              borderRadius: "10px",
+                              width: "100%",
+                              height: "100%",
+                              ":hover": {
+                                backgroundColor: "#D4ECFF",
                               },
-                              fontFamily: "Times New Roman",
-                              marginY: "2vh",
                             }}
+                            onClick={() => handleCategoryChange("5")}
                           >
-                            Garage Suite
-                          </Typography>
+                            <Box
+                              sx={{
+                                textAlign: "left",
+                                width: "100%",
+                                height: "100%",
+                              }}
+                            >
+                              <HomeIcon
+                                sx={{
+                                  fontSize: "4vh",
+                                }}
+                              />
+
+                              <Typography
+                                sx={{
+                                  fontSize: {
+                                    xs: "10px",
+                                    sm: "12px",
+                                    md: "14px",
+                                    lg: "18px",
+                                    xl: "20px",
+                                  },
+                                  fontFamily: "Times New Roman",
+                                  marginTop: "2vh",
+                                }}
+                              >
+                                FourPlex
+                              </Typography>
+                            </Box>
+                          </Button>
                         </Grid>
                       </Grid>
                     </Box>
@@ -940,7 +1111,7 @@ const Product_Details = () => {
                             fontFamily: "Times New Roman",
                           }}
                         >
-                          {valuePrice[0]}
+                          $ {valuePrice[0]}
                         </Typography>
                       </Box>
 
@@ -980,11 +1151,12 @@ const Product_Details = () => {
                             fontFamily: "Times New Roman",
                           }}
                         >
-                          {valuePrice[1]}
+                          $ {valuePrice[1]}
                         </Typography>
                       </Box>
                     </Box>
                   </Box>
+                  <Divider />
                   <Box>
                     <Typography
                       sx={{
@@ -1170,22 +1342,10 @@ const Product_Details = () => {
                           onBlur={handleBlur}
                           inputProps={{
                             step: 10,
-                            min: 16,
+                            min: 0,
                             max: 100,
                             type: "number",
                             "aria-labelledby": "input-slider",
-                          }}
-                          sx={{
-                            cursor: "pointer",
-                            fontSize: {
-                              xs: "10px",
-                              sm: "12px",
-                              md: "14px",
-                              lg: "18px",
-                              xl: "20px",
-                            },
-                            fontFamily: "Times New Roman",
-                            marginBottom: "3vh",
                           }}
                         />
                       </Grid>
@@ -1200,9 +1360,9 @@ const Product_Details = () => {
                     >
                       <Box
                         sx={{
-                          borderRadius: "10px",
                           paddingLeft: "2vh",
                           width: "20%",
+
                           textAlign: "center",
                         }}
                       >
@@ -1231,6 +1391,8 @@ const Product_Details = () => {
                               xl: "20px",
                             },
                             fontFamily: "Times New Roman",
+                            backgroundColor: "red",
+                            borderRadius: "10vh",
                           }}
                         >
                           {MIN}"
@@ -1258,7 +1420,6 @@ const Product_Details = () => {
 
                       <Box
                         sx={{
-                          borderRadius: "10px",
                           paddingRight: "2vh",
                           width: "20%",
                           textAlign: "center",
@@ -1289,6 +1450,8 @@ const Product_Details = () => {
                               xl: "20px",
                             },
                             fontFamily: "Times New Roman",
+                            borderRadius: "10vh",
+                            backgroundColor: "red",
                           }}
                         >
                           {value}"
