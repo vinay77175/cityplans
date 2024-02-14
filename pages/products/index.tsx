@@ -252,6 +252,7 @@ const Product_Details = () => {
     }
   };
   //dropdown for countries
+
   interface CountryType {
     code: string;
     label: string;
@@ -272,12 +273,17 @@ const Product_Details = () => {
       label: "Antigua and Barbuda",
       phone: "1-268",
     },
+    {
+      code: "CA",
+      label: "Canada",
+      phone: "1",
+      suggested: true,
+    },
 
     {
       code: "AU",
       label: "Australia",
       phone: "61",
-      suggested: true,
     },
     { code: "AW", label: "Aruba", phone: "297" },
     { code: "AX", label: "Alland Islands", phone: "358" },
@@ -372,7 +378,12 @@ const Product_Details = () => {
     { code: "MN", label: "Mongolia", phone: "976" },
     { code: "MO", label: "Macao", phone: "853" },
   ];
+  const [selectedCountry, setSelectedCountry] = useState(countries[4]); // Initialize with a default country
 
+  const handleCountryChange = (event: any, newValue: any) => {
+    setSelectedCountry(newValue.label);
+    console.log(newValue);
+  };
   const InputLot = styled(MuiInput)`
     width: 42px;
   `;
@@ -453,6 +464,20 @@ const Product_Details = () => {
     titleText1: string;
     titleText2: string;
   }
+  const handleSubmit = () => {
+    console.log("After submitted");
+    console.log("selected category", filteredProducts);
+
+    console.log("min value Price", valuePrice[0]);
+    console.log("max value", valuePrice[1]);
+    console.log("min lot width", valueLot);
+    console.log("max lot width", valueLot);
+    console.log("min width", MIN);
+    console.log("max width", MAX);
+    console.log("Country", selectedCountry);
+    console.log("max size", valueSize[0]);
+    console.log("min size", valueSize[1]);
+  };
   return (
     <Container maxWidth="xl">
       <Box sx={{ py: 2 }}>
@@ -635,6 +660,7 @@ const Product_Details = () => {
                     width: { xs: 300, sm: 400, md: 500, lg: 700 },
                     height: { xs: 300, sm: 400, md: 500, lg: 600 },
                     overflowY: "scroll",
+                    position: "relative",
                   }}
                 >
                   <Box
@@ -679,318 +705,319 @@ const Product_Details = () => {
 
                   <Divider sx={{ color: "black" }}></Divider>
                   <Box>
-                    <Typography
-                      sx={{
-                        fontSize: {
-                          xs: "12px",
-                          sm: "14px",
-                          md: "16px",
-                          lg: "26px",
-                          xl: "24px",
-                        },
-                        fontFamily: "Jacques Francois",
-                        marginY: "2vh",
-                      }}
-                    >
-                      Property Type
-                    </Typography>
                     <Box>
-                      <Grid container sx={{ marginBottom: "3vh" }}>
-                        <Grid
-                          item
-                          xs={6}
-                          sm={4}
-                          md={4}
-                          sx={{
-                            display: "flex",
-                            padding: "2px",
-                          }}
-                        >
-                          <Button
+                      <Typography
+                        sx={{
+                          fontSize: {
+                            xs: "12px",
+                            sm: "14px",
+                            md: "16px",
+                            lg: "26px",
+                            xl: "24px",
+                          },
+                          fontFamily: "Jacques Francois",
+                          marginY: "2vh",
+                        }}
+                      >
+                        Property Type
+                      </Typography>
+                      <Box>
+                        <Grid container sx={{ marginBottom: "3vh" }}>
+                          <Grid
+                            item
+                            xs={6}
+                            sm={4}
+                            md={4}
                             sx={{
-                              color: isSelected1 ? "#b12930" : "black",
-                              border: isSelected1
-                                ? "2px solid #b12930"
-                                : "2px solid white",
-                              backgroundColor: "#D4ECFF",
-                              borderRadius: "10px",
-                              width: "100%",
-                              height: "100%",
-                              ":hover": {
-                                backgroundColor: "#D4ECFF",
-                              },
+                              display: "flex",
+                              padding: "2px",
                             }}
-                            onClick={() => handleCategoryChange("1")}
                           >
-                            <Box
+                            <Button
                               sx={{
-                                textAlign: "left",
+                                color: isSelected1 ? "#b12930" : "black",
+                                border: isSelected1
+                                  ? "2px solid #b12930"
+                                  : "2px solid white",
+                                backgroundColor: "#D4ECFF",
+                                borderRadius: "10px",
                                 width: "100%",
                                 height: "100%",
+                                ":hover": {
+                                  backgroundColor: "#D4ECFF",
+                                },
                               }}
+                              onClick={() => handleCategoryChange("1")}
                             >
-                              <HomeIcon
+                              <Box
                                 sx={{
-                                  fontSize: "4vh",
-                                }}
-                              />
-
-                              <Typography
-                                sx={{
-                                  fontSize: {
-                                    xs: "10px",
-                                    sm: "12px",
-                                    md: "14px",
-                                    lg: "18px",
-                                    xl: "20px",
-                                  },
-                                  fontFamily: "Times New Roman",
-                                  marginTop: "2vh",
+                                  textAlign: "left",
+                                  width: "100%",
+                                  height: "100%",
                                 }}
                               >
-                                Single Detached
-                              </Typography>
-                            </Box>
-                          </Button>
-                        </Grid>
-                        <Grid
-                          item
-                          xs={6}
-                          sm={4}
-                          md={4}
-                          sx={{
-                            display: "flex",
-                            padding: "2px",
-                          }}
-                        >
-                          <Button
+                                <HomeIcon
+                                  sx={{
+                                    fontSize: "4vh",
+                                  }}
+                                />
+
+                                <Typography
+                                  sx={{
+                                    fontSize: {
+                                      xs: "10px",
+                                      sm: "12px",
+                                      md: "14px",
+                                      lg: "18px",
+                                      xl: "20px",
+                                    },
+                                    fontFamily: "Times New Roman",
+                                    marginTop: "2vh",
+                                  }}
+                                >
+                                  Single Detached
+                                </Typography>
+                              </Box>
+                            </Button>
+                          </Grid>
+                          <Grid
+                            item
+                            xs={6}
+                            sm={4}
+                            md={4}
                             sx={{
-                              color: isSelected2 ? "#b12930" : "black",
-                              border: isSelected2
-                                ? "2px solid #b12930"
-                                : "2px solid white",
-                              backgroundColor: "#D4ECFF",
-                              borderRadius: "10px",
-                              width: "100%",
-                              height: "100%",
-                              ":hover": {
-                                backgroundColor: "#D4ECFF",
-                              },
+                              display: "flex",
+                              padding: "2px",
                             }}
-                            onClick={() => handleCategoryChange("2")}
                           >
-                            <Box
+                            <Button
                               sx={{
-                                textAlign: "left",
+                                color: isSelected2 ? "#b12930" : "black",
+                                border: isSelected2
+                                  ? "2px solid #b12930"
+                                  : "2px solid white",
+                                backgroundColor: "#D4ECFF",
+                                borderRadius: "10px",
                                 width: "100%",
                                 height: "100%",
+                                ":hover": {
+                                  backgroundColor: "#D4ECFF",
+                                },
                               }}
+                              onClick={() => handleCategoryChange("2")}
                             >
-                              <HomeIcon
+                              <Box
                                 sx={{
-                                  fontSize: "4vh",
-                                }}
-                              />
-
-                              <Typography
-                                sx={{
-                                  fontSize: {
-                                    xs: "10px",
-                                    sm: "12px",
-                                    md: "14px",
-                                    lg: "18px",
-                                    xl: "20px",
-                                  },
-                                  fontFamily: "Times New Roman",
-                                  marginTop: "2vh",
+                                  textAlign: "left",
+                                  width: "100%",
+                                  height: "100%",
                                 }}
                               >
-                                Semi Detached
-                              </Typography>
-                            </Box>
-                          </Button>
-                        </Grid>
-                        <Grid
-                          item
-                          xs={6}
-                          sm={4}
-                          md={4}
-                          sx={{
-                            display: "flex",
-                            padding: "2px",
-                          }}
-                        >
-                          <Button
+                                <HomeIcon
+                                  sx={{
+                                    fontSize: "4vh",
+                                  }}
+                                />
+
+                                <Typography
+                                  sx={{
+                                    fontSize: {
+                                      xs: "10px",
+                                      sm: "12px",
+                                      md: "14px",
+                                      lg: "18px",
+                                      xl: "20px",
+                                    },
+                                    fontFamily: "Times New Roman",
+                                    marginTop: "2vh",
+                                  }}
+                                >
+                                  Semi Detached
+                                </Typography>
+                              </Box>
+                            </Button>
+                          </Grid>
+                          <Grid
+                            item
+                            xs={6}
+                            sm={4}
+                            md={4}
                             sx={{
-                              color: isSelected3 ? "#b12930" : "black",
-                              border: isSelected3
-                                ? "2px solid #b12930"
-                                : "2px solid white",
-                              backgroundColor: "#D4ECFF",
-                              borderRadius: "10px",
-                              width: "100%",
-                              height: "100%",
-                              ":hover": {
-                                backgroundColor: "#D4ECFF",
-                                boxShadow: "none",
-                              },
-                              "::selection": {
-                                color: "red !important",
-                              },
+                              display: "flex",
+                              padding: "2px",
                             }}
-                            onClick={() => handleCategoryChange("3")}
                           >
-                            <Box
+                            <Button
                               sx={{
-                                textAlign: "left",
+                                color: isSelected3 ? "#b12930" : "black",
+                                border: isSelected3
+                                  ? "2px solid #b12930"
+                                  : "2px solid white",
+                                backgroundColor: "#D4ECFF",
+                                borderRadius: "10px",
                                 width: "100%",
                                 height: "100%",
+                                ":hover": {
+                                  backgroundColor: "#D4ECFF",
+                                  boxShadow: "none",
+                                },
+                                "::selection": {
+                                  color: "red !important",
+                                },
                               }}
+                              onClick={() => handleCategoryChange("3")}
                             >
-                              <HomeIcon
+                              <Box
                                 sx={{
-                                  fontSize: "4vh",
-                                }}
-                              />
-
-                              <Typography
-                                sx={{
-                                  fontSize: {
-                                    xs: "10px",
-                                    sm: "12px",
-                                    md: "14px",
-                                    lg: "18px",
-                                    xl: "20px",
-                                  },
-                                  fontFamily: "Times New Roman",
-                                  marginTop: "2vh",
+                                  textAlign: "left",
+                                  width: "100%",
+                                  height: "100%",
                                 }}
                               >
-                                Acreage
-                              </Typography>
-                            </Box>
-                          </Button>
-                        </Grid>
-                        <Grid
-                          item
-                          xs={6}
-                          sm={4}
-                          md={4}
-                          lg={6}
-                          sx={{
-                            display: "flex",
-                            padding: "2px",
-                          }}
-                        >
-                          <Button
+                                <HomeIcon
+                                  sx={{
+                                    fontSize: "4vh",
+                                  }}
+                                />
+
+                                <Typography
+                                  sx={{
+                                    fontSize: {
+                                      xs: "10px",
+                                      sm: "12px",
+                                      md: "14px",
+                                      lg: "18px",
+                                      xl: "20px",
+                                    },
+                                    fontFamily: "Times New Roman",
+                                    marginTop: "2vh",
+                                  }}
+                                >
+                                  Acreage
+                                </Typography>
+                              </Box>
+                            </Button>
+                          </Grid>
+                          <Grid
+                            item
+                            xs={6}
+                            sm={4}
+                            md={4}
+                            lg={6}
                             sx={{
-                              color: isSelected4 ? "#b12930" : "black",
-                              border: isSelected4
-                                ? "2px solid #b12930"
-                                : "2px solid white",
-                              backgroundColor: "#D4ECFF",
-                              borderRadius: "10px",
-                              width: "100%",
-                              height: "100%",
-                              ":hover": {
-                                backgroundColor: "#D4ECFF",
-                              },
+                              display: "flex",
+                              padding: "2px",
                             }}
-                            onClick={() => handleCategoryChange("4")}
                           >
-                            <Box
+                            <Button
                               sx={{
-                                textAlign: "left",
+                                color: isSelected4 ? "#b12930" : "black",
+                                border: isSelected4
+                                  ? "2px solid #b12930"
+                                  : "2px solid white",
+                                backgroundColor: "#D4ECFF",
+                                borderRadius: "10px",
                                 width: "100%",
                                 height: "100%",
+                                ":hover": {
+                                  backgroundColor: "#D4ECFF",
+                                },
                               }}
+                              onClick={() => handleCategoryChange("4")}
                             >
-                              <HomeIcon
+                              <Box
                                 sx={{
-                                  fontSize: "4vh",
-                                }}
-                              />
-
-                              <Typography
-                                sx={{
-                                  fontSize: {
-                                    xs: "10px",
-                                    sm: "12px",
-                                    md: "14px",
-                                    lg: "18px",
-                                    xl: "20px",
-                                  },
-                                  fontFamily: "Times New Roman",
-                                  marginTop: "2vh",
+                                  textAlign: "left",
+                                  width: "100%",
+                                  height: "100%",
                                 }}
                               >
-                                Garage Suite
-                              </Typography>
-                            </Box>
-                          </Button>
-                        </Grid>
-                        <Grid
-                          item
-                          xs={12}
-                          sm={4}
-                          md={4}
-                          lg={6}
-                          sx={{
-                            display: "flex",
-                            padding: "2px",
-                          }}
-                        >
-                          <Button
+                                <HomeIcon
+                                  sx={{
+                                    fontSize: "4vh",
+                                  }}
+                                />
+
+                                <Typography
+                                  sx={{
+                                    fontSize: {
+                                      xs: "10px",
+                                      sm: "12px",
+                                      md: "14px",
+                                      lg: "18px",
+                                      xl: "20px",
+                                    },
+                                    fontFamily: "Times New Roman",
+                                    marginTop: "2vh",
+                                  }}
+                                >
+                                  Garage Suite
+                                </Typography>
+                              </Box>
+                            </Button>
+                          </Grid>
+                          <Grid
+                            item
+                            xs={12}
+                            sm={4}
+                            md={4}
+                            lg={6}
                             sx={{
-                              color: isSelected5 ? "#b12930" : "black",
-                              border: isSelected5
-                                ? "2px solid #b12930"
-                                : "2px solid white",
-                              backgroundColor: "#D4ECFF",
-                              borderRadius: "10px",
-                              width: "100%",
-                              height: "100%",
-                              ":hover": {
-                                backgroundColor: "#D4ECFF",
-                              },
+                              display: "flex",
+                              padding: "2px",
                             }}
-                            onClick={() => handleCategoryChange("5")}
                           >
-                            <Box
+                            <Button
                               sx={{
-                                textAlign: "left",
+                                color: isSelected5 ? "#b12930" : "black",
+                                border: isSelected5
+                                  ? "2px solid #b12930"
+                                  : "2px solid white",
+                                backgroundColor: "#D4ECFF",
+                                borderRadius: "10px",
                                 width: "100%",
                                 height: "100%",
+                                ":hover": {
+                                  backgroundColor: "#D4ECFF",
+                                },
                               }}
+                              onClick={() => handleCategoryChange("5")}
                             >
-                              <HomeIcon
+                              <Box
                                 sx={{
-                                  fontSize: "4vh",
-                                }}
-                              />
-
-                              <Typography
-                                sx={{
-                                  fontSize: {
-                                    xs: "10px",
-                                    sm: "12px",
-                                    md: "14px",
-                                    lg: "18px",
-                                    xl: "20px",
-                                  },
-                                  fontFamily: "Times New Roman",
-                                  marginTop: "2vh",
+                                  textAlign: "left",
+                                  width: "100%",
+                                  height: "100%",
                                 }}
                               >
-                                FourPlex
-                              </Typography>
-                            </Box>
-                          </Button>
+                                <HomeIcon
+                                  sx={{
+                                    fontSize: "4vh",
+                                  }}
+                                />
+
+                                <Typography
+                                  sx={{
+                                    fontSize: {
+                                      xs: "10px",
+                                      sm: "12px",
+                                      md: "14px",
+                                      lg: "18px",
+                                      xl: "20px",
+                                    },
+                                    fontFamily: "Times New Roman",
+                                    marginTop: "2vh",
+                                  }}
+                                >
+                                  FourPlex
+                                </Typography>
+                              </Box>
+                            </Button>
+                          </Grid>
                         </Grid>
-                      </Grid>
+                      </Box>
                     </Box>
-                  </Box>
-                  {/* <Box
+                    {/* <Box
                     sx={{
                       display: "flex",
                       alignItems: "center",
@@ -1022,351 +1049,354 @@ const Product_Details = () => {
                       }}
                     />
                   </Box> */}
-                  {/* {openModal && <ChildModal1 />} */}
+                    {/* {openModal && <ChildModal1 />} */}
 
-                  <Divider />
-                  <Box>
-                    <Typography
-                      sx={{
-                        fontSize: {
-                          xs: "12px",
-                          sm: "14px",
-                          md: "16px",
-                          lg: "26px",
-                          xl: "24px",
-                        },
-                        fontFamily: "Jacques Francois",
-                        marginTop: "2vh",
-                      }}
-                    >
-                      Price Range
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontSize: {
-                          xs: "10px",
-                          sm: "12px",
-                          md: "14px",
-                          lg: "18px",
-                          xl: "20px",
-                        },
-                        fontFamily: "Jacques Francois",
-                        marginBottom: "3vh",
-                        color: "GrayText",
-                      }}
-                    >
-                      Lorem ipsum dolor sit amet.
-                    </Typography>
-                    <Box sx={{ width: "100%", paddingX: "5vh" }}>
-                      <Slider
-                        sx={{ color: "#b12930" }}
-                        getAriaLabel={() => "Minimum distance shift"}
-                        value={valuePrice}
-                        onChange={handleChangePrice}
-                        valueLabelDisplay="auto"
-                        getAriaValueText={valueTextPrice}
-                        max={1000}
-                      />
-                    </Box>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        justifyContent: "space-evenly",
-                        marginY: "2vh",
-                      }}
-                    >
-                      <Box
+                    <Divider />
+                    <Box>
+                      <Typography
                         sx={{
-                          border: "1px solid black",
-                          borderRadius: "10px",
-
-                          width: "35%",
-                          paddingLeft: "2vh",
+                          fontSize: {
+                            xs: "12px",
+                            sm: "14px",
+                            md: "16px",
+                            lg: "26px",
+                            xl: "24px",
+                          },
+                          fontFamily: "Jacques Francois",
+                          marginTop: "2vh",
                         }}
                       >
-                        <Typography
-                          sx={{
-                            fontSize: {
-                              xs: "10px",
-                              sm: "12px",
-                              md: "14px",
-                              lg: "20px",
-                              xl: "20px",
-                            },
-                            fontFamily: "Times New Roman",
-                            marginBottom: "2vh",
-                          }}
-                        >
-                          Minimum Price:
-                        </Typography>
-                        <Typography
-                          sx={{
-                            fontSize: {
-                              xs: "10px",
-                              sm: "12px",
-                              md: "14px",
-                              lg: "20px",
-                              xl: "20px",
-                            },
-                            fontFamily: "Times New Roman",
-                          }}
-                        >
-                          $ {valuePrice[0]}
-                        </Typography>
-                      </Box>
-
-                      <Box
+                        Price Range
+                      </Typography>
+                      <Typography
                         sx={{
-                          border: "1px solid black",
-                          borderRadius: "10px",
-
-                          width: "35%",
-                          paddingLeft: "2vh",
+                          fontSize: {
+                            xs: "10px",
+                            sm: "12px",
+                            md: "14px",
+                            lg: "18px",
+                            xl: "20px",
+                          },
+                          fontFamily: "Jacques Francois",
+                          marginBottom: "3vh",
+                          color: "GrayText",
                         }}
                       >
-                        <Typography
-                          sx={{
-                            fontSize: {
-                              xs: "10px",
-                              sm: "12px",
-                              md: "14px",
-                              lg: "20px",
-                              xl: "20px",
-                            },
-                            fontFamily: "Times New Roman",
-                            marginBottom: "2vh",
-                          }}
-                        >
-                          Maximum Price:
-                        </Typography>
-                        <Typography
-                          sx={{
-                            fontSize: {
-                              xs: "10px",
-                              sm: "12px",
-                              md: "14px",
-                              lg: "20px",
-                              xl: "20px",
-                            },
-                            fontFamily: "Times New Roman",
-                          }}
-                        >
-                          $ {valuePrice[1]}
-                        </Typography>
+                        Lorem ipsum dolor sit amet.
+                      </Typography>
+                      <Box sx={{ width: "100%", paddingX: "5vh" }}>
+                        <Slider
+                          sx={{ color: "#b12930" }}
+                          getAriaLabel={() => "Minimum distance shift"}
+                          value={valuePrice}
+                          onChange={handleChangePrice}
+                          valueLabelDisplay="auto"
+                          getAriaValueText={valueTextPrice}
+                          max={1000}
+                        />
                       </Box>
-                    </Box>
-                  </Box>
-                  <Divider />
-                  <Box>
-                    <Typography
-                      sx={{
-                        fontSize: {
-                          xs: "12px",
-                          sm: "14px",
-                          md: "16px",
-                          lg: "26px",
-                          xl: "24px",
-                        },
-                        fontFamily: "Jacques Francois",
-                        marginTop: "2vh",
-                        marginBottom: "1vh",
-                      }}
-                    >
-                      Select a Country
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontSize: {
-                          xs: "10px",
-                          sm: "12px",
-                          md: "14px",
-                          lg: "18px",
-                          xl: "2px",
-                        },
-                        fontFamily: "Jacques Francois",
-                        marginBottom: "2vh",
-                        color: "GrayText",
-                      }}
-                    >
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    </Typography>
-                    <Box sx={{ marginY: "5vh", paddingX: "3vh" }}>
-                      <Autocomplete
-                        id="country-select-demo"
-                        sx={{ width: "100%" }}
-                        options={countries}
-                        autoHighlight
-                        getOptionLabel={(option) => option.label}
-                        renderOption={(props, option) => (
-                          <Box
-                            component="li"
-                            sx={{ "& > img": { mr: 2, flexShrink: 0 } }}
-                            {...props}
+                      <Box
+                        sx={{
+                          display: "flex",
+                          justifyContent: "space-evenly",
+                          marginY: "2vh",
+                        }}
+                      >
+                        <Box
+                          sx={{
+                            border: "1px solid black",
+                            borderRadius: "10px",
+
+                            width: "35%",
+                            paddingLeft: "2vh",
+                          }}
+                        >
+                          <Typography
+                            sx={{
+                              fontSize: {
+                                xs: "10px",
+                                sm: "12px",
+                                md: "14px",
+                                lg: "20px",
+                                xl: "20px",
+                              },
+                              fontFamily: "Times New Roman",
+                              marginBottom: "2vh",
+                            }}
                           >
-                            <img
-                              loading="lazy"
-                              width="20"
-                              srcSet={`https://flagcdn.com/w40/${option.code.toLowerCase()}.png 2x`}
-                              src={`https://flagcdn.com/w20/${option.code.toLowerCase()}.png`}
-                              alt=""
+                            Minimum Price:
+                          </Typography>
+                          <Typography
+                            sx={{
+                              fontSize: {
+                                xs: "10px",
+                                sm: "12px",
+                                md: "14px",
+                                lg: "20px",
+                                xl: "20px",
+                              },
+                              fontFamily: "Times New Roman",
+                            }}
+                          >
+                            $ {valuePrice[0]}
+                          </Typography>
+                        </Box>
+
+                        <Box
+                          sx={{
+                            border: "1px solid black",
+                            borderRadius: "10px",
+
+                            width: "35%",
+                            paddingLeft: "2vh",
+                          }}
+                        >
+                          <Typography
+                            sx={{
+                              fontSize: {
+                                xs: "10px",
+                                sm: "12px",
+                                md: "14px",
+                                lg: "20px",
+                                xl: "20px",
+                              },
+                              fontFamily: "Times New Roman",
+                              marginBottom: "2vh",
+                            }}
+                          >
+                            Maximum Price:
+                          </Typography>
+                          <Typography
+                            sx={{
+                              fontSize: {
+                                xs: "10px",
+                                sm: "12px",
+                                md: "14px",
+                                lg: "20px",
+                                xl: "20px",
+                              },
+                              fontFamily: "Times New Roman",
+                            }}
+                          >
+                            $ {valuePrice[1]}
+                          </Typography>
+                        </Box>
+                      </Box>
+                    </Box>
+                    <Divider />
+                    <Box>
+                      <Typography
+                        sx={{
+                          fontSize: {
+                            xs: "12px",
+                            sm: "14px",
+                            md: "16px",
+                            lg: "26px",
+                            xl: "24px",
+                          },
+                          fontFamily: "Jacques Francois",
+                          marginTop: "2vh",
+                          marginBottom: "1vh",
+                        }}
+                      >
+                        Select a Country
+                      </Typography>
+                      <Typography
+                        sx={{
+                          fontSize: {
+                            xs: "10px",
+                            sm: "12px",
+                            md: "14px",
+                            lg: "18px",
+                            xl: "2px",
+                          },
+                          fontFamily: "Jacques Francois",
+                          marginBottom: "2vh",
+                          color: "GrayText",
+                        }}
+                      >
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit.
+                      </Typography>
+                      <Box sx={{ marginY: "5vh", paddingX: "3vh" }}>
+                        <Autocomplete
+                          id="country-select-demo"
+                          sx={{ width: "100%" }}
+                          options={countries}
+                          value={selectedCountry}
+                          onChange={handleCountryChange}
+                          autoHighlight
+                          getOptionLabel={(option) => option.label}
+                          renderOption={(props, option) => (
+                            <Box
+                              component="li"
+                              sx={{ "& > img": { mr: 2, flexShrink: 0 } }}
+                              {...props}
+                            >
+                              <img
+                                loading="lazy"
+                                width="20"
+                                srcSet={`https://flagcdn.com/w40/${option.code.toLowerCase()}.png 2x`}
+                                src={`https://flagcdn.com/w20/${option.code.toLowerCase()}.png`}
+                                alt=""
+                              />
+                              {option.label} ({option.code}) +{option.phone}
+                            </Box>
+                          )}
+                          renderInput={(params) => (
+                            <TextField
+                              {...params}
+                              label="Select a Country"
+                              inputProps={{
+                                ...params.inputProps,
+                                autoComplete: "new-password", // disable autocomplete and autofill
+                              }}
                             />
-                            {option.label} ({option.code}) +{option.phone}
+                          )}
+                        />
+                      </Box>
+                    </Box>
+                    <Divider />
+
+                    <Box sx={{ marginBottom: "3vh" }}>
+                      <Typography
+                        sx={{
+                          fontSize: {
+                            xs: "12px",
+                            sm: "14px",
+                            md: "16px",
+                            lg: "26px",
+                            xl: "24px",
+                          },
+                          fontFamily: "Jacques Francois",
+                          marginTop: "2vh",
+                        }}
+                      >
+                        House Width
+                      </Typography>
+                      <Typography
+                        sx={{
+                          fontSize: {
+                            xs: "10px",
+                            sm: "12px",
+                            md: "14px",
+                            lg: "18px",
+                            xl: "20px",
+                          },
+                          fontFamily: "Jacques Francois",
+                          marginBottom: "3vh",
+                          color: "GrayText",
+                        }}
+                      >
+                        Lorem ipsum dolor sit amet.
+                      </Typography>
+                      <Box
+                        sx={{
+                          width: "100%",
+                          display: "flex",
+                          alignItems: "start",
+                          paddingX: "5vh",
+                        }}
+                      >
+                        <Box
+                          sx={{
+                            width: "100%",
+                            alignItems: "center",
+                            paddingRight: "3vh",
+                          }}
+                        >
+                          <Box sx={{ width: "100%" }}>
+                            <Slider
+                              marks={marks}
+                              step={10}
+                              value={typeof value === "number" ? value : 0}
+                              valueLabelDisplay="auto"
+                              min={MIN}
+                              max={MAX}
+                              onChange={handleSliderChange}
+                              sx={
+                                {
+                                  // paddingBottom: "0vh",
+                                }
+                              }
+                            />
                           </Box>
-                        )}
-                        renderInput={(params) => (
-                          <TextField
-                            {...params}
-                            label="Choose a country"
+
+                          <Box
+                            sx={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                            }}
+                          >
+                            <Typography
+                              variant="body2"
+                              onClick={() => setValue(MIN)}
+                              sx={{
+                                cursor: "pointer",
+                                fontSize: {
+                                  xs: "10px",
+                                  sm: "12px",
+                                  md: "14px",
+                                  lg: "18px",
+                                  xl: "20px",
+                                },
+                                fontFamily: "Times New Roman",
+                              }}
+                            >
+                              {MIN}" width
+                            </Typography>
+                            <Typography
+                              variant="body2"
+                              onClick={() => setValue(MAX)}
+                              sx={{
+                                cursor: "pointer",
+                                fontSize: {
+                                  xs: "10px",
+                                  sm: "12px",
+                                  md: "14px",
+                                  lg: "18px",
+                                  xl: "20px",
+                                },
+                                fontFamily: "Times New Roman",
+                              }}
+                            >
+                              {MAX}" width
+                            </Typography>
+                          </Box>
+                        </Box>
+                        <Grid item>
+                          <Input
+                            value={value}
+                            size="small"
+                            onChange={handleInputChange}
+                            onBlur={handleBlur}
                             inputProps={{
-                              ...params.inputProps,
-                              autoComplete: "new-password", // disable autocomplete and autofill
+                              step: 10,
+                              min: 0,
+                              max: 100,
+                              type: "number",
+                              "aria-labelledby": "input-slider",
                             }}
                           />
-                        )}
-                      />
-                    </Box>
-                  </Box>
-                  <Divider />
-
-                  <Box sx={{ marginBottom: "3vh" }}>
-                    <Typography
-                      sx={{
-                        fontSize: {
-                          xs: "12px",
-                          sm: "14px",
-                          md: "16px",
-                          lg: "26px",
-                          xl: "24px",
-                        },
-                        fontFamily: "Jacques Francois",
-                        marginTop: "2vh",
-                      }}
-                    >
-                      House Width
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontSize: {
-                          xs: "10px",
-                          sm: "12px",
-                          md: "14px",
-                          lg: "18px",
-                          xl: "20px",
-                        },
-                        fontFamily: "Jacques Francois",
-                        marginBottom: "3vh",
-                        color: "GrayText",
-                      }}
-                    >
-                      Lorem ipsum dolor sit amet.
-                    </Typography>
-                    <Box
-                      sx={{
-                        width: "100%",
-                        display: "flex",
-                        alignItems: "start",
-                        paddingX: "5vh",
-                      }}
-                    >
+                        </Grid>
+                      </Box>
                       <Box
                         sx={{
-                          width: "100%",
-                          alignItems: "center",
-                          paddingRight: "3vh",
+                          display: "flex",
+                          justifyContent: "space-evenly",
+
+                          marginY: "2vh",
                         }}
                       >
-                        <Box sx={{ width: "100%" }}>
-                          <Slider
-                            marks={marks}
-                            step={10}
-                            value={typeof value === "number" ? value : 0}
-                            valueLabelDisplay="auto"
-                            min={MIN}
-                            max={MAX}
-                            onChange={handleSliderChange}
-                            sx={
-                              {
-                                // paddingBottom: "0vh",
-                              }
-                            }
-                          />
-                        </Box>
-
                         <Box
                           sx={{
-                            display: "flex",
-                            justifyContent: "space-between",
+                            paddingLeft: "2vh",
+                            width: "20%",
+
+                            textAlign: "center",
                           }}
                         >
-                          <Typography
-                            variant="body2"
-                            onClick={() => setValue(MIN)}
-                            sx={{
-                              cursor: "pointer",
-                              fontSize: {
-                                xs: "10px",
-                                sm: "12px",
-                                md: "14px",
-                                lg: "18px",
-                                xl: "20px",
-                              },
-                              fontFamily: "Times New Roman",
-                            }}
-                          >
-                            {MIN}" width
-                          </Typography>
-                          <Typography
-                            variant="body2"
-                            onClick={() => setValue(MAX)}
-                            sx={{
-                              cursor: "pointer",
-                              fontSize: {
-                                xs: "10px",
-                                sm: "12px",
-                                md: "14px",
-                                lg: "18px",
-                                xl: "20px",
-                              },
-                              fontFamily: "Times New Roman",
-                            }}
-                          >
-                            {MAX}" width
-                          </Typography>
-                        </Box>
-                      </Box>
-                      <Grid item>
-                        <Input
-                          value={value}
-                          size="small"
-                          onChange={handleInputChange}
-                          onBlur={handleBlur}
-                          inputProps={{
-                            step: 10,
-                            min: 0,
-                            max: 100,
-                            type: "number",
-                            "aria-labelledby": "input-slider",
-                          }}
-                        />
-                      </Grid>
-                    </Box>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        justifyContent: "space-evenly",
-
-                        marginY: "2vh",
-                      }}
-                    >
-                      <Box
-                        sx={{
-                          paddingLeft: "2vh",
-                          width: "20%",
-
-                          textAlign: "center",
-                        }}
-                      >
-                        {/* <Typography
+                          {/* <Typography
                           sx={{
                             fontSize: {
                               xs: "10px",
@@ -1381,51 +1411,51 @@ const Product_Details = () => {
                         >
                           Minimum Price:
                         </Typography> */}
-                        <Typography
+                          <Typography
+                            sx={{
+                              fontSize: {
+                                xs: "10px",
+                                sm: "12px",
+                                md: "14px",
+                                lg: "24px",
+                                xl: "20px",
+                              },
+                              fontFamily: "Times New Roman",
+                              backgroundColor: "red",
+                              borderRadius: "10vh",
+                            }}
+                          >
+                            {MIN}"
+                          </Typography>
+                        </Box>
+                        <Box
                           sx={{
-                            fontSize: {
-                              xs: "10px",
-                              sm: "12px",
-                              md: "14px",
-                              lg: "24px",
-                              xl: "20px",
-                            },
-                            fontFamily: "Times New Roman",
-                            backgroundColor: "red",
-                            borderRadius: "10vh",
+                            width: "100%",
+                            height: "20px",
+                            borderBottom: "1px solid black",
+                            textAlign: "center",
                           }}
                         >
-                          {MIN}"
-                        </Typography>
-                      </Box>
-                      <Box
-                        sx={{
-                          width: "100%",
-                          height: "20px",
-                          borderBottom: "1px solid black",
-                          textAlign: "center",
-                        }}
-                      >
-                        <span
-                          style={{
-                            fontSize: "3vh",
-                            backgroundColor: "white",
-                            padding: "0 10px",
-                            paddingBottom: "1vh",
-                          }}
-                        >
-                          Width Range
-                        </span>
-                      </Box>
+                          <span
+                            style={{
+                              fontSize: "3vh",
+                              backgroundColor: "white",
+                              padding: "0 10px",
+                              paddingBottom: "1vh",
+                            }}
+                          >
+                            Width Range
+                          </span>
+                        </Box>
 
-                      <Box
-                        sx={{
-                          paddingRight: "2vh",
-                          width: "20%",
-                          textAlign: "center",
-                        }}
-                      >
-                        {/* <Typography
+                        <Box
+                          sx={{
+                            paddingRight: "2vh",
+                            width: "20%",
+                            textAlign: "center",
+                          }}
+                        >
+                          {/* <Typography
                           sx={{
                             fontSize: {
                               xs: "10px",
@@ -1440,175 +1470,177 @@ const Product_Details = () => {
                         >
                           Maximum Price:
                         </Typography> */}
-                        <Typography
-                          sx={{
-                            fontSize: {
-                              xs: "10px",
-                              sm: "12px",
-                              md: "14px",
-                              lg: "24px",
-                              xl: "20px",
-                            },
-                            fontFamily: "Times New Roman",
-                            borderRadius: "10vh",
-                            backgroundColor: "red",
-                          }}
-                        >
-                          {value}"
-                        </Typography>
+                          <Typography
+                            sx={{
+                              fontSize: {
+                                xs: "10px",
+                                sm: "12px",
+                                md: "14px",
+                                lg: "24px",
+                                xl: "20px",
+                              },
+                              fontFamily: "Times New Roman",
+                              borderRadius: "10vh",
+                              backgroundColor: "red",
+                            }}
+                          >
+                            {value}"
+                          </Typography>
+                        </Box>
                       </Box>
                     </Box>
-                  </Box>
-                  <Divider />
-                  <Box sx={{ marginBottom: "3vh" }}>
-                    <Typography
-                      sx={{
-                        fontSize: {
-                          xs: "12px",
-                          sm: "14px",
-                          md: "16px",
-                          lg: "26px",
-                          xl: "24px",
-                        },
-                        fontFamily: "Jacques Francois",
-                        marginTop: "2vh",
-                      }}
-                    >
-                      Lot Width
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontSize: {
-                          xs: "10px",
-                          sm: "12px",
-                          md: "14px",
-                          lg: "18px",
-                          xl: "20px",
-                        },
-                        fontFamily: "Jacques Francois",
-                        marginBottom: "3vh",
-                        color: "GrayText",
-                      }}
-                    >
-                      Lorem ipsum dolor sit amet.
-                    </Typography>
-                    <Box
-                      sx={{
-                        width: "100%",
-                        display: "flex",
-                        alignItems: "start",
-                        paddingX: "5vh",
-                      }}
-                    >
+                    <Divider />
+                    <Box sx={{ marginBottom: "3vh" }}>
+                      <Typography
+                        sx={{
+                          fontSize: {
+                            xs: "12px",
+                            sm: "14px",
+                            md: "16px",
+                            lg: "26px",
+                            xl: "24px",
+                          },
+                          fontFamily: "Jacques Francois",
+                          marginTop: "2vh",
+                        }}
+                      >
+                        Lot Width
+                      </Typography>
+                      <Typography
+                        sx={{
+                          fontSize: {
+                            xs: "10px",
+                            sm: "12px",
+                            md: "14px",
+                            lg: "18px",
+                            xl: "20px",
+                          },
+                          fontFamily: "Jacques Francois",
+                          marginBottom: "3vh",
+                          color: "GrayText",
+                        }}
+                      >
+                        Lorem ipsum dolor sit amet.
+                      </Typography>
                       <Box
                         sx={{
                           width: "100%",
-                          alignItems: "center",
-                          paddingRight: "3vh",
+                          display: "flex",
+                          alignItems: "start",
+                          paddingX: "5vh",
                         }}
                       >
-                        <Box sx={{ width: "100%" }}>
-                          <Slider
-                            marks={lotWidth}
-                            step={10}
-                            value={typeof valueLot === "number" ? valueLot : 0}
-                            valueLabelDisplay="auto"
-                            min={minLot}
-                            max={maxLot}
-                            onChange={handleSliderChangeLot}
-                            sx={
-                              {
-                                // paddingBottom: "0vh",
-                              }
-                            }
-                          />
-                        </Box>
-
                         <Box
                           sx={{
-                            display: "flex",
-                            justifyContent: "space-between",
+                            width: "100%",
+                            alignItems: "center",
+                            paddingRight: "3vh",
                           }}
                         >
-                          <Typography
-                            variant="body2"
-                            sx={{
-                              cursor: "pointer",
-                              fontSize: {
-                                xs: "10px",
-                                sm: "12px",
-                                md: "14px",
-                                lg: "18px",
-                                xl: "20px",
-                              },
-                              fontFamily: "Times New Roman",
-                            }}
-                          >
-                            {minLot}" width
-                          </Typography>
-                          <Typography
-                            variant="body2"
-                            sx={{
-                              cursor: "pointer",
-                              fontSize: {
-                                xs: "10px",
-                                sm: "12px",
-                                md: "14px",
-                                lg: "18px",
-                                xl: "20px",
-                              },
-                              fontFamily: "Times New Roman",
-                            }}
-                          >
-                            {maxLot}" width
-                          </Typography>
-                        </Box>
-                      </Box>
-                      <Grid item>
-                        <Input
-                          value={valueLot}
-                          size="small"
-                          onChange={handleInputChangeLot}
-                          onBlur={handleBlurLot}
-                          inputProps={{
-                            step: 10,
-                            min: 16,
-                            max: 100,
-                            type: "number",
-                            "aria-labelledby": "input-slider",
-                          }}
-                          sx={{
-                            cursor: "pointer",
-                            fontSize: {
-                              xs: "10px",
-                              sm: "12px",
-                              md: "14px",
-                              lg: "18px",
-                              xl: "20px",
-                            },
-                            fontFamily: "Times New Roman",
-                            marginBottom: "3vh",
-                          }}
-                        />
-                      </Grid>
-                    </Box>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        justifyContent: "space-evenly",
+                          <Box sx={{ width: "100%" }}>
+                            <Slider
+                              marks={lotWidth}
+                              step={10}
+                              value={
+                                typeof valueLot === "number" ? valueLot : 0
+                              }
+                              valueLabelDisplay="auto"
+                              min={minLot}
+                              max={maxLot}
+                              onChange={handleSliderChangeLot}
+                              sx={
+                                {
+                                  // paddingBottom: "0vh",
+                                }
+                              }
+                            />
+                          </Box>
 
-                        marginY: "2vh",
-                      }}
-                    >
+                          <Box
+                            sx={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                            }}
+                          >
+                            <Typography
+                              variant="body2"
+                              sx={{
+                                cursor: "pointer",
+                                fontSize: {
+                                  xs: "10px",
+                                  sm: "12px",
+                                  md: "14px",
+                                  lg: "18px",
+                                  xl: "20px",
+                                },
+                                fontFamily: "Times New Roman",
+                              }}
+                            >
+                              {minLot}" width
+                            </Typography>
+                            <Typography
+                              variant="body2"
+                              sx={{
+                                cursor: "pointer",
+                                fontSize: {
+                                  xs: "10px",
+                                  sm: "12px",
+                                  md: "14px",
+                                  lg: "18px",
+                                  xl: "20px",
+                                },
+                                fontFamily: "Times New Roman",
+                              }}
+                            >
+                              {maxLot}" width
+                            </Typography>
+                          </Box>
+                        </Box>
+                        <Grid item>
+                          <Input
+                            value={valueLot}
+                            size="small"
+                            onChange={handleInputChangeLot}
+                            onBlur={handleBlurLot}
+                            inputProps={{
+                              step: 10,
+                              min: 16,
+                              max: 100,
+                              type: "number",
+                              "aria-labelledby": "input-slider",
+                            }}
+                            sx={{
+                              cursor: "pointer",
+                              fontSize: {
+                                xs: "10px",
+                                sm: "12px",
+                                md: "14px",
+                                lg: "18px",
+                                xl: "20px",
+                              },
+                              fontFamily: "Times New Roman",
+                              marginBottom: "3vh",
+                            }}
+                          />
+                        </Grid>
+                      </Box>
                       <Box
                         sx={{
-                          borderRadius: "10px",
-                          paddingLeft: "2vh",
-                          width: "20%",
-                          textAlign: "center",
+                          display: "flex",
+                          justifyContent: "space-evenly",
+
+                          marginY: "2vh",
                         }}
                       >
-                        {/* <Typography
+                        <Box
+                          sx={{
+                            borderRadius: "10px",
+                            paddingLeft: "2vh",
+                            width: "20%",
+                            textAlign: "center",
+                          }}
+                        >
+                          {/* <Typography
                           sx={{
                             fontSize: {
                               xs: "10px",
@@ -1623,50 +1655,50 @@ const Product_Details = () => {
                         >
                           Minimum Price:
                         </Typography> */}
-                        <Typography
+                          <Typography
+                            sx={{
+                              fontSize: {
+                                xs: "10px",
+                                sm: "12px",
+                                md: "14px",
+                                lg: "24px",
+                                xl: "20px",
+                              },
+                              fontFamily: "Times New Roman",
+                            }}
+                          >
+                            {minLot}"
+                          </Typography>
+                        </Box>
+                        <Box
                           sx={{
-                            fontSize: {
-                              xs: "10px",
-                              sm: "12px",
-                              md: "14px",
-                              lg: "24px",
-                              xl: "20px",
-                            },
-                            fontFamily: "Times New Roman",
+                            width: "100%",
+                            height: "20px",
+                            borderBottom: "1px solid black",
+                            textAlign: "center",
                           }}
                         >
-                          {minLot}"
-                        </Typography>
-                      </Box>
-                      <Box
-                        sx={{
-                          width: "100%",
-                          height: "20px",
-                          borderBottom: "1px solid black",
-                          textAlign: "center",
-                        }}
-                      >
-                        <span
-                          style={{
-                            fontSize: "3vh",
-                            backgroundColor: "white",
-                            padding: "0 10px",
-                            paddingBottom: "1vh",
-                          }}
-                        >
-                          Lot Range
-                        </span>
-                      </Box>
+                          <span
+                            style={{
+                              fontSize: "3vh",
+                              backgroundColor: "white",
+                              padding: "0 10px",
+                              paddingBottom: "1vh",
+                            }}
+                          >
+                            Lot Range
+                          </span>
+                        </Box>
 
-                      <Box
-                        sx={{
-                          borderRadius: "10px",
-                          paddingRight: "2vh",
-                          width: "20%",
-                          textAlign: "center",
-                        }}
-                      >
-                        {/* <Typography
+                        <Box
+                          sx={{
+                            borderRadius: "10px",
+                            paddingRight: "2vh",
+                            width: "20%",
+                            textAlign: "center",
+                          }}
+                        >
+                          {/* <Typography
                           sx={{
                             fontSize: {
                               xs: "10px",
@@ -1681,163 +1713,204 @@ const Product_Details = () => {
                         >
                           Maximum Price:
                         </Typography> */}
-                        <Typography
-                          sx={{
-                            fontSize: {
-                              xs: "10px",
-                              sm: "12px",
-                              md: "14px",
-                              lg: "24px",
-                              xl: "20px",
-                            },
-                            fontFamily: "Times New Roman",
-                          }}
-                        >
-                          {valueLot}"
-                        </Typography>
+                          <Typography
+                            sx={{
+                              fontSize: {
+                                xs: "10px",
+                                sm: "12px",
+                                md: "14px",
+                                lg: "24px",
+                                xl: "20px",
+                              },
+                              fontFamily: "Times New Roman",
+                            }}
+                          >
+                            {valueLot}"
+                          </Typography>
+                        </Box>
                       </Box>
                     </Box>
-                  </Box>
-                  <Divider />
+                    <Divider />
 
-                  <Box>
-                    <Typography
-                      sx={{
-                        fontSize: {
-                          xs: "12px",
-                          sm: "14px",
-                          md: "16px",
-                          lg: "26px",
-                          xl: "24px",
-                        },
-                        fontFamily: "Jacques Francois",
-                        marginTop: "2vh",
-                      }}
-                    >
-                      Size Above Grade
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontSize: {
-                          xs: "10px",
-                          sm: "12px",
-                          md: "14px",
-                          lg: "18px",
-                          xl: "20px",
-                        },
-                        fontFamily: "Jacques Francois",
-                        marginBottom: "3vh",
-                        color: "GrayText",
-                      }}
-                    >
-                      Lorem ipsum dolor sit amet.
-                    </Typography>
-                    <Box sx={{ width: "100%", paddingX: "5vh" }}>
-                      <Slider
-                        sx={{ color: "#b12930" }}
-                        getAriaLabel={() => "Minimum distance shift"}
-                        value={valueSize}
-                        onChange={handleChangeSize}
-                        valueLabelDisplay="auto"
-                        getAriaValueText={valueTextSize}
-                        max={1000}
-                      />
-                    </Box>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        justifyContent: "space-evenly",
-                        marginY: "2vh",
-                      }}
-                    >
-                      <Box
+                    <Box>
+                      <Typography
                         sx={{
-                          border: "1px solid black",
-                          borderRadius: "10px",
-
-                          width: "40%",
-                          paddingLeft: "2vh",
+                          fontSize: {
+                            xs: "12px",
+                            sm: "14px",
+                            md: "16px",
+                            lg: "26px",
+                            xl: "24px",
+                          },
+                          fontFamily: "Jacques Francois",
+                          marginTop: "2vh",
                         }}
                       >
-                        <Typography
-                          sx={{
-                            fontSize: {
-                              xs: "10px",
-                              sm: "12px",
-                              md: "14px",
-                              lg: "20px",
-                              xl: "20px",
-                            },
-                            fontFamily: "Times New Roman",
-                            marginBottom: "2vh",
-                          }}
-                        >
-                          Minimum Size Grade:
-                        </Typography>
-                        <Typography
-                          sx={{
-                            fontSize: {
-                              xs: "10px",
-                              sm: "12px",
-                              md: "14px",
-                              lg: "20px",
-                              xl: "20px",
-                            },
-                            fontFamily: "Times New Roman",
-                          }}
-                        >
-                          {valueSize[0]} SQ. FT.
-                        </Typography>
-                      </Box>
-
-                      <Box
+                        Size Above Grade
+                      </Typography>
+                      <Typography
                         sx={{
-                          border: "1px solid black",
-                          borderRadius: "10px",
-
-                          width: "40%",
-                          paddingLeft: "2vh",
+                          fontSize: {
+                            xs: "10px",
+                            sm: "12px",
+                            md: "14px",
+                            lg: "18px",
+                            xl: "20px",
+                          },
+                          fontFamily: "Jacques Francois",
+                          marginBottom: "3vh",
+                          color: "GrayText",
                         }}
                       >
-                        <Typography
+                        Lorem ipsum dolor sit amet.
+                      </Typography>
+                      <Box sx={{ width: "100%", paddingX: "5vh" }}>
+                        <Slider
+                          sx={{ color: "#b12930" }}
+                          getAriaLabel={() => "Minimum distance shift"}
+                          value={valueSize}
+                          onChange={handleChangeSize}
+                          valueLabelDisplay="auto"
+                          getAriaValueText={valueTextSize}
+                          max={1000}
+                        />
+                      </Box>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          justifyContent: "space-evenly",
+                          marginY: "2vh",
+                        }}
+                      >
+                        <Box
                           sx={{
-                            fontSize: {
-                              xs: "10px",
-                              sm: "12px",
-                              md: "14px",
-                              lg: "20px",
-                              xl: "20px",
-                            },
-                            fontFamily: "Times New Roman",
-                            marginBottom: "2vh",
+                            border: "1px solid black",
+                            borderRadius: "10px",
+
+                            width: "40%",
+                            paddingLeft: "2vh",
                           }}
                         >
-                          Maximum Size Grade:
-                        </Typography>
-                        <Typography
+                          <Typography
+                            sx={{
+                              fontSize: {
+                                xs: "10px",
+                                sm: "12px",
+                                md: "14px",
+                                lg: "20px",
+                                xl: "20px",
+                              },
+                              fontFamily: "Times New Roman",
+                              marginBottom: "2vh",
+                            }}
+                          >
+                            Minimum Size Grade:
+                          </Typography>
+                          <Typography
+                            sx={{
+                              fontSize: {
+                                xs: "10px",
+                                sm: "12px",
+                                md: "14px",
+                                lg: "20px",
+                                xl: "20px",
+                              },
+                              fontFamily: "Times New Roman",
+                            }}
+                          >
+                            {valueSize[0]} SQ. FT.
+                          </Typography>
+                        </Box>
+
+                        <Box
                           sx={{
-                            fontSize: {
-                              xs: "10px",
-                              sm: "12px",
-                              md: "14px",
-                              lg: "20px",
-                              xl: "20px",
-                            },
-                            fontFamily: "Times New Roman",
+                            border: "1px solid black",
+                            borderRadius: "10px",
+
+                            width: "40%",
+                            paddingLeft: "2vh",
                           }}
                         >
-                          {valueSize[1]} SQ. FT.
-                        </Typography>
+                          <Typography
+                            sx={{
+                              fontSize: {
+                                xs: "10px",
+                                sm: "12px",
+                                md: "14px",
+                                lg: "20px",
+                                xl: "20px",
+                              },
+                              fontFamily: "Times New Roman",
+                              marginBottom: "2vh",
+                            }}
+                          >
+                            Maximum Size Grade:
+                          </Typography>
+                          <Typography
+                            sx={{
+                              fontSize: {
+                                xs: "10px",
+                                sm: "12px",
+                                md: "14px",
+                                lg: "20px",
+                                xl: "20px",
+                              },
+                              fontFamily: "Times New Roman",
+                            }}
+                          >
+                            {valueSize[1]} SQ. FT.
+                          </Typography>
+                        </Box>
                       </Box>
                     </Box>
+                    <Divider />
                   </Box>
-                  <Divider />
+                  <Box
+                    sx={{
+                      width: "100%",
+                      position: "fixed",
+                      display: "flex",
+                      justifyContent: "center",
+                      marginTop: "2vh",
+
+                      backgroundColor: "white",
+                    }}
+                  >
+                    <Button
+                      sx={{
+                        backgroundColor: "black",
+                        color: "white",
+                        ":hover": {
+                          backgroundColor: "black",
+                          color: "white",
+                        },
+                      }}
+                      onClick={() => handleSubmit()}
+                    >
+                      <Typography
+                        sx={{
+                          fontSize: {
+                            xs: "12px",
+                            sm: "14px",
+                            md: "16px",
+                            lg: "20px",
+                            xl: "24px",
+                          },
+                          fontFamily: "Times New Roman",
+                          padding: "1vh",
+                        }}
+                      >
+                        Search Filter
+                      </Typography>
+                    </Button>
+                  </Box>
                 </Box>
               </Modal>
             </Box>
           </Grid>
         </Grid>
       </Box>
+
       <Box>
         <Grid
           container
