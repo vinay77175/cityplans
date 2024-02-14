@@ -8,6 +8,7 @@ import {
   FormControl,
   Grid,
   IconButton,
+  Input,
   InputAdornment,
   InputLabel,
   OutlinedInput,
@@ -52,7 +53,8 @@ const Login = () => {
     } else {
       alert("Invalid User Details");
     }
-  };
+  }; 
+
   return (
     <div>
       <Box sx={{ minHeight: "100vh" }}>
@@ -187,6 +189,7 @@ const Login = () => {
                       Sign up
                     </Link>
                   </Typography>
+                  
                 </Box>
               </Box>
             </Container>

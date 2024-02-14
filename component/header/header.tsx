@@ -44,7 +44,7 @@ const style = {
   top: "10%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: {xs:100,sm:100,md:600},
+  width: { xs: 100, sm: 100, md: 600 },
   bgcolor: "background.paper",
   boxShadow: 50,
   borderRadius: "12px",
@@ -216,14 +216,16 @@ const Header = () => {
                       justifyContent: "flex-start",
                     }}
                   >
-                    <Image
-                      src={Logo.src}
-                      alt="logo"
-                      layout="intrinsic"
-                      height={200}
-                      width={250}
-                      sizes="100vw"
-                    ></Image>
+                    <Link href={"/"}>
+                      <Image
+                        src={Logo.src}
+                        alt="logo"
+                        layout="intrinsic"
+                        height={200}
+                        width={250}
+                        sizes="100vw"
+                      ></Image>
+                    </Link>
                   </Box>
                 </Grid>
                 <Grid item xs={0} sm={6.5} textAlign={"center"}>
@@ -370,7 +372,7 @@ const Header = () => {
                           borderRadius: "6px",
                           overflow: "hidden",
                           width: { xs: 50, md: "auto" },
-                          height:"50px"
+                          height: "50px",
                         }}
                       >
                         <InputBase
@@ -379,7 +381,7 @@ const Header = () => {
                             flex: 1,
                             display: { xs: "none", md: "block" },
                             height: "100%",
-                            p:1
+                            p: 1,
                           }}
                           placeholder="Search Plans"
                           onClick={handleOpen}
@@ -392,10 +394,10 @@ const Header = () => {
                             },
                             bgcolor: "#B12930",
                             minWidth: "70px",
-                            height:"100%"
+                            height: "100%",
                           }}
                           onClick={handleOpen}
-                        >  
+                        >
                           {/* <Box sx={{ display: { xs: "none", sm: "block" } }}>Search</Box>{" "} */}
                           <SearchIcon fontSize="small" sx={{ m: 0, p: 0 }} />
                         </Button>
