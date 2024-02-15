@@ -1,13 +1,50 @@
-import { Box, Container, Grid, Typography } from "@mui/material";
-import React from "react";
+import {
+  Grid,
+  Card,
+  CardContent,
+  Container,
+  Typography,
+  Box,
+  IconButton,
+} from "@mui/material";
+import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import Image from "next/image";
 import backImg1 from "../../public/Images/about_back.png";
 import backImg2 from "../../public/Images/about_image_1.png";
 import backImg3 from "../../public/Images/about_image_2.png";
 import backImg4 from "../../public/Images/about_image_4.png";
-
+import { Twitter, Facebook, Instagram, LinkedIn } from "@mui/icons-material";
+import team1 from "../../public/Images/category_1.png";
 const Contact_us = () => {
+  // const [isHovered, setIsHovered] = useState(false);
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const TeamData = [
+    {
+      id: 1,
+      name: "Walter White",
+      position: "Chief Executive Officer",
+      description:
+        "Velit aut quia fugit et et. Dolorum ea voluptate vel tempore tenetur ipsa quae aut. Ipsum exercitationem iure minima enim corporis et voluptate.",
+      image: "./images/team-1.jpg",
+    },
+    {
+      id: 2,
+      name: "Walter White",
+      position: "Chief Executive Officer",
+      description:
+        "Velit aut quia fugit et et. Dolorum ea voluptate vel tempore tenetur ipsa quae aut. Ipsum exercitationem iure minima enim corporis et voluptate.",
+      image: "./images/team-1.jpg",
+    },
+    {
+      id: 3,
+      name: "Aliza",
+      position: "Chief Executive Officer",
+      description:
+        "Velit aut quia fugit et et. Dolorum ea voluptate vel tempore tenetur ipsa quae aut. Ipsum exercitationem iure minima enim corporis et voluptate.",
+      image: "./images/team-1.jpg",
+    },
+  ];
   return (
     <Container maxWidth="xl" sx={{ paddingX: "0vh !important" }}>
       <Box
@@ -391,6 +428,137 @@ const Contact_us = () => {
               industry
             </Typography>
           </Box>
+        </Grid>
+        <Grid container>
+          {TeamData.map((member) => (
+            <Grid
+              key={member.id}
+              item
+              xs={12}
+              sm={6}
+              md={3}
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <Card
+                onMouseEnter={() => setHoveredCard(member.id)}
+                onMouseLeave={() => setHoveredCard(null)}
+                sx={{
+                  backgroundColor: "white",
+                  boxShadow: "0px 1px 20px rgb(0 0 0/15%)",
+                  marginBottom: "3vh",
+                  textAlign: "center",
+                }}
+              >
+                <CardContent sx={{ padding: "0vh ", cursor: "pointer" }}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        position: "relative",
+                        width: "100%",
+                        height: "30vh",
+                      }}
+                    >
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                        }}
+                      />
+
+                      <Box
+                        sx={{
+                          position: "absolute",
+                          top: "15%",
+                          left: "80%",
+                          backgroundColor: "white",
+                          opacity: "0.5",
+                          padding: ".8vh",
+                          borderRadius: "5px",
+                          display: hoveredCard ? "block" : "none",
+                        }}
+                      >
+                        <Box>
+                          <IconButton href="">
+                            <Twitter sx={{ color: "#B12930" }} />
+                          </IconButton>
+                        </Box>
+                        <Box>
+                          <IconButton href="">
+                            <Facebook sx={{ color: "#B12930" }} />
+                          </IconButton>
+                        </Box>
+                        <Box>
+                          <IconButton href="">
+                            <Instagram sx={{ color: "#B12930" }} />
+                          </IconButton>
+                        </Box>
+                        <Box>
+                          <IconButton href="">
+                            <LinkedIn sx={{ color: "#B12930" }} />
+                          </IconButton>
+                        </Box>
+                      </Box>
+                    </Box>
+                    <Typography
+                      variant="h6"
+                      gutterBottom
+                      align="center"
+                      sx={{
+                        fontSize: "22px",
+                        fontFamily: "Times New Roman",
+                        fontWeight: "600",
+                        color: "black",
+                        paddingTop: "1vh",
+                        marginBottom: "1vh",
+                      }}
+                    >
+                      {member.name}
+                    </Typography>
+                    <Typography
+                      variant="subtitle1"
+                      gutterBottom
+                      align="center"
+                      sx={{
+                        fontSize: "16px",
+                        fontFamily: "Times New Roman",
+                        fontWeight: "500",
+                        color: "black",
+                        marginBottom: "2vh",
+                      }}
+                    >
+                      {member.position}
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      align="center"
+                      sx={{
+                        fontSize: "16px",
+                        fontFamily: "Times New Roman",
+                        color: "black",
+                        textAlign: "justify",
+                        paddingX: "3vh",
+                      }}
+                    >
+                      {member.description}
+                    </Typography>
+                  </Box>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
         </Grid>
       </Grid>
     </Container>
