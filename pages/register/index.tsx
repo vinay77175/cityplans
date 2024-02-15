@@ -55,6 +55,7 @@ const Register = () => {
   //     alert("Invalid User Details");
   //   }
   // };
+  console.log(userName,"username")
   return (
     <div>
       <Box sx={{ minHeight: "100vh" }}>
@@ -219,7 +220,7 @@ const Register = () => {
                     }}
                     // onClick={handleSubmit}
                   >
-                    Sign Up
+                    Sign 
                   </Button>
                   <Typography mt={3}>
                     Already have an account?{" "}
