@@ -7,14 +7,6 @@ const layout = (props) => {
 
   return (
     <div>
-      {/* {
-      ((pathname !== "/" )|
-      (pathname !== "/login") |
-     ( pathname !== "/register") |
-     ( pathname !== "/login/email_verify/verification" )|
-      (pathname !== "/login/email_verify/reset_pwd") |
-      (pathname !== "/login/email_verify")) && <Header />
-      } */}
       {!(
         pathname == "/" ||
         pathname == "/login" ||

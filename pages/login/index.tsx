@@ -1,3 +1,4 @@
+import { useForm, SubmitHandler } from "react-hook-form"
 import Google from "../../public/Images/Google.svg";
 import backImage from "../../public/Images/CarouselImages/2.jpg";
 import {
@@ -21,8 +22,14 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { useRouter } from "next/router";
 import Link from "next/link";
-
+interface IFormInput {
+  firstName: string
+  lastName: string
+  age: number
+}
 const Login = () => {
+  // const { register, handleSubmit } = useForm<IFormInput>()
+  // const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data)
   const router = useRouter();
   const [showPassword, setShowPassword] = React.useState(false);
   const [userName, setuserName] = useState<Record<string, string>>({
@@ -53,7 +60,7 @@ const Login = () => {
     } else {
       alert("Invalid User Details");
     }
-  }; 
+  };
 
   return (
     <div>
@@ -128,7 +135,10 @@ const Login = () => {
                   </Button>
                 </Box>
                 <Divider>OR</Divider>
-                <Box my={5} display={"flex"} flexDirection={"column"} gap={5}>
+                <Box my={5} 
+                display={"flex"} flexDirection={"column"} 
+                gap={5}
+                >
                   <TextField
                     variant="outlined"
                     label="Username"
@@ -139,6 +149,22 @@ const Login = () => {
                       handleChange(e.target.name, e.target.value)
                     }
                   />
+                  {/* <form onSubmit={handleSubmit(onSubmit)}>
+                    <input
+                      {...register("firstName", {
+                        required: true,
+                        maxLength: 20,
+                      })}
+                    /><br></br>
+                    <input
+                      {...register("lastName", { pattern: /^[A-Za-z]+$/i })}
+                    />
+                    <input
+                      type="number"
+                      {...register("age", { min: 18, max: 99 })}
+                    />
+                    <input type="submit" />
+                  </form> */}
                   <FormControl variant="outlined">
                     <InputLabel htmlFor="outlined-adornment-password">
                       Password
@@ -189,7 +215,6 @@ const Login = () => {
                       Sign up
                     </Link>
                   </Typography>
-                  
                 </Box>
               </Box>
             </Container>
