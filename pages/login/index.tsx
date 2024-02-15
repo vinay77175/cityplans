@@ -1,4 +1,4 @@
-import { useForm, SubmitHandler } from "react-hook-form"
+import { useForm, SubmitHandler } from "react-hook-form";
 import Google from "../../public/Images/Google.svg";
 import backImage from "../../public/Images/CarouselImages/2.jpg";
 import {
@@ -23,13 +23,21 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { useRouter } from "next/router";
 import Link from "next/link";
 interface IFormInput {
-  firstName: string
-  lastName: string
-  age: number
+  userName: string;
+  password: string;
 }
 const Login = () => {
-  // const { register, handleSubmit } = useForm<IFormInput>()
-  // const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data)
+  const { register, handleSubmit } = useForm<IFormInput>();
+  const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
+  // if (
+  //   userName["userName"] === loginObj.userName &&
+  //   userName["password"] === loginObj.password
+  // ) {
+  //   router.push("/");
+  // } else {
+  //   alert("Invalid User Details");
+  // }
+
   const router = useRouter();
   const [showPassword, setShowPassword] = React.useState(false);
   const [userName, setuserName] = useState<Record<string, string>>({
@@ -50,16 +58,6 @@ const Login = () => {
   const handleChange = (name: string, value: string) => {
     // console.log(value);
     setuserName((prev) => ({ ...prev, [name]: value }));
-  };
-  const handleSubmit = () => {
-    if (
-      userName["userName"] === loginObj.userName &&
-      userName["password"] === loginObj.password
-    ) {
-      router.push("/");
-    } else {
-      alert("Invalid User Details");
-    }
   };
 
   return (
@@ -135,21 +133,19 @@ const Login = () => {
                   </Button>
                 </Box>
                 <Divider>OR</Divider>
-                <Box my={5} 
-                display={"flex"} flexDirection={"column"} 
-                gap={5}
-                >
-                  <TextField
-                    variant="outlined"
-                    label="Username"
-                    size="medium"
-                    name="userName"
-                    fullWidth
-                    onChange={(e) =>
-                      handleChange(e.target.name, e.target.value)
-                    }
-                  />
-                  {/* <form onSubmit={handleSubmit(onSubmit)}>
+                <Box my={5} display={"flex"} flexDirection={"column"} gap={5}>
+                  <form onSubmit={handleSubmit(onSubmit)}>
+                    <TextField
+                      variant="outlined"
+                      label="Username"
+                      size="medium"
+                      fullWidth
+                      {...register("userName", { required: true })}
+                      // onChange={(e) =>
+                      //   handleChange(e.target.name, e.target.value)
+                      // }
+                    />
+                    {/* <form onSubmit={handleSubmit(onSubmit)}>
                     <input
                       {...register("firstName", {
                         required: true,
@@ -165,38 +161,48 @@ const Login = () => {
                     />
                     <input type="submit" />
                   </form> */}
-                  <FormControl variant="outlined">
-                    <InputLabel htmlFor="outlined-adornment-password">
-                      Password
-                    </InputLabel>
-                    <OutlinedInput
-                      name="password"
-                      onChange={(e) =>
-                        handleChange(e.target.name, e.target.value)
-                      }
-                      id="outlined-adornment-password"
-                      type={showPassword ? "text" : "password"}
-                      endAdornment={
-                        <InputAdornment position="end">
-                          <IconButton
-                            aria-label="toggle password visibility"
-                            onClick={handleClickShowPassword}
-                            onMouseDown={handleMouseDownPassword}
-                            edge="end"
-                          >
-                            {showPassword ? <VisibilityOff /> : <Visibility />}
-                          </IconButton>
-                        </InputAdornment>
-                      }
-                      label="Password"
-                    />
-                  </FormControl>
-                  <Link href={"/login/email_verify"} style={{ color: "#000" }}>
-                    <Typography>Forgot your password ?</Typography>
-                  </Link>
+                    <FormControl variant="outlined">
+                      <InputLabel htmlFor="outlined-adornment-password">
+                        Password
+                      </InputLabel>
+                      <OutlinedInput
+                        // name="password"
+                        // onChange={(e) =>
+                        //   handleChange(e.target.name, e.target.value)
+                        // }
+                         {...register("password", {required: true})}
+                        id="outlined-adornment-password"
+                        type={showPassword ? "text" : "password"}
+                        endAdornment={
+                          <InputAdornment position="end">
+                            <IconButton
+                              aria-label="toggle password visibility"
+                              onClick={handleClickShowPassword}
+                              onMouseDown={handleMouseDownPassword}
+                              edge="end"
+                            >
+                              {showPassword ? (
+                                <VisibilityOff />
+                              ) : (
+                                <Visibility />
+                              )}
+                            </IconButton>
+                          </InputAdornment>
+                        }
+                        label="Password"
+                      />
+                    </FormControl>
+                    <Link
+                      href={"/login/email_verify"}
+                      style={{ color: "#000" }}
+                    >
+                      <Typography>Forgot your password ?</Typography>
+                    </Link>
+                  </form>
                 </Box>
                 <Box>
                   <Button
+                    type="submit"
                     variant="contained"
                     sx={{
                       "&:hover": {
@@ -205,10 +211,10 @@ const Login = () => {
                       minWidth: 150,
                       bgcolor: "#b12930",
                     }}
-                    onClick={handleSubmit}
                   >
                     Sign In
                   </Button>
+
                   <Typography mt={3}>
                     Don't have an account?{" "}
                     <Link href="/register" style={{ color: "#000" }}>
