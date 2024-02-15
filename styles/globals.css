@@ -466,3 +466,7 @@ svg {
   background-color: #b12930;
   color: #fff;
 }
+.floating{
+  transform: translate(-13vw);
+  fill: #000000;
+}

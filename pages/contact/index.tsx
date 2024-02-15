@@ -186,7 +186,7 @@ const Contact = () => {
                   height={550}
                   width={700}
                   layout="intrinsic"
-                  src={contactImage}
+                  src={contactImage.src}
                   alt="Contact Us image"
                 />
               </Box>
