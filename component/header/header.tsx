@@ -1,3 +1,5 @@
+import HowToRegIcon from "@mui/icons-material/HowToReg";
+import LoginIcon from "@mui/icons-material/Login";
 import instagram from "../../public/Images/insta.svg";
 import facebook from "../../public/Images/facebook.svg";
 import linkedin from "../../public/Images/linkedin.svg";
@@ -37,8 +39,11 @@ import categoryIcon from "../../public/Images/category_Icon.svg";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 const drawerWidth = 240;
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const loginOption = ["login", "register"];
 const style = {
   position: "absolute" as "absolute",
   top: "10%",
@@ -51,6 +56,9 @@ const style = {
 };
 
 const Header = () => {
+  const route = useRouter();
+  const pathname = usePathname();
+  const login = 0;
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -88,6 +96,7 @@ const Header = () => {
         <Link href={"/"} className="navLink">
           <ListItem disablePadding>
             <ListItemButton
+              className={pathname == "/" ? "selectedDrawerNav" : ""}
               sx={{
                 "&:hover": {
                   bgcolor: "#B12930",
@@ -106,6 +115,7 @@ const Header = () => {
         <Link href={"/about"} className="navLink">
           <ListItem disablePadding>
             <ListItemButton
+              className={pathname == "/about" ? "selectedDrawerNav" : ""}
               sx={{
                 "&:hover": {
                   bgcolor: "#B12930",
@@ -124,6 +134,7 @@ const Header = () => {
         <Link href={"/products"} className="navLink">
           <ListItem disablePadding>
             <ListItemButton
+              className={pathname == "/products" ? "selectedDrawerNav" : ""}
               sx={{
                 "&:hover": {
                   bgcolor: "#B12930",
@@ -143,6 +154,7 @@ const Header = () => {
         <Link href={"/contact"} className="navLink">
           <ListItem disablePadding>
             <ListItemButton
+              className={pathname == "/contact" ? "selectedDrawerNav" : ""}
               sx={{
                 "&:hover": {
                   bgcolor: "#B12930",
@@ -232,8 +244,9 @@ const Header = () => {
                   <Box sx={{ display: { xs: "none", sm: "block" } }}>
                     <Link href={"/"}>
                       <Button
+                        className={pathname == "/" ? "selectedNav" : ""}
                         sx={{
-                          "&:hover": {
+                          "&:hover, &:focus": {
                             color: "#B12930",
                             borderColor: "#B12930",
                             backgroundColor: "rgb(255,255,255,0)",
@@ -253,8 +266,9 @@ const Header = () => {
                     </Link>
                     <Link href={"/about"}>
                       <Button
+                        className={pathname == "/about" ? "selectedNav" : ""}
                         sx={{
-                          "&:hover": {
+                          "&:hover, &:checked": {
                             color: "#B12930",
                             borderColor: "#B12930",
                             backgroundColor: "rgb(255,255,255,0)",
@@ -274,8 +288,9 @@ const Header = () => {
                     </Link>
                     <Link href={"/products"}>
                       <Button
+                        className={pathname == "/products" ? "selectedNav" : ""}
                         sx={{
-                          "&:hover": {
+                          "&:hover, &:focus": {
                             color: "#B12930",
                             borderColor: "#B12930",
                             backgroundColor: "rgb(255,255,255,0)",
@@ -295,8 +310,9 @@ const Header = () => {
                     </Link>
                     <Link href={"/contact"}>
                       <Button
+                        className={pathname == "/contact" ? "selectedNav" : ""}
                         sx={{
-                          "&:hover": {
+                          "&:hover, &:focus": {
                             color: "#B12930",
                             borderColor: "#B12930",
                             backgroundColor: "rgb(255,255,255,0)",
@@ -419,78 +435,117 @@ const Header = () => {
                         />
                       </IconButton>
                     </Tooltip>
-                    <Menu
-                      sx={{ mt: "45px" }}
-                      id="menu-appbar"
-                      anchorEl={anchorElUser}
-                      anchorOrigin={{
-                        vertical: "top",
-                        horizontal: "right",
-                      }}
-                      keepMounted
-                      transformOrigin={{
-                        vertical: "top",
-                        horizontal: "right",
-                      }}
-                      open={Boolean(anchorElUser)}
-                      onClose={handleCloseUserMenu}
-                    >
-                      {settings.map((setting) => (
-                        <MenuItem
-                          key={setting}
-                          onClick={handleCloseUserMenu}
-                          sx={{
-                            "&:hover": {
-                              bgcolor: "#B12930",
-                              color: "#fff",
-                            },
-                          }}
+                    {login ? (
+                      <Menu
+                        sx={{ mt: "45px" }}
+                        id="menu-appbar"
+                        anchorEl={anchorElUser}
+                        anchorOrigin={{
+                          vertical: "top",
+                          horizontal: "right",
+                        }}
+                        keepMounted
+                        transformOrigin={{
+                          vertical: "top",
+                          horizontal: "right",
+                        }}
+                        open={Boolean(anchorElUser)}
+                        onClose={handleCloseUserMenu}
+                      >
+                        {settings.map((setting) => (
+                          <MenuItem
+                            key={setting}
+                            onClick={handleCloseUserMenu}
+                            sx={{
+                              "&:hover": {
+                                bgcolor: "#B12930",
+                                color: "#fff",
+                              },
+                            }}
+                          >
+                            <Typography textAlign="center">
+                              {setting}
+                            </Typography>
+                          </MenuItem>
+                        ))}
+                      </Menu>
+                    ) : (
+                      <Menu
+                        sx={{ mt: "45px" }}
+                        id="menu-appbar"
+                        anchorEl={anchorElUser}
+                        anchorOrigin={{
+                          vertical: "top",
+                          horizontal: "right",
+                        }}
+                        keepMounted
+                        transformOrigin={{
+                          vertical: "top",
+                          horizontal: "right",
+                        }}
+                        open={Boolean(anchorElUser)}
+                        onClose={handleCloseUserMenu}
+                      >
+                        <Link
+                          href={"/login"}
+                          style={{ textDecoration: "none" }}
                         >
-                          <Typography textAlign="center">{setting}</Typography>
-                        </MenuItem>
-                      ))}
-                    </Menu>
+                          <MenuItem
+                            onClick={handleCloseUserMenu}
+                            sx={{
+                              "&:hover": {
+                                bgcolor: "#B12930",
+                                color: "#fff",
+                              },
+                              color: "#000",
+                            }}
+                          >
+                            <LoginIcon />
+                            <Typography
+                              textAlign="center"
+                              sx={{
+                                textTransform: "capitalize",
+                                mx: 1,
+                              }}
+                            >
+                              Login
+                            </Typography>
+                          </MenuItem>
+                        </Link>
+                        <Link
+                          href={"/register"}
+                          style={{ textDecoration: "none" }}
+                        >
+                          <MenuItem
+                            onClick={handleCloseUserMenu}
+                            sx={{
+                              "&:hover": {
+                                bgcolor: "#B12930",
+                                color: "#fff",
+                              },
+                              color: "#000",
+                            }}
+                          >
+                            <HowToRegIcon />
+                            <Typography
+                              textAlign="center"
+                              sx={{
+                                textTransform: "capitalize",
+                                mx: 1,
+                              }}
+                            >
+                              Register
+                            </Typography>
+                          </MenuItem>
+                        </Link>
+                      </Menu>
+                    )}
                   </Box>
                 </Grid>
               </Grid>
             </Toolbar>
           </Container>
           <Divider />
-          {/* <Box sx={{ py: 2 }}>
-            <Container maxWidth="xl">
-              <Grid container sx={{ px: 3 }}>
-                <Grid item sm={1.5}>
-                  <FormControl sx={{ minWidth: 150 }} size="small">
-                    <InputLabel id="demo-select-small-label">
-                      <Image
-                        src={categoryIcon}
-                        alt="category Icon"
-                        style={{ marginRight: 5 }}
-                      />
-                      Category
-                    </InputLabel>
-                    <Select
-                      value={age}
-                      // label={"Age"}
-                      onChange={handleChange}
-                    >
-                      <MenuItem value="">
-                        <em>None</em>
-                      </MenuItem>
-                      <MenuItem value={10}>Ten</MenuItem>
-                      <MenuItem value={20}>Twenty</MenuItem>
-                      <MenuItem value={30}>Thirty</MenuItem>
-                    </Select>
-                  </FormControl>
-                </Grid>
-                <Divider
-                  orientation="vertical"
-                  flexItem
-                  sx={{ border: "1px solid #b12930" }}
-                />
-              </Grid>
-            </Container>
-          </Box> */}
         </AppBar>
       </Box>
 

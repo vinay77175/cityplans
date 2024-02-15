@@ -1,3 +1,8 @@
+import HowToRegIcon from "@mui/icons-material/HowToReg";
+import LoginIcon from "@mui/icons-material/Login";
+import instagram from "../../public/Images/insta.svg";
+import facebook from "../../public/Images/facebook.svg";
+import linkedin from "../../public/Images/linkedin.svg";
 import SearchIcon from "@mui/icons-material/Search";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -34,10 +39,15 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 const drawerWidth = 240;
 const pages = ["home", "about Us", "plans", "Services", "Contact Us"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const loginOption = ["login", "register"];
 const Home_section = () => {
+  const pathname = usePathname();
+
+  const login = 0;
   var slideSettings = {
     centerPadding: "40px",
     infinite: true,
@@ -78,6 +88,7 @@ const Home_section = () => {
         <Link href={"/"} className="navLink">
           <ListItem disablePadding>
             <ListItemButton
+              className={pathname == "/" ? "selectedDrawerNav" : ""}
               sx={{
                 "&:hover": {
                   bgcolor: "#B12930",
@@ -96,6 +107,8 @@ const Home_section = () => {
         <Link href={"/about"} className="navLink">
           <ListItem disablePadding>
             <ListItemButton
+              className={pathname == "/about" ? "selectedDrawerNav" : ""}
+
               sx={{
                 "&:hover": {
                   bgcolor: "#B12930",
@@ -114,6 +127,8 @@ const Home_section = () => {
         <Link href={"/products"} className="navLink">
           <ListItem disablePadding>
             <ListItemButton
+              className={pathname == "/products" ? "selectedDrawerNav" : ""}
+
               sx={{
                 "&:hover": {
                   bgcolor: "#B12930",
@@ -133,6 +148,8 @@ const Home_section = () => {
         <Link href={"/contact"} className="navLink">
           <ListItem disablePadding>
             <ListItemButton
+              className={pathname == "/contact" ? "selectedDrawerNav" : ""}
+
               sx={{
                 "&:hover": {
                   bgcolor: "#B12930",
@@ -159,6 +176,25 @@ const Home_section = () => {
       }}
     >
       {/* Navbar */}
+      <Box
+        sx={{
+          bgcolor: "#000",
+          color: "#fff",
+          py: "1vh",
+          display: { xs: "none", sm: "flex" },
+        }}
+      >
+        <Container maxWidth="xl">
+          <Box sx={{ display: "flex", justifyContent: "space-between", px: 4 }}>
+            <Typography>Welcome To CityPlans | Shop Now </Typography>
+            <Typography sx={{ display: "flex", gap: 2 }}>
+              <Box component={"img"} src={facebook.src} />
+              <Box component={"img"} src={instagram.src} />
+              <Box component={"img"} src={linkedin.src} />
+            </Typography>
+          </Box>
+        </Container>
+      </Box>
       <AppBar
         component="nav"
         className={styles.Header_AppBar}
@@ -199,8 +235,9 @@ const Home_section = () => {
               <Box sx={{ display: { xs: "none", sm: "block" } }}>
                 <Link href={"/"}>
                   <Button
+                    className={pathname == "/" ? "selectedNav" : ""}
                     sx={{
-                      "&:hover": {
+                      "&:hover, &:focus": {
                         color: "#B12930",
                         borderColor: "#B12930",
                         backgroundColor: "rgb(255,255,255,0)",
@@ -210,7 +247,7 @@ const Home_section = () => {
                       px: { sm: 1, md: 2, lg: 4 },
                       border: "1px solid rgb(255,255,255,0)",
                       // borderRadius: "25px",
-                      fontSize: { sm: "", md: "18px", lg: "20px" },
+                      fontSize: { sm: "16px", md: "17px", lg: "20px" },
                       fontFamily: "Inria Serif",
                       textTransform: "capitalize",
                     }}
@@ -220,8 +257,9 @@ const Home_section = () => {
                 </Link>
                 <Link href={"/about"}>
                   <Button
+                    className={pathname == "/about" ? "selectedNav" : ""}
                     sx={{
-                      "&:hover": {
+                      "&:hover, &:checked": {
                         color: "#B12930",
                         borderColor: "#B12930",
                         backgroundColor: "rgb(255,255,255,0)",
@@ -241,8 +279,9 @@ const Home_section = () => {
                 </Link>
                 <Link href={"/products"}>
                   <Button
+                    className={pathname == "/products" ? "selectedNav" : ""}
                     sx={{
-                      "&:hover": {
+                      "&:hover, &:focus": {
                         color: "#B12930",
                         borderColor: "#B12930",
                         backgroundColor: "rgb(255,255,255,0)",
@@ -260,11 +299,11 @@ const Home_section = () => {
                     Plans
                   </Button>
                 </Link>
-
                 <Link href={"/contact"}>
                   <Button
+                    className={pathname == "/contact" ? "selectedNav" : ""}
                     sx={{
-                      "&:hover": {
+                      "&:hover, &:focus": {
                         color: "#B12930",
                         borderColor: "#B12930",
                         backgroundColor: "rgb(255,255,255,0)",
@@ -333,37 +372,103 @@ const Home_section = () => {
                     />
                   </IconButton>
                 </Tooltip>
-                <Menu
-                  sx={{ mt: "45px" }}
-                  id="menu-appbar"
-                  anchorEl={anchorElUser}
-                  anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  open={Boolean(anchorElUser)}
-                  onClose={handleCloseUserMenu}
-                >
-                  {settings.map((setting) => (
-                    <MenuItem
-                      key={setting}
-                      onClick={handleCloseUserMenu}
-                      sx={{
-                        "&:hover": {
-                          bgcolor: "#B12930",
-                          color: "#fff",
-                        },
-                      }}
-                    >
-                      <Typography textAlign="center">{setting}</Typography>
-                    </MenuItem>
-                  ))}
-                </Menu>
+                {login ? (
+                  <Menu
+                    sx={{ mt: "45px" }}
+                    id="menu-appbar"
+                    anchorEl={anchorElUser}
+                    anchorOrigin={{
+                      vertical: "top",
+                      horizontal: "right",
+                    }}
+                    keepMounted
+                    transformOrigin={{
+                      vertical: "top",
+                      horizontal: "right",
+                    }}
+                    open={Boolean(anchorElUser)}
+                    onClose={handleCloseUserMenu}
+                  >
+                    {settings.map((setting) => (
+                      <MenuItem
+                        key={setting}
+                        onClick={handleCloseUserMenu}
+                        sx={{
+                          "&:hover": {
+                            bgcolor: "#B12930",
+                            color: "#fff",
+                          },
+                        }}
+                      >
+                        <Typography textAlign="center">{setting}</Typography>
+                      </MenuItem>
+                    ))}
+                  </Menu>
+                ) : (
+                  <Menu
+                    sx={{ mt: "45px" }}
+                    id="menu-appbar"
+                    anchorEl={anchorElUser}
+                    anchorOrigin={{
+                      vertical: "top",
+                      horizontal: "right",
+                    }}
+                    keepMounted
+                    transformOrigin={{
+                      vertical: "top",
+                      horizontal: "right",
+                    }}
+                    open={Boolean(anchorElUser)}
+                    onClose={handleCloseUserMenu}
+                  >
+                    <Link href={"/login"} style={{ textDecoration: "none" }}>
+                      <MenuItem
+                        onClick={handleCloseUserMenu}
+                        sx={{
+                          "&:hover": {
+                            bgcolor: "#B12930",
+                            color: "#fff",
+                          },
+                          color: "#000",
+                        }}
+                      >
+                        <LoginIcon />
+                        <Typography
+                          textAlign="center"
+                          sx={{
+                            textTransform: "capitalize",
+                            mx: 1,
+                          }}
+                        >
+                          Login
+                        </Typography>
+                      </MenuItem>
+                    </Link>
+                    <Link href={"/register"} style={{ textDecoration: "none" }}>
+                      <MenuItem
+                        onClick={handleCloseUserMenu}
+                        sx={{
+                          "&:hover": {
+                            bgcolor: "#B12930",
+                            color: "#fff",
+                          },
+                          color: "#000",
+                        }}
+                      >
+                        <HowToRegIcon />
+                        <Typography
+                          textAlign="center"
+                          sx={{
+                            textTransform: "capitalize",
+                            mx: 1,
+                          }}
+                        >
+                          Register
+                        </Typography>
+                      </MenuItem>
+                    </Link>
+                  </Menu>
+                )}
               </Box>
             </Grid>
           </Grid>
@@ -402,6 +507,7 @@ const Home_section = () => {
           filter: "drop-shadow(12px 12px 4px #000)",
           height: { xs: "50%", sm: "55%", md: "90%", lg: "100%" },
           width: { xs: "90%", sm: "80%", md: "50%", lg: "40%" },
+          userSelect: "none",
         }}
       />
       <Box
@@ -418,6 +524,7 @@ const Home_section = () => {
           filter: "drop-shadow(-12px -12px 4px #000)",
           height: { xs: "50%", sm: "55%", md: "90%", lg: "100%" },
           width: { xs: "95%", md: "40%" },
+          userSelect: "none",
         }}
       />
 
@@ -445,10 +552,11 @@ const Home_section = () => {
                   xs: "1.5rem",
                   sm: "2.5rem",
                   md: "2.9rem",
-                  lg: "4.5rem",
+                  lg: "3.5rem",
                 },
                 pr: { xs: 7, sm: 12, md: 0 },
                 fontFamily: "Jacques Francois",
+                userSelect: "none",
               }}
               gutterBottom
             >
@@ -459,6 +567,7 @@ const Home_section = () => {
                 fontSize: { xs: "1rem", sm: "1.2rem", lg: "1.5rem" },
                 pr: { xs: 7, sm: 12, md: 0 },
                 mt: { xs: 6 },
+                userSelect: "none",
               }}
             >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
@@ -495,27 +604,32 @@ const Home_section = () => {
                 return (
                   <Box
                     sx={{
-                      // objectFit: "cover",
                       height: {
                         xs: "350px",
                         sm: "500px",
                         md: "550px",
                         lg: "600px",
                       },
+                      // width: {
+                      //   xs: "350px",
+                      //   sm: "500px",
+                      //   md: "550px",
+                      //   lg: "600px",
+                      // },
+                      userSelect: "none",
                     }}
                     // component={"div"}
                     key={item.id}
                   >
                     <Image
                       src={item.imgSrc.src}
-                      height={600}
+                      height={100}
                       width={750}
-                      // fill
                       layout="intrinsic"
-                      objectFit="contain"
                       alt="slider_image"
-                      quality={100}
+                      quality={75}
                       priority={true}
+                      style={{ userSelect: "none", minHeight: "100%" }}
                       // sizes="(max-width: 768px) 33vw, (max-width: 1200px) 33vw, 33vw"
                     />
                   </Box>
