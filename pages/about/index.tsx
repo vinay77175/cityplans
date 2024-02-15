@@ -1,9 +1,310 @@
-import React from 'react'
+import { Box, Container, Grid, Typography } from "@mui/material";
+import React from "react";
+import Button from "@mui/material/Button";
+import Image from "next/image";
+import backImg1 from "../../public/Images/about_back.png";
+import backImg2 from "../../public/Images/about_image_1.png";
+import backImg3 from "../../public/Images/about_image_2.png";
+import backImg4 from "../../public/Images/about_image_4.png";
 
-const index = () => {
+const Contact_us = () => {
   return (
-    <div>about</div>
-  )
-}
+    <Container maxWidth="xl" sx={{ paddingX: "0vh !important" }}>
+      <Box
+        sx={{
+          width: "100%",
+          height: "20vh",
+          backgroundColor: "#F0F2F5",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Typography
+          variant="h2"
+          sx={{
+            fontFamily: "Jacques Francois",
+            textAlign: "center",
+          }}
+        >
+          <span style={{ color: "#B12930" }}> About</span> Us
+        </Typography>
+      </Box>
+      <Grid container sx={{ paddingRight: "10vh" }}>
+        <Grid
+          item
+          sx={{
+            alignItems: "center",
+            justifyContent: "center",
+            display: "flex",
 
-export default index
+            // position: "relative",
+            // marginTop: "0vh",
+          }}
+          sm={12}
+          md={12}
+          lg={7}
+        >
+          {/* <img className="dotImage_1" src={backImg4.src} alt="image" /> */}
+          <Image
+            className="homeImage_1"
+            src={backImg2.src}
+            alt="image_1"
+            height={600}
+            width={750}
+            // fill
+            layout="intrinsic"
+            objectFit="contain"
+            quality={100}
+            priority={true}
+            // sizes="(max-width: 768px) 33vw, (max-width: 1200px) 33vw, 33vw"
+          />
+          <Image
+            className="homeImage_2"
+            src={backImg3.src}
+            alt="image_1"
+            height={600}
+            width={750}
+            // fill
+            layout="intrinsic"
+            objectFit="contain"
+            quality={100}
+            priority={true}
+            // sizes="(max-width: 768px) 33vw, (max-width: 1200px) 33vw, 33vw"
+          />
+
+          {/* <img className="dotImage_2" src={backImg4.src} alt="" /> */}
+        </Grid>
+        <Grid item sm={12} md={12} lg={5}>
+          <Typography
+            variant="h3"
+            sx={{
+              marginTop: { xs: "15vh", lg: "15vh", xl: "8vh" },
+              textAlign: { xs: "justify", lg: "left" },
+              fontFamily: "Jacques Francois",
+              color: "black",
+              px: { xs: "3vh", md: "2vh", lg: "0vh" },
+            }}
+          >
+            Get To know Us
+          </Typography>
+          <Typography
+            sx={{
+              marginTop: { xs: "3vh", lg: "6vh", xl: "5vh" },
+              textAlign: { xs: "justify", lg: "left" },
+              fontFamily: "Jacques Francois",
+              color: "black",
+
+              fontSize: { xs: "1.4rem", sm: "1.6rem", lg: "1.8rem" },
+              px: { xs: "3vh", md: "2vh", lg: "0vh" },
+            }}
+          >
+            About Us
+          </Typography>
+
+          <Typography
+            sx={{
+              marginTop: { xs: "8vh", lg: "1vh" },
+              fontFamily: "Times New Roman",
+              color: "black",
+              paddingX: { xs: "3vh", lg: "0vh" },
+              textAlign: { xs: "justify", lg: "justify" },
+              fontSize: { xs: "1.2rem", sm: "1.35rem", lg: "1.4rem" },
+              letterSpacing: "2px",
+            }}
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+            consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Curabitur consequat. Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Curabitur consequat.
+          </Typography>
+
+          <Typography
+            sx={{
+              marginTop: { xs: "3vh", lg: "6vh", xl: "5vh" },
+              textAlign: { xs: "justify", lg: "left" },
+              fontFamily: "Jacques Francois",
+              color: "black",
+
+              fontSize: { xs: "1.4rem", sm: "1.6rem", lg: "1.8rem" },
+              px: { xs: "3vh", md: "2vh", lg: "0vh" },
+            }}
+          >
+            Our Mission
+          </Typography>
+          <Typography
+            sx={{
+              marginTop: { xs: "8vh", lg: "1vh" },
+              fontFamily: "Times New Roman",
+              color: "black",
+              paddingX: { xs: "3vh", lg: "0vh" },
+              textAlign: { xs: "justify", lg: "justify" },
+              fontSize: { xs: "1.2rem", sm: "1.35rem", lg: "1.4rem" },
+              letterSpacing: "2px",
+            }}
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+            consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Curabitur consequat. Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Curabitur consequat.
+          </Typography>
+
+          {/* <Box
+            sx={{
+              display: "flex",
+              paddingTop: "5vh",
+              paddingX: { xs: "3vh", lg: "0vh" },
+            }}
+          >
+            <Grid
+              container
+              sx={{ justifyContent: { xs: "space-around", lg: "normal" } }}
+            >
+              <Grid item>
+                <Typography
+                  sx={{
+                    fontFamily: "Times New Roman ",
+                    color: "white",
+                    fontSize: {
+                      xs: "18px",
+                      sm: "20px",
+                      lg: "22px",
+                    },
+                    marginBottom: { xs: "12px", xl: "15px" },
+                    paddingLeft: { xs: "2vh", md: "1vh" },
+                    paddingRight: { xs: "3vh", lg: "2vh" },
+                    textAlign: { xs: "justify", lg: "justify" },
+                  }}
+                >
+                  Sit amet, consectetur adipiscing elit.
+                </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: "Times New Roman ",
+                    color: "white",
+                    fontSize: {
+                      xs: "18px",
+                      sm: "20px",
+                      lg: "22px",
+                    },
+                    marginBottom: { xs: "12px", xl: "15px" },
+                    paddingLeft: { xs: "2vh", md: "1vh" },
+                    paddingRight: { xs: "3vh", lg: "2vh" },
+                    textAlign: { xs: "justify", lg: "justify" },
+                  }}
+                >
+                  Sit amet, consectetur adipiscing elit.
+                </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: "Times New Roman ",
+                    color: "white",
+                    fontSize: {
+                      xs: "18px",
+                      sm: "20px",
+                      lg: "22px",
+                    },
+                    marginBottom: { xs: "12px", xl: "15px" },
+                    paddingLeft: { xs: "2vh", md: "1vh" },
+                    paddingRight: { xs: "3vh", lg: "2vh" },
+                    textAlign: { xs: "justify", lg: "justify" },
+                  }}
+                >
+                  Sit amet, consectetur adipiscing elit.
+                </Typography>
+              </Grid>
+            </Grid>
+            <Grid
+              container
+              sx={{ justifyContent: { xs: "space-around", lg: "normal" } }}
+            >
+              <Grid item>
+                <Typography
+                  sx={{
+                    fontFamily: "Times New Roman ",
+                    color: "white",
+                    fontSize: {
+                      xs: "18px",
+                      sm: "20px",
+                      lg: "22px",
+                    },
+                    marginBottom: { xs: "12px", xl: "15px" },
+                    paddingLeft: { xs: "2vh", md: "1vh" },
+                    paddingRight: { xs: "2vh", lg: "2vh" },
+                    textAlign: { xs: "justify", lg: "justify" },
+                  }}
+                >
+                  Sit amet, consectetur adipiscing elit.
+                </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: "Times New Roman ",
+                    color: "white",
+                    fontSize: {
+                      xs: "18px",
+                      sm: "20px",
+                      lg: "22px",
+                    },
+                    marginBottom: { xs: "12px", xl: "15px" },
+                    paddingLeft: { xs: "2vh", md: "1vh" },
+                    paddingRight: { xs: "2vh", lg: "2vh" },
+                    textAlign: { xs: "justify", lg: "justify" },
+                  }}
+                >
+                  Sit amet, consectetur adipiscing elit.
+                </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: "Times New Roman ",
+                    color: "white",
+                    fontSize: {
+                      xs: "18px",
+                      sm: "20px",
+                      lg: "22px",
+                    },
+                    marginBottom: { xs: "12px", xl: "15px" },
+                    paddingLeft: { xs: "2vh", md: "1vh" },
+                    paddingRight: { xs: "2vh", lg: "2vh" },
+                    textAlign: { xs: "justify", lg: "justify" },
+                  }}
+                >
+                  Sit amet, consectetur adipiscing elit.
+                </Typography>
+              </Grid>
+            </Grid>
+          </Box> */}
+          <Box
+            width={"100%"}
+            display={"flex"}
+            justifyContent={{ xs: "center", lg: "flex-start" }}
+            marginBottom={"10vh"}
+            marginTop={"5vh"}
+            paddingLeft={"1vh"}
+          >
+            <Button
+              sx={{
+                padding: "2vh 5vh",
+                fontSize: {
+                  xs: "18px",
+                  sm: "20px",
+                  lg: "22px",
+                  xl: "24px",
+                },
+                fontFamily: "Times New Roman ",
+                color: "white",
+                backgroundColor: "#B12930",
+                "&:hover": {
+                  backgroundColor: "rgba(217, 89, 95, 1)",
+                },
+              }}
+            >
+              View More
+            </Button>
+          </Box>
+        </Grid>
+      </Grid>
+    </Container>
+  );
+};
+
+export default Contact_us;

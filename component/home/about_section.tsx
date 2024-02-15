@@ -1,8 +1,8 @@
 import { Box, Container, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
+import React from "react";
 import Button from "@mui/material/Button";
 import Image from "next/image";
-import React from "react";
 import backImg1 from "../../public/Images/about_back.png";
 import backImg2 from "../../public/Images/about_image_1.png";
 import backImg3 from "../../public/Images/about_image_2.png";
