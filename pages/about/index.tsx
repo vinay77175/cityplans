@@ -30,7 +30,7 @@ const Contact_us = () => {
           <span style={{ color: "#B12930" }}> About</span> Us
         </Typography>
       </Box>
-      <Grid container sx={{ paddingRight: "10vh" }}>
+      <Grid container sx={{}}>
         <Grid
           item
           sx={{
