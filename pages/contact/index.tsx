@@ -10,7 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 
-import React from "react";
+import React, { useEffect } from "react";
 import contactImage from "../../public/Images/contact_us.svg";
 import Image from "next/image";
 
@@ -21,9 +21,24 @@ import MarkEmailUnreadSharpIcon from "@mui/icons-material/MarkEmailUnreadSharp";
 import ForumSharpIcon from "@mui/icons-material/ForumSharp";
 
 const Contact = () => {
+  // useEffect(() => {
+  //   const sendLetter = document.getElementById("sendLetter");
+  //   const addClass = () => {
+  //     document.body.classList.add("sent");
+  //   };
+  //   if (sendLetter) {
+  //     sendLetter.addEventListener("click", addClass);
+  //   }
+  //   return () => {
+  //     if (sendLetter) {
+  //       sendLetter.removeEventListener("click", addClass);
+  //     }
+  //   };
+  // }, []);
   const handleSubmit = () => {
-    console.log("submit");
+    console.log("submitted");
   };
+
   return (
     <Container
       maxWidth="xl"
@@ -375,21 +390,27 @@ const Contact = () => {
                         justifyContent: "center",
                       }}
                     >
-                      <Button
-                        sx={{
-                          mx: "1vh",
-                          padding: "1vh 3vh",
-                          fontFamily: "Times New Roman ",
-                          color: "white",
-                          backgroundColor: "#B12930",
-                          "&:hover": {
-                            backgroundColor: "hsl(357,62%,55%)",
-                          },
-                          fontSize: "1.2rem",
-                        }}
-                      >
-                        Submit
-                      </Button>
+                      <Box className={"letter"}>
+                        <Button
+                          className="sendLetter"
+                          onClick={handleSubmit}
+                          sx={{
+                            mx: "1vh",
+                            padding: "1vh 3vh",
+                            fontFamily: "Times New Roman ",
+                            color: "white",
+                            backgroundColor: "#B12930",
+                            "&:hover": {
+                              backgroundColor: "hsl(357,62%,55%)",
+                            },
+                            fontSize: "1.2rem",
+                          }}
+                        >
+                          Submit
+                        </Button>
+                      </Box>
+                      {/* <Box className={"envelope front"}></Box>
+                        <Box className={"envelope back"}></Box> */}
                     </Box>
                   </Grid>
                 </Grid>
