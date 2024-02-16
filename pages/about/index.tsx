@@ -22,7 +22,7 @@ import team3 from "../../public/Images/team-3.jpg";
 import team4 from "../../public/Images/team-4.jpg";
 
 const Contact_us = () => {
-  // const [isHovered, setIsHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState<Record<any, any>>({});
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const TeamData = [
     {
@@ -493,8 +493,14 @@ const Contact_us = () => {
               }}
             >
               <Card
-                onMouseEnter={() => setHoveredCard(member.id)}
-                onMouseLeave={() => setHoveredCard(null)}
+                // onMouseEnter={() => setHoveredCard(member.id)}
+                // onMouseLeave={() => setHoveredCard(null)}
+                onMouseOver={() => {
+                  setIsHovered((prev) => ({ ...prev, [member.id]: true }));
+                }}
+                onMouseOut={() => {
+                  setIsHovered((prev) => ({ ...prev, [member.id]: false }));
+                }}
                 sx={{
                   backgroundColor: "white",
                   boxShadow: "0px 1px 20px rgb(0 0 0/15%)",
@@ -504,6 +510,8 @@ const Contact_us = () => {
               >
                 <CardContent sx={{ padding: "0vh ", cursor: "pointer" }}>
                   <Box
+                    // onMouseEnter={() => setHoveredCard(member.id)}
+                    // onMouseLeave={() => setHoveredCard(null)}
                     sx={{
                       display: "flex",
                       justifyContent: "center",
@@ -529,6 +537,7 @@ const Contact_us = () => {
                       />
 
                       <Box
+                        display={isHovered[member.id] ? "block" : "none"}
                         sx={{
                           position: "absolute",
                           top: "15%",
@@ -548,7 +557,6 @@ const Contact_us = () => {
                             xl: ".5vh",
                           },
                           borderRadius: "5px",
-                          display: hoveredCard ? "block" : "none",
                         }}
                       >
                         <Box>
