@@ -6,13 +6,9 @@ import {
   Button,
   Container,
   Divider,
-  FormControl,
   Grid,
   IconButton,
-  Input,
   InputAdornment,
-  InputLabel,
-  OutlinedInput,
   TextField,
   Typography,
 } from "@mui/material";
@@ -22,42 +18,34 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { toast } from "react-toastify";
 interface IFormInput {
-  userName: string;
+  email: string;
   password: string;
 }
 const Login = () => {
-  const { register, handleSubmit } = useForm<IFormInput>();
-  const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
-  // if (
-  //   userName["userName"] === loginObj.userName &&
-  //   userName["password"] === loginObj.password
-  // ) {
-  //   router.push("/");
-  // } else {
-  //   alert("Invalid User Details");
-  // }
-
-  const router = useRouter();
-  const [showPassword, setShowPassword] = React.useState(false);
-  const [userName, setuserName] = useState<Record<string, string>>({
-    userName: "",
-    password: "",
-  });
   const loginObj = {
-    userName: "admin",
+    email: "admin@gmail.com",
     password: "123456789",
   };
+  const router = useRouter();
+  const [showPassword, setShowPassword] = React.useState(false);
+  const { register, handleSubmit } = useForm<IFormInput>();
+  const onSubmit: SubmitHandler<IFormInput> = (data) => {
+    if (data.email === loginObj.email && data.password === loginObj.password) {
+      router.push("/");
+      toast.success("Login Successfully");
+    } else {
+      toast.error("Invalid User Details");
+    }
+  };
+
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   const handleMouseDownPassword = (
     event: React.MouseEvent<HTMLButtonElement>
   ) => {
     event.preventDefault();
-  };
-  const handleChange = (name: string, value: string) => {
-    // console.log(value);
-    setuserName((prev) => ({ ...prev, [name]: value }));
   };
 
   return (
@@ -133,47 +121,28 @@ const Login = () => {
                   </Button>
                 </Box>
                 <Divider>OR</Divider>
-                <Box my={5} display={"flex"} flexDirection={"column"} gap={5}>
-                  <form onSubmit={handleSubmit(onSubmit)}>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <Box my={5} display={"flex"} flexDirection={"column"} gap={5}>
                     <TextField
                       variant="outlined"
-                      label="Username"
+                      label="Email Address"
                       size="medium"
                       fullWidth
-                      {...register("userName", { required: true })}
-                      // onChange={(e) =>
-                      //   handleChange(e.target.name, e.target.value)
-                      // }
-                    />
-                    {/* <form onSubmit={handleSubmit(onSubmit)}>
-                    <input
-                      {...register("firstName", {
+                      {...register("email", {
                         required: true,
-                        maxLength: 20,
+                        pattern:
+                          /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g,
                       })}
-                    /><br></br>
-                    <input
-                      {...register("lastName", { pattern: /^[A-Za-z]+$/i })}
                     />
-                    <input
-                      type="number"
-                      {...register("age", { min: 18, max: 99 })}
-                    />
-                    <input type="submit" />
-                  </form> */}
-                    <FormControl variant="outlined">
-                      <InputLabel htmlFor="outlined-adornment-password">
-                        Password
-                      </InputLabel>
-                      <OutlinedInput
-                        // name="password"
-                        // onChange={(e) =>
-                        //   handleChange(e.target.name, e.target.value)
-                        // }
-                         {...register("password", {required: true})}
-                        id="outlined-adornment-password"
-                        type={showPassword ? "text" : "password"}
-                        endAdornment={
+                    <TextField
+                      {...register("password", {
+                        required: true,
+                        minLength : 8,
+                      })}
+                      id="outlined-adornment-password"
+                      type={showPassword ? "text" : "password"}
+                      InputProps={{
+                        endAdornment: (
                           <InputAdornment position="end">
                             <IconButton
                               aria-label="toggle password visibility"
@@ -188,40 +157,41 @@ const Login = () => {
                               )}
                             </IconButton>
                           </InputAdornment>
-                        }
-                        label="Password"
-                      />
-                    </FormControl>
+                        ),
+                      }}
+                      label="Password"
+                      fullWidth
+                    />
                     <Link
                       href={"/login/email_verify"}
                       style={{ color: "#000" }}
                     >
                       <Typography>Forgot your password ?</Typography>
                     </Link>
-                  </form>
-                </Box>
-                <Box>
-                  <Button
-                    type="submit"
-                    variant="contained"
-                    sx={{
-                      "&:hover": {
-                        bgcolor: "hsl(357, 62%, 55%)",
-                      },
-                      minWidth: 150,
-                      bgcolor: "#b12930",
-                    }}
-                  >
-                    Sign In
-                  </Button>
+                    <Box>
+                      <Button
+                        type="submit"
+                        variant="contained"
+                        sx={{
+                          "&:hover": {
+                            bgcolor: "hsl(357, 62%, 55%)",
+                          },
+                          minWidth: 150,
+                          bgcolor: "#b12930",
+                        }}
+                      >
+                        Sign In
+                      </Button>
 
-                  <Typography mt={3}>
-                    Don't have an account?{" "}
-                    <Link href="/register" style={{ color: "#000" }}>
-                      Sign up
-                    </Link>
-                  </Typography>
-                </Box>
+                      <Typography mt={3}>
+                        Don't have an account?{" "}
+                        <Link href="/register" style={{ color: "#000" }}>
+                          Sign up
+                        </Link>
+                      </Typography>
+                    </Box>
+                  </Box>
+                </form>
               </Box>
             </Container>
           </Grid>

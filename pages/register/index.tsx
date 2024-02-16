@@ -7,6 +7,7 @@ import {
   Container,
   Divider,
   FormControl,
+  FormControlLabel,
   Grid,
   IconButton,
   InputAdornment,
@@ -21,14 +22,31 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { useRouter } from "next/router";
 import Link from "next/link";
-
+import { toast } from "react-toastify";
+import { SubmitHandler, useForm } from "react-hook-form";
+interface IFormInput {
+  email: string;
+  password: string;
+  cnfPassword: string;
+  checkbox: ["off", "off"];
+}
 const Register = () => {
+  const loginObj = {
+    email: "admin@gmail.com",
+    password: "123456789",
+  };
   const router = useRouter();
   const [showPassword, setShowPassword] = React.useState(false);
-  const [userName, setuserName] = useState<Record<string, string>>({
-    userName: "",
-    password: "",
-  });
+  const { register, handleSubmit } = useForm<IFormInput>();
+  const onSubmit: SubmitHandler<IFormInput> = (data) => {
+    if (data.email === loginObj.email) {
+      toast.error("Email already registered!");
+    } else {
+      router.push("/");
+      toast.success("Registered Successfully");
+    }
+    console.log(data);
+  };
   // const loginObj = {
   //   userName: "admin",
   //   password: "123456789",
@@ -40,10 +58,10 @@ const Register = () => {
   ) => {
     event.preventDefault();
   };
-  const handleChange = (name: string, value: string) => {
-    // console.log(value);
-    setuserName((prev) => ({ ...prev, [name]: value }));
-  };
+  // const handleChange = (name: string, value: string) => {
+  //   // console.log(value);
+  //   setuserName((prev) => ({ ...prev, [name]: value }));
+  // };
   // const handleSubmit = () => {
   //   if (
   //     userName["userName"] === loginObj.userName &&
@@ -55,7 +73,7 @@ const Register = () => {
   //     alert("Invalid User Details");
   //   }
   // };
-  console.log(userName,"username")
+  // console.log(userName,"username")
   return (
     <div>
       <Box sx={{ minHeight: "100vh" }}>
@@ -129,26 +147,70 @@ const Register = () => {
                   </Button>
                 </Box>
                 <Divider>OR</Divider>
-                <Box my={5} display={"flex"} flexDirection={"column"} gap={5}>
-                  <TextField
-                    variant="outlined"
-                    label="Email Address"
-                    size="medium"
-                    name="email"
-                    fullWidth
-                    onChange={(e) =>
-                      handleChange(e.target.name, e.target.value)
-                    }
-                  />
-                  <FormControl variant="outlined">
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <Box my={5} display={"flex"} flexDirection={"column"} gap={5}>
+                    <TextField
+                      variant="outlined"
+                      label="Email Address"
+                      size="medium"
+                      // name="email"
+                      fullWidth
+                      {...register("email", {
+                        required: true,
+                        pattern:
+                        /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g
+                      })}
+                      // onChange={(e) =>
+                      //   handleChange(e.target.name, e.target.value)
+                      // }
+                    />
+                    <TextField
+                      {...register("password", {
+                        required: true,
+                        minLength: 8,
+                      })}
+                      id="outlined-adornment-password"
+                      type={showPassword ? "text" : "password"}
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <IconButton
+                              aria-label="toggle password visibility"
+                              onClick={handleClickShowPassword}
+                              onMouseDown={handleMouseDownPassword}
+                              edge="end"
+                            >
+                              {showPassword ? (
+                                <VisibilityOff />
+                              ) : (
+                                <Visibility />
+                              )}
+                            </IconButton>
+                          </InputAdornment>
+                        ),
+                      }}
+                      label="Password"
+                      fullWidth
+                    />
+                    <TextField
+                      {...register("cnfPassword", {
+                        required: true,
+                        minLength: 8,
+                      })}
+                      id="outlined-adornment-password"
+                      type={showPassword ? "text" : "password"}
+                      label="Confirm Password"
+                      fullWidth
+                    />
+                    {/* <FormControl variant="outlined">
                     <InputLabel htmlFor="outlined-adornment-password">
                       Password
                     </InputLabel>
                     <OutlinedInput
-                      name="password"
-                      onChange={(e) =>
-                        handleChange(e.target.name, e.target.value)
-                      }
+                      // name="password"
+                      // onChange={(e) =>
+                      //   handleChange(e.target.name, e.target.value)
+                      // }
                       id="outlined-adornment-password"
                       type={showPassword ? "text" : "password"}
                       label="Password"
@@ -179,56 +241,67 @@ const Register = () => {
                       }
                       label="Confirm Password"
                     />
-                  </FormControl>
-                </Box>
-                <Box>
-                  <Typography>
-                    <Checkbox
-                      // {...label}
-                      // defaultChecked
-                      sx={{
-                        color: "#000",
-                        "&.Mui-checked": {
-                          color: "#000",
-                        },
-                      }}
-                    />
-                    Agree to our Term of use and Privacy Policy
-                  </Typography>
-                  <Typography>
-                    <Checkbox
-                      // {...label}
-                      sx={{
-                        color: "#000",
-                        "&.Mui-checked": {
-                          color: "#000",
-                        },
-                      }}
-                    />
-                    Subscribe to our Monthly newsletter
-                  </Typography>
-                </Box>
-                <Box mt={3}>
-                  <Button
-                    variant="contained"
-                    sx={{
-                      "&:hover": {
-                        bgcolor: "hsl(357, 62%, 55%)",
-                      },
-                      minWidth: 150,
-                      bgcolor: "#b12930",
-                    }}
-                    // onClick={handleSubmit}
-                  >
-                    Sign 
-                  </Button>
-                  <Typography mt={3}>
-                    Already have an account?{" "}
-                    <Link href="/login" style={{ color: "#000" }}>
-                      Sign In
-                    </Link>
-                  </Typography>
-                </Box>
+                  </FormControl> */}
+                    <Box>
+                      <FormControlLabel
+                        value={"Agree to term"}
+                        control={
+                          <Checkbox
+                            sx={{
+                              color: "#000",
+                              "&.Mui-checked": {
+                                color: "#000",
+                              },
+                            }}
+                          />
+                        }
+                        label={"Agree to our Term of use and Privacy Policy"}
+                        // inputRef={register}
+                        {...register("checkbox", {
+                          required: true,
+                        })}
+                      />
+                      <FormControlLabel
+                        value={"subscribed to newsletter"}
+                        control={
+                          <Checkbox
+                            sx={{
+                              color: "#000",
+                              "&.Mui-checked": {
+                                color: "#000",
+                              },
+                            }}
+                          />
+                        }
+                        label={"Subscribe to our Monthly newsletter"}
+                        // inputRef={register}
+                        {...register("checkbox")}
+                      />
+                    </Box>
+                    <Box>
+                      <Button
+                        type="submit"
+                        variant="contained"
+                        sx={{
+                          "&:hover": {
+                            bgcolor: "hsl(357, 62%, 55%)",
+                          },
+                          minWidth: 150,
+                          bgcolor: "#b12930",
+                        }}
+                        // onClick={handleSubmit}
+                      >
+                        Sign
+                      </Button>
+                      <Typography mt={3}>
+                        Already have an account?{" "}
+                        <Link href="/login" style={{ color: "#000" }}>
+                          Sign In
+                        </Link>
+                      </Typography>
+                    </Box>
+                  </Box>
+                </form>
               </Box>
             </Container>
           </Grid>

@@ -1,7 +1,9 @@
+import "react-toastify/dist/ReactToastify.css";
 import React from "react";
 import { usePathname } from "next/navigation";
 import Header from "../../component/header/header";
 import Footer from "../../component/Footer/footer";
+import { ToastContainer } from "react-toastify";
 const layout = (props) => {
   const pathname = usePathname();
 
@@ -16,6 +18,18 @@ const layout = (props) => {
         pathname == "/login/email_verify"
       ) && <Header />}
       <main>{props.children}</main>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
       {!(
         pathname == "/login" ||
         pathname == "/register" ||
