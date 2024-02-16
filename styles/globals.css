@@ -579,7 +579,7 @@ a {
    
   }
   .homeImage_Box{
-    margin-top: 10vh;
+    margin-top: 40px;
   }
 
   .homeImage_2 {
@@ -650,7 +650,7 @@ a {
     width: var(--w);
     margin-left: -11vw;
   }
-  
+
 
 }
 
