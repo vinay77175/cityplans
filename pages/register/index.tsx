@@ -95,6 +95,7 @@ const Register = () => {
                 src={backImage.src}
                 width={950}
                 alt=""
+                quality={50}
                 height={500}
                 style={{ height: "100vh", width: "100%", zIndex: "-1" }}
               ></Image>
@@ -158,7 +159,7 @@ const Register = () => {
                       {...register("email", {
                         required: true,
                         pattern:
-                        /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g
+                          /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g,
                       })}
                       // onChange={(e) =>
                       //   handleChange(e.target.name, e.target.value)

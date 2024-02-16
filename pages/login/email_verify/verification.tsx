@@ -50,6 +50,7 @@ const Verification = () => {
                 width={950}
                 alt=""
                 height={500}
+                quality={50}
                 style={{ height: "100vh", width: "100%", zIndex: "-1" }}
               ></Image>
             </Box>
