@@ -49,8 +49,7 @@ const About_section = () => {
               display: "flex",
               // position: "relative",
             }}
-            sm={12}
-            md={12}
+            xs={12}
             lg={7}
           >
             {/* <img className="dotImage_1" src={backImg4.src} alt="image" /> */}

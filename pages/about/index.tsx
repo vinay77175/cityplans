@@ -111,8 +111,8 @@ const Contact_us = () => {
               // position: "relative",
               // marginTop: "0vh",
             }}
-            sm={12}
-            md={12}
+            className="homeImage_Box"
+            xs={12}
             lg={7}
           >
             {/* <img className="dotImage_1" src={backImg4.src} alt="image" /> */}
@@ -160,6 +160,13 @@ const Contact_us = () => {
                 fontFamily: "Jacques Francois",
                 color: "white",
                 px: { xs: "3vh", md: "2vh", lg: "0vh" },
+                fontSize: {
+                  xs: "3rem",
+                  sm: "4rem",
+                  md: "4.5rem",
+                  lg: "4rem",
+                  xl: "4.5rem",
+                },
               }}
             >
               Get To know Us
