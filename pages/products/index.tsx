@@ -716,6 +716,113 @@ const Product_Details = () => {
                             xl: "24px",
                           },
                           fontFamily: "Jacques Francois",
+                          marginTop: "2vh",
+                          marginBottom: "1vh",
+                        }}
+                      >
+                        Select a Country
+                      </Typography>
+                      <Typography
+                        sx={{
+                          fontSize: {
+                            xs: "10px",
+                            sm: "12px",
+                            md: "14px",
+                            lg: "18px",
+                            xl: "2px",
+                          },
+                          fontFamily: "Jacques Francois",
+                          marginBottom: "2vh",
+                          color: "GrayText",
+                        }}
+                      >
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit.
+                      </Typography>
+                      <Box sx={{ marginY: "5vh", paddingX: "3vh" }}>
+                        <Autocomplete
+                          id="country-select-demo"
+                          sx={{ width: "100%" }}
+                          options={countries}
+                          value={selectedCountry}
+                          onChange={handleCountryChange}
+                          autoHighlight
+                          getOptionLabel={(option) => option.label}
+                          renderOption={(props, option) => (
+                            <Box
+                              component="li"
+                              sx={{ "& > img": { mr: 2, flexShrink: 0 } }}
+                              {...props}
+                            >
+                              <img
+                                loading="lazy"
+                                width="20"
+                                srcSet={`https://flagcdn.com/w40/${option.code.toLowerCase()}.png 2x`}
+                                src={`https://flagcdn.com/w20/${option.code.toLowerCase()}.png`}
+                                alt=""
+                              />
+                              {option.label} ({option.code}) +{option.phone}
+                            </Box>
+                          )}
+                          renderInput={(params) => (
+                            <TextField
+                              {...params}
+                              label="Select a Country"
+                              inputProps={{
+                                ...params.inputProps,
+                                autoComplete: "new-password", // disable autocomplete and autofill
+                              }}
+                            />
+                          )}
+                        />
+                      </Box>
+                    </Box>
+                    <Divider />
+
+                    {/* <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      marginY: { xs: "1.5vh", lg: "2vh" },
+                      cursor: "pointer",
+                    }}
+                    onClick={() => handleOpenModal("1")}
+                  >
+                    <Typography
+                      sx={{
+                        fontSize: {
+                          xs: "12px",
+                          sm: "14px",
+                          md: "16px",
+                          lg: "22px",
+                          xl: "24px",
+                        },
+                        fontFamily: "Times New Roman",
+                        marginY: { xs: "0vh", lg: "1vh" },
+                      }}
+                    >
+                      Dealers{" "}
+                    </Typography>
+                    <KeyboardDoubleArrowRightRoundedIcon
+                      sx={{
+                        color: "#b12930",
+                        fontSize: "30px",
+                      }}
+                    />
+                  </Box> */}
+                    {/* {openModal && <ChildModal1 />} */}
+                    <Box>
+                      <Typography
+                        sx={{
+                          fontSize: {
+                            xs: "12px",
+                            sm: "14px",
+                            md: "16px",
+                            lg: "26px",
+                            xl: "24px",
+                          },
+                          fontFamily: "Jacques Francois",
                           marginY: "2vh",
                         }}
                       >
@@ -1017,40 +1124,6 @@ const Product_Details = () => {
                         </Grid>
                       </Box>
                     </Box>
-                    {/* <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      marginY: { xs: "1.5vh", lg: "2vh" },
-                      cursor: "pointer",
-                    }}
-                    onClick={() => handleOpenModal("1")}
-                  >
-                    <Typography
-                      sx={{
-                        fontSize: {
-                          xs: "12px",
-                          sm: "14px",
-                          md: "16px",
-                          lg: "22px",
-                          xl: "24px",
-                        },
-                        fontFamily: "Times New Roman",
-                        marginY: { xs: "0vh", lg: "1vh" },
-                      }}
-                    >
-                      Dealers{" "}
-                    </Typography>
-                    <KeyboardDoubleArrowRightRoundedIcon
-                      sx={{
-                        color: "#b12930",
-                        fontSize: "30px",
-                      }}
-                    />
-                  </Box> */}
-                    {/* {openModal && <ChildModal1 />} */}
-
                     <Divider />
                     <Box>
                       <Typography
@@ -1181,79 +1254,6 @@ const Product_Details = () => {
                             $ {valuePrice[1]}
                           </Typography>
                         </Box>
-                      </Box>
-                    </Box>
-                    <Divider />
-                    <Box>
-                      <Typography
-                        sx={{
-                          fontSize: {
-                            xs: "12px",
-                            sm: "14px",
-                            md: "16px",
-                            lg: "26px",
-                            xl: "24px",
-                          },
-                          fontFamily: "Jacques Francois",
-                          marginTop: "2vh",
-                          marginBottom: "1vh",
-                        }}
-                      >
-                        Select a Country
-                      </Typography>
-                      <Typography
-                        sx={{
-                          fontSize: {
-                            xs: "10px",
-                            sm: "12px",
-                            md: "14px",
-                            lg: "18px",
-                            xl: "2px",
-                          },
-                          fontFamily: "Jacques Francois",
-                          marginBottom: "2vh",
-                          color: "GrayText",
-                        }}
-                      >
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit.
-                      </Typography>
-                      <Box sx={{ marginY: "5vh", paddingX: "3vh" }}>
-                        <Autocomplete
-                          id="country-select-demo"
-                          sx={{ width: "100%" }}
-                          options={countries}
-                          value={selectedCountry}
-                          onChange={handleCountryChange}
-                          autoHighlight
-                          getOptionLabel={(option) => option.label}
-                          renderOption={(props, option) => (
-                            <Box
-                              component="li"
-                              sx={{ "& > img": { mr: 2, flexShrink: 0 } }}
-                              {...props}
-                            >
-                              <img
-                                loading="lazy"
-                                width="20"
-                                srcSet={`https://flagcdn.com/w40/${option.code.toLowerCase()}.png 2x`}
-                                src={`https://flagcdn.com/w20/${option.code.toLowerCase()}.png`}
-                                alt=""
-                              />
-                              {option.label} ({option.code}) +{option.phone}
-                            </Box>
-                          )}
-                          renderInput={(params) => (
-                            <TextField
-                              {...params}
-                              label="Select a Country"
-                              inputProps={{
-                                ...params.inputProps,
-                                autoComplete: "new-password", // disable autocomplete and autofill
-                              }}
-                            />
-                          )}
-                        />
                       </Box>
                     </Box>
                     <Divider />
