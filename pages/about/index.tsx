@@ -15,7 +15,12 @@ import backImg2 from "../../public/Images/about_image_1.png";
 import backImg3 from "../../public/Images/about_image_2.png";
 import backImg4 from "../../public/Images/about_image_4.png";
 import { Twitter, Facebook, Instagram, LinkedIn } from "@mui/icons-material";
-import team1 from "../../public/Images/category_1.png";
+
+import team1 from "../../public/Images/team-1.jpg";
+import team2 from "../../public/Images/team-2.jpg";
+import team3 from "../../public/Images/team-3.jpg";
+import team4 from "../../public/Images/team-4.jpg";
+
 const Contact_us = () => {
   // const [isHovered, setIsHovered] = useState(false);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
@@ -26,23 +31,31 @@ const Contact_us = () => {
       position: "Chief Executive Officer",
       description:
         "Velit aut quia fugit et et. Dolorum ea voluptate vel tempore tenetur ipsa quae aut. Ipsum exercitationem iure minima enim corporis et voluptate.",
-      image: "./images/team-1.jpg",
+      image: team1,
     },
     {
       id: 2,
-      name: "Walter White",
-      position: "Chief Executive Officer",
+      name: "Sarah Jhonson",
+      position: "Product Manager",
       description:
-        "Velit aut quia fugit et et. Dolorum ea voluptate vel tempore tenetur ipsa quae aut. Ipsum exercitationem iure minima enim corporis et voluptate.",
-      image: "./images/team-1.jpg",
+        "Quo esse repellendus quia id. Est eum et accusantium pariatur fugit nihil minima suscipit corporis. Voluptate sed quas reiciendis animi neque sapiente.",
+      image: team2,
     },
     {
       id: 3,
-      name: "Aliza",
-      position: "Chief Executive Officer",
+      name: "William Anderson",
+      position: "CTO",
       description:
-        "Velit aut quia fugit et et. Dolorum ea voluptate vel tempore tenetur ipsa quae aut. Ipsum exercitationem iure minima enim corporis et voluptate.",
-      image: "./images/team-1.jpg",
+        "Vero omnis enim consequatur. Voluptas consectetur unde qui molestiae deserunt. Voluptates enim aut architecto porro aspernatur molestiae modi",
+      image: team3,
+    },
+    {
+      id: 4,
+      name: "Amanda Jepson",
+      position: "Accountant",
+      description:
+        " Rerum voluptate non adipisci animi distinctio et deserunt amet voluptas. Quia aut aliquid doloremque ut possimus ipsum officia.",
+      image: team4,
     },
   ];
   return (
@@ -50,11 +63,12 @@ const Contact_us = () => {
       <Box
         sx={{
           width: "100%",
-          height: "20vh",
+          height: "100%",
           backgroundColor: "#F0F2F5",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          paddingY: { xs: "2vh", sm: "2vh", md: "4vh", lg: "4vh", xl: "2.5vh" },
         }}
       >
         <Typography
@@ -62,6 +76,13 @@ const Contact_us = () => {
           sx={{
             fontFamily: "Jacques Francois",
             textAlign: "center",
+            fontSize: {
+              xs: "2.5rem",
+              sm: "4rem",
+              md: "4.5rem",
+              lg: "4.5rem",
+              xl: "5rem",
+            },
           }}
         >
           <span style={{ color: "#B12930" }}> About</span> Us
@@ -128,7 +149,13 @@ const Contact_us = () => {
             <Typography
               variant="h3"
               sx={{
-                marginTop: { xs: "15vh", lg: "15vh", xl: "8vh" },
+                marginTop: {
+                  xs: "7vh",
+                  sm: "8vh",
+                  md: "9vh",
+                  lg: "15vh",
+                  xl: "8vh",
+                },
                 textAlign: { xs: "justify", lg: "left" },
                 fontFamily: "Jacques Francois",
                 color: "white",
@@ -139,11 +166,10 @@ const Contact_us = () => {
             </Typography>
             <Typography
               sx={{
-                marginTop: { xs: "3vh", lg: "6vh", xl: "5vh" },
+                marginTop: { xs: "3vh", sm: "4vh", lg: "6vh", xl: "5vh" },
                 textAlign: { xs: "justify", lg: "left" },
                 fontFamily: "Jacques Francois",
                 color: "white",
-
                 fontSize: { xs: "1.4rem", sm: "1.6rem", lg: "1.8rem" },
                 px: { xs: "3vh", md: "2vh", lg: "0vh" },
               }}
@@ -153,10 +179,11 @@ const Contact_us = () => {
 
             <Typography
               sx={{
-                marginTop: { xs: "8vh", lg: "1vh" },
+                marginTop: { xs: "2vh", sm: "1.2vh", lg: "1vh" },
                 fontFamily: "Times New Roman",
                 color: "white",
                 paddingX: { xs: "3vh", lg: "0vh" },
+                paddingRight: { xs: "3vh", lg: "2vh" },
                 textAlign: { xs: "justify", lg: "justify" },
                 fontSize: { xs: "1.2rem", sm: "1.35rem", lg: "1.4rem" },
                 letterSpacing: "2px",
@@ -170,7 +197,7 @@ const Contact_us = () => {
 
             <Typography
               sx={{
-                marginTop: { xs: "3vh", lg: "6vh", xl: "5vh" },
+                marginTop: { xs: "3vh", sm: "4vh", lg: "6vh", xl: "5vh" },
                 textAlign: { xs: "justify", lg: "left" },
                 fontFamily: "Jacques Francois",
                 color: "white",
@@ -183,10 +210,11 @@ const Contact_us = () => {
             </Typography>
             <Typography
               sx={{
-                marginTop: { xs: "8vh", lg: "1vh" },
+                marginTop: { xs: "2vh", sm: "1.2vh", lg: "1vh" },
                 fontFamily: "Times New Roman",
                 color: "white",
                 paddingX: { xs: "3vh", lg: "0vh" },
+                paddingRight: { xs: "3vh", lg: "2vh" },
                 textAlign: { xs: "justify", lg: "justify" },
                 fontSize: { xs: "1.2rem", sm: "1.35rem", lg: "1.4rem" },
                 letterSpacing: "2px",
@@ -332,7 +360,12 @@ const Contact_us = () => {
             >
               <Button
                 sx={{
-                  padding: "2vh 5vh",
+                  padding: {
+                    xs: "1.8vh 3vh",
+                    sm: "1.5vh 4vh",
+                    lg: "1.7vh 4vh",
+                    xl: "1.2vh 3vh",
+                  },
                   fontSize: {
                     xs: "18px",
                     sm: "20px",
@@ -366,16 +399,16 @@ const Contact_us = () => {
           <Box
             sx={{
               width: {
-                xs: "60vw",
-                sm: "35vw",
-                md: "35vw",
+                xs: "65vw",
+                sm: "43vw",
+                md: "40vw",
                 lg: "25vw",
-                xl: "18vw",
+                xl: "21vw",
               },
-              height: { xs: "10vh", lg: "10vh", xl: "7vh" },
+              height: { xs: "10vh", sm: "7vh", lg: "10vh", xl: "7vh" },
               display: "flex",
               alignItems: "center",
-              marginTop: { xs: "1vh", lg: "3vh", xl: "1vh" },
+              marginTop: { xs: "1vh", lg: "2vh", xl: "1vh" },
             }}
           >
             <Box
@@ -394,7 +427,12 @@ const Contact_us = () => {
                   paddingX: "2vh",
                   color: "black",
                   textAlign: "center",
-                  fontSize: { xs: "2rem", lg: "2rem", xl: "3rem" },
+                  fontSize: {
+                    xs: "1.5rem",
+                    sm: "1.9rem",
+                    lg: "2rem",
+                    xl: "3rem",
+                  },
                 }}
               >
                 Our Management
@@ -409,6 +447,7 @@ const Contact_us = () => {
             sx={{
               marginBottom: { xs: "2vh", sm: "1vh", lg: "4vh", xl: "2vh" },
               marginTop: { xs: "1vh", sm: "0vh", lg: "2vh", xl: "2vh" },
+              paddingX: { xs: "2vh", sm: "0vh" },
             }}
           >
             <Typography
@@ -429,7 +468,10 @@ const Contact_us = () => {
             </Typography>
           </Box>
         </Grid>
-        <Grid container>
+        <Grid
+          container
+          sx={{ display: "flex", justifyContent: "space-around" }}
+        >
           {TeamData.map((member) => (
             <Grid
               key={member.id}
@@ -440,6 +482,7 @@ const Contact_us = () => {
               sx={{
                 display: "flex",
                 justifyContent: "center",
+                padding: "2vh",
               }}
             >
               <Card
@@ -465,11 +508,11 @@ const Contact_us = () => {
                       sx={{
                         position: "relative",
                         width: "100%",
-                        height: "30vh",
+                        height: "100%",
                       }}
                     >
                       <img
-                        src={member.image}
+                        src={member.image.src}
                         alt={member.name}
                         style={{
                           width: "100%",
@@ -482,10 +525,21 @@ const Contact_us = () => {
                         sx={{
                           position: "absolute",
                           top: "15%",
-                          left: "80%",
+                          left: {
+                            xs: "83%",
+                            sm: "80%",
+                            md: "65%",
+                            lg: "78%",
+                            xl: "78%",
+                          },
                           backgroundColor: "white",
                           opacity: "0.5",
-                          padding: ".8vh",
+                          padding: {
+                            xs: ".8vh",
+                            md: ".4vh",
+                            lg: ".8vh",
+                            xl: ".5vh",
+                          },
                           borderRadius: "5px",
                           display: hoveredCard ? "block" : "none",
                         }}
@@ -517,7 +571,12 @@ const Contact_us = () => {
                       gutterBottom
                       align="center"
                       sx={{
-                        fontSize: "22px",
+                        fontSize: {
+                          xs: "22px",
+                          sm: "24px",
+                          md: "22px",
+                          lg: "24px",
+                        },
                         fontFamily: "Times New Roman",
                         fontWeight: "600",
                         color: "black",
@@ -532,7 +591,12 @@ const Contact_us = () => {
                       gutterBottom
                       align="center"
                       sx={{
-                        fontSize: "16px",
+                        fontSize: {
+                          xs: "18px",
+                          sm: "20px",
+                          md: "18px",
+                          lg: "20px",
+                        },
                         fontFamily: "Times New Roman",
                         fontWeight: "500",
                         color: "black",
@@ -549,7 +613,12 @@ const Contact_us = () => {
                         fontFamily: "Times New Roman",
                         color: "black",
                         textAlign: "justify",
-                        paddingX: "3vh",
+                        paddingX: {
+                          xs: "3vh",
+                          sm: "2vh",
+                          md: "1.5vh",
+                          lg: "3vh",
+                        },
                       }}
                     >
                       {member.description}

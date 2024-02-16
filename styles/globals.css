@@ -175,7 +175,7 @@ a {
 .css-1aquho2-MuiTabs-indicator {
   height: 0px !important;
 }
-/* Four category tabs */
+/* Four category tabs
 .css-837qtk-MuiButtonBase-root-MuiTab-root.Mui-selected {
   color: #b12930 !important;
   border: 2px solid #b12930;
@@ -202,7 +202,7 @@ a {
 }
 .plans_tabs::selection {
   color: #6246e5;
-}
+} */
 
 /* social Media Link Classess */
 .SvgClass:hover {
