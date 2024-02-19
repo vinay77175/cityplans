@@ -21,7 +21,7 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import backImage1 from "../../public/Images/1.png";
+import backImage1 from "../../public/Images/Mask group.png";
 import backImage2 from "../../public/Images/home_back_img2.png";
 import React from "react";
 import profileIcon from "../../public/Images/Male User red.svg";
@@ -221,6 +221,7 @@ const Home_section = () => {
                 }}
               >
                 <Box
+                  className="navLogo"
                   component={"img"}
                   src={Logo.src}
                   alt="Logo1"
@@ -232,7 +233,9 @@ const Home_section = () => {
               <Box sx={{ display: { xs: "none", sm: "block" } }}>
                 <Link href={"/"}>
                   <Button
-                    className={pathname == "/" ? "selectedNav" : ""}
+                    className={
+                      pathname == "/" ? "selectedNav navBtn" : "navBtn"
+                    }
                     sx={{
                       "&:hover, &:focus": {
                         color: "#B12930",
@@ -243,6 +246,7 @@ const Home_section = () => {
                       color: "#000",
                       px: { sm: 1, md: 2, lg: 4 },
                       border: "1px solid rgb(255,255,255,0)",
+                      borderRadius: 0,
                       // borderRadius: "25px",
                       fontSize: { sm: "16px", md: "17px", lg: "20px" },
                       fontFamily: "Inria Serif",
@@ -254,7 +258,9 @@ const Home_section = () => {
                 </Link>
                 <Link href={"/about"}>
                   <Button
-                    className={pathname == "/about" ? "selectedNav" : ""}
+                    className={
+                      pathname == "/about" ? "selectedNav navBtn" : "navBtn"
+                    }
                     sx={{
                       "&:hover, &:checked": {
                         color: "#B12930",
@@ -266,6 +272,7 @@ const Home_section = () => {
                       px: { sm: 1, md: 2, lg: 4 },
                       border: "1px solid rgb(255,255,255,0)",
                       // borderRadius: "25px",
+                      borderRadius: 0,
                       fontSize: { sm: "", md: "18px", lg: "20px" },
                       fontFamily: "Inria Serif",
                       textTransform: "capitalize",
@@ -276,7 +283,9 @@ const Home_section = () => {
                 </Link>
                 <Link href={"/products"}>
                   <Button
-                    className={pathname == "/products" ? "selectedNav" : ""}
+                    className={
+                      pathname == "/products" ? "selectedNav navBtn" : "navBtn"
+                    }
                     sx={{
                       "&:hover, &:focus": {
                         color: "#B12930",
@@ -287,6 +296,7 @@ const Home_section = () => {
                       color: "#000",
                       px: { sm: 1, md: 2, lg: 4 },
                       border: "1px solid rgb(255,255,255,0)",
+                      borderRadius: 0,
                       // borderRadius: "25px",
                       fontSize: { sm: "", md: "18px", lg: "20px" },
                       fontFamily: "Inria Serif",
@@ -298,7 +308,9 @@ const Home_section = () => {
                 </Link>
                 <Link href={"/contact"}>
                   <Button
-                    className={pathname == "/contact" ? "selectedNav" : ""}
+                    className={
+                      pathname == "/contact" ? "selectedNav navBtn" : "navBtn"
+                    }
                     sx={{
                       "&:hover, &:focus": {
                         color: "#B12930",
@@ -309,6 +321,7 @@ const Home_section = () => {
                       color: "#000",
                       px: { sm: 1, md: 2, lg: 4 },
                       border: "1px solid rgb(255,255,255,0)",
+                      borderRadius: 0,
                       // borderRadius: "25px",
                       fontSize: { sm: "", md: "18px", lg: "20px" },
                       fontFamily: "Inria Serif",
@@ -331,7 +344,7 @@ const Home_section = () => {
                 sx={{
                   display: "flex",
                   alignItems: "center",
-                  borderRadius: "6px",
+                  borderRadius: 0,
                   overflow: "hidden",
                   width: { xs: 50, md: "auto" },
                 }}
@@ -348,6 +361,7 @@ const Home_section = () => {
                     },
                     bgcolor: "#B12930",
                     minWidth: 5,
+                    borderRadius: 0,
                   }}
                 >
                   {/* <Box sx={{ display: { xs: "none", sm: "block" } }}>Search</Box>{" "} */}
@@ -501,13 +515,13 @@ const Home_section = () => {
           left: 0,
           zIndex: "-1",
           opacity: 0.3,
-          filter: "drop-shadow(12px 12px 4px #000)",
+          filter: "drop-shadow(1px 1px 4px #000)",
           height: { xs: "50%", sm: "55%", md: "90%", lg: "100%" },
-          width: { xs: "90%", sm: "80%", md: "50%", lg: "40%" },
+          width: { xs: "100%", sm: "100%", md: "50%", lg: "35%" },
           userSelect: "none",
         }}
       />
-      <Box
+      {/* <Box
         component={"img"}
         src={backImage2.src}
         sx={{
@@ -523,7 +537,7 @@ const Home_section = () => {
           width: { xs: "95%", md: "40%" },
           userSelect: "none",
         }}
-      />
+      /> */}
 
       {/* Home Section */}
       <Grid
@@ -536,6 +550,7 @@ const Home_section = () => {
       >
         <Grid item xs={12} sm={10} md={4}>
           <Box
+            className="homeSectionBoxWrapper"
             sx={{
               pt: { xs: 2, md: 5 },
               pl: { xs: 3, md: 5 },
@@ -543,6 +558,7 @@ const Home_section = () => {
             }}
           >
             <Typography
+              className="homeSectionHeading"
               variant="h1"
               sx={{
                 fontSize: {
@@ -550,7 +566,7 @@ const Home_section = () => {
                   sm: "2.5rem",
                   md: "2.9rem",
                   lg: "3.5rem",
-                  xl: "4.5rem",
+                  xl: "4rem",
                 },
                 pr: { xs: 7, sm: 12, md: 0 },
                 fontFamily: "Jacques Francois",
@@ -561,12 +577,13 @@ const Home_section = () => {
               Dolor sit amet, consectetur adipiscing elit. Curabitur
             </Typography>
             <Typography
+              className="homeSectionText"
               sx={{
                 fontSize: {
                   xs: "1rem",
                   sm: "1.2rem",
                   lg: "1.5rem",
-                  xl: "2.5rem",
+                  xl: "2rem",
                 },
                 pr: { xs: 7, sm: 12, md: 0 },
                 mt: { xs: 6 },
@@ -576,8 +593,9 @@ const Home_section = () => {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
               consequat.
             </Typography>
-            <Typography mt={{ xs: 5, sm: 10, md: 5, lg: 10, xl: 20 }}>
+            <Typography mt={{ xs: 5, sm: 10, md: 5, lg: 10 }}>
               <Button
+                className="joinBtn"
                 variant="contained"
                 sx={{
                   "&:hover": { backgroundColor: "#000" },
@@ -585,7 +603,7 @@ const Home_section = () => {
                   px: { xs: 3, sm: 5, md: 5, lg: 7 },
                   py: { xs: 2, md: 2, lg: 3 },
                   fontSize: { xs: "0.8rem", md: "0.8rem", lg: "1rem" },
-                  // borderRadius: 12,
+                  borderRadius: 0,
                 }}
               >
                 Join us now
@@ -606,21 +624,16 @@ const Home_section = () => {
               {SlideData?.map((item) => {
                 return (
                   <Box
+                    className="sliderImageBox"
                     sx={{
                       height: {
                         xs: "350px",
                         sm: "500px",
                         md: "550px",
                         lg: "600px",
-                        xl:"900px"
+                        //   // xl: "900px",
                       },
-                      minWidth: {
-                        // xs: "350px",
-                        // sm: "500px",
-                        // md: "550px",
-                        // lg: "600px",
-                        xl:"1500px"
-                      },
+
                       // width: {
                       //   xs: "350px",
                       //   sm: "500px",
@@ -633,6 +646,7 @@ const Home_section = () => {
                     key={item.id}
                   >
                     <Image
+                      className="sliderImage"
                       src={item.imgSrc.src}
                       height={100}
                       width={750}

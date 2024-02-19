@@ -19,6 +19,7 @@ import LocationCitySharpIcon from "@mui/icons-material/LocationOnSharp";
 import LocalPhoneSharpIcon from "@mui/icons-material/LocalPhoneSharp";
 import MarkEmailUnreadSharpIcon from "@mui/icons-material/MarkEmailUnreadSharp";
 import ForumSharpIcon from "@mui/icons-material/ForumSharp";
+import ScrollTop from "../../component/scroll_to_top";
 
 const Contact = () => {
   // useEffect(() => {
@@ -47,6 +48,7 @@ const Contact = () => {
           paddingX: "0vh !important",
         }}
       >
+        <ScrollTop/>
         <Box
           sx={{
             display: "flex",

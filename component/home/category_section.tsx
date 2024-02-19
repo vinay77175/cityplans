@@ -17,7 +17,10 @@ import category4 from "../../public/Images/category_4.png";
 import { categoryList } from "./category_data";
 import { StaticImageData } from "next/image";
 import { useMediaQuery } from "@mui/material";
+import { useRouter } from "next/router";
 const Category_section = () => {
+  const route = useRouter();
+  const login = false;
   const isMobile = useMediaQuery("(max-width:600px)");
 
   const [selectedCategory, setSelectedCategory] = useState<string>("");
@@ -597,6 +600,9 @@ const Category_section = () => {
                                 backgroundColor: "black",
                                 color: "white",
                               },
+                            }}
+                            onClick={() => {
+                              !login && route.push("/login");
                             }}
                           >
                             View More

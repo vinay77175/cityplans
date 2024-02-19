@@ -10,12 +10,13 @@ const layout = (props) => {
   return (
     <div>
       {!(
-        pathname == "/" ||
-        pathname == "/login" ||
-        pathname == "/register" ||
-        pathname == "/login/email_verify/verification" ||
-        pathname == "/login/email_verify/reset_pwd" ||
-        pathname == "/login/email_verify"
+        pathname == "/" 
+        // ||
+        // pathname == "/login" ||
+        // pathname == "/register" ||
+        // pathname == "/login/email_verify/verification" ||
+        // pathname == "/login/email_verify/reset_pwd" ||
+        // pathname == "/login/email_verify"
       ) && <Header />}
       <main>{props.children}</main>
       <ToastContainer
@@ -36,7 +37,8 @@ const layout = (props) => {
         pathname == "/login/email_verify/verification" ||
         pathname == "/login/email_verify/reset_pwd" ||
         pathname == "/login/email_verify"
-      ) && <Footer />}
+      ) && 
+      <Footer />}
     </div>
   );
 };

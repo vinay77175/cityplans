@@ -72,15 +72,23 @@ const Footer = () => {
             >
               Store & Services
             </Typography>
-            <Typography gutterBottom mt={2}>
-              Services
-            </Typography>
-            <Typography gutterBottom mt={2}>
-              Projects
-            </Typography>
-            <Typography gutterBottom mt={2}>
-              Solutions
-            </Typography>
+            <ul>
+              <li>
+                <Typography gutterBottom mt={2}>
+                  Services
+                </Typography>
+              </li>
+              <li>
+                <Typography gutterBottom mt={2}>
+                  Projects
+                </Typography>
+              </li>
+              <li>
+                <Typography gutterBottom mt={2}>
+                  Solutions
+                </Typography>
+              </li>
+            </ul>
           </Grid>
           <Grid item xs={6} sm={3} md={2}>
             <Typography
@@ -90,18 +98,28 @@ const Footer = () => {
             >
               Help
             </Typography>
-            <Typography gutterBottom mt={2}>
-              Shipping
-            </Typography>
-            <Typography gutterBottom mt={2}>
-              Returns + Exchange
-            </Typography>
-            <Typography gutterBottom mt={2}>
-              Warranty
-            </Typography>
-            <Typography gutterBottom mt={2}>
-              All FAQ
-            </Typography>
+            <ul>
+              <li>
+                <Typography gutterBottom mt={2}>
+                  Shipping
+                </Typography>
+              </li>
+              <li>
+                <Typography gutterBottom mt={2}>
+                  Returns + Exchange
+                </Typography>
+              </li>
+              <li>
+                <Typography gutterBottom mt={2}>
+                  Warranty
+                </Typography>
+              </li>
+              <li>
+                <Typography gutterBottom mt={2}>
+                  All FAQ
+                </Typography>
+              </li>
+            </ul>
           </Grid>
           <Grid item xs={12} sm={6} md={2.5}>
             <Typography
@@ -118,7 +136,7 @@ const Footer = () => {
               Email : info@cityplans.com
             </Typography>
           </Grid>
-          <Grid item xs={12} sm={6} md={2.5} px={{ xs: 6, sm: 0 }}>
+          <Grid item xs={12} sm={6} md={2.5} px={{ xs: 0, sm: 0 }}>
             <Typography
               gutterBottom
               mb={3}
@@ -128,9 +146,10 @@ const Footer = () => {
             </Typography>
             <TextField
               variant="outlined"
-              sx={{ bgcolor: "white", borderRadius: 1 }}
+              sx={{ bgcolor: "white", borderRadius: 0 }}
               size="small"
               fullWidth
+              placeholder="Email Address"
             ></TextField>
             <Button
               variant="contained"
@@ -141,6 +160,7 @@ const Footer = () => {
                 },
                 bgcolor: "#B12930",
                 mt: 2,
+                borderRadius: 0,
               }}
             >
               Subscribe

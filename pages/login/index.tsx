@@ -83,7 +83,7 @@ const Login = () => {
                     variant="h3"
                     sx={{ fontSize: "2.3rem", fontWeight: 600 }}
                   >
-                    Sign In Page
+                    Sign In Via
                   </Typography>
                 </Box>
                 <Box

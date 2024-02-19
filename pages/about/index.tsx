@@ -20,6 +20,7 @@ import team1 from "../../public/Images/team-1.jpg";
 import team2 from "../../public/Images/team-2.jpg";
 import team3 from "../../public/Images/team-3.jpg";
 import team4 from "../../public/Images/team-4.jpg";
+import ScrollTop from "../../component/scroll_to_top";
 
 const Contact_us = () => {
   const [isHovered, setIsHovered] = useState<Record<any, any>>({});
@@ -60,6 +61,7 @@ const Contact_us = () => {
   ];
   return (
     <Container maxWidth="xl" sx={{ paddingX: "0vh !important" }}>
+      <ScrollTop/>  
       <Box
         sx={{
           width: "100%",

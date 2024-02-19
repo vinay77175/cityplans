@@ -230,6 +230,7 @@ const Header = () => {
                   >
                     <Link href={"/"}>
                       <Image
+                        className="navLogo"
                         src={Logo.src}
                         alt="logo"
                         layout="intrinsic"
@@ -244,7 +245,9 @@ const Header = () => {
                   <Box sx={{ display: { xs: "none", sm: "block" } }}>
                     <Link href={"/"}>
                       <Button
-                        className={pathname == "/" ? "selectedNav" : ""}
+                        className={
+                          pathname == "/" ? "selectedNav navBtn" : "navBtn"
+                        }
                         sx={{
                           "&:hover, &:focus": {
                             color: "#B12930",
@@ -259,6 +262,7 @@ const Header = () => {
                           fontSize: { sm: "16px", md: "17px", lg: "20px" },
                           fontFamily: "Inria Serif",
                           textTransform: "capitalize",
+                          borderRadius: 0,
                         }}
                       >
                         Home
@@ -266,7 +270,9 @@ const Header = () => {
                     </Link>
                     <Link href={"/about"}>
                       <Button
-                        className={pathname == "/about" ? "selectedNav" : ""}
+                        className={
+                          pathname == "/about" ? "selectedNav navBtn" : "navBtn"
+                        }
                         sx={{
                           "&:hover, &:checked": {
                             color: "#B12930",
@@ -275,6 +281,7 @@ const Header = () => {
                           },
                           fontWeight: 550,
                           color: "#000",
+                          borderRadius: 0,
                           px: { sm: 1, md: 2, lg: 4 },
                           border: "1px solid rgb(255,255,255,0)",
                           // borderRadius: "25px",
@@ -288,7 +295,11 @@ const Header = () => {
                     </Link>
                     <Link href={"/products"}>
                       <Button
-                        className={pathname == "/products" ? "selectedNav" : ""}
+                        className={
+                          pathname == "/products"
+                            ? "selectedNav navBtn"
+                            : "navBtn"
+                        }
                         sx={{
                           "&:hover, &:focus": {
                             color: "#B12930",
@@ -299,6 +310,8 @@ const Header = () => {
                           color: "#000",
                           px: { sm: 1, md: 2, lg: 4 },
                           border: "1px solid rgb(255,255,255,0)",
+                          borderRadius: 0,
+
                           // borderRadius: "25px",
                           fontSize: { sm: "", md: "18px", lg: "20px" },
                           fontFamily: "Inria Serif",
@@ -310,18 +323,22 @@ const Header = () => {
                     </Link>
                     <Link href={"/contact"}>
                       <Button
-                        className={pathname == "/contact" ? "selectedNav" : ""}
+                        className={
+                          pathname == "/contact"
+                            ? "selectedNav navBtn"
+                            : "navBtn"
+                        }
                         sx={{
                           "&:hover, &:focus": {
                             color: "#B12930",
                             borderColor: "#B12930",
                             backgroundColor: "rgb(255,255,255,0)",
                           },
+                          borderRadius: 0,
                           fontWeight: 550,
                           color: "#000",
                           px: { sm: 1, md: 2, lg: 4 },
                           border: "1px solid rgb(255,255,255,0)",
-                          // borderRadius: "25px",
                           fontSize: { sm: "", md: "18px", lg: "20px" },
                           fontFamily: "Inria Serif",
                           textTransform: "capitalize",
@@ -343,9 +360,9 @@ const Header = () => {
                     sx={{
                       display: "flex",
                       alignItems: "center",
-                      borderRadius: "6px",
                       overflow: "hidden",
                       width: { xs: 50, md: "auto" },
+                      borderRadius: 0,
                     }}
                   >
                     <InputBase
@@ -366,6 +383,7 @@ const Header = () => {
                         },
                         bgcolor: "#B12930",
                         minWidth: 5,
+                        borderRadius: 0,
                       }}
                       onClick={handleOpen}
                     >

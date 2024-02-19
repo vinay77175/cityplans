@@ -109,7 +109,7 @@ const Register = () => {
                     variant="h3"
                     sx={{ fontSize: "2.3rem", fontWeight: 600 }}
                   >
-                    Sign Up Page
+                    Sign Up Via
                   </Typography>
                 </Box>
                 <Box

@@ -32,6 +32,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import MuiInput from "@mui/material/Input";
 import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
 import LinearScaleOutlinedIcon from "@mui/icons-material/LinearScaleOutlined";
+import ScrollTop from "../../component/scroll_to_top";
 
 //Modal Styles
 const style = {
@@ -480,6 +481,7 @@ const Product_Details = () => {
   };
   return (
     <Container maxWidth="xl">
+      <ScrollTop/>
       <Box sx={{ py: 2 }}>
         <Grid container sx={{ marginLeft: 1 }}>
           {/* <Grid

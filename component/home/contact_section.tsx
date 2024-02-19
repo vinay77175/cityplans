@@ -54,6 +54,7 @@ const Contact_section = () => {
                     minHeight: 250,
                     bgcolor: "#fff",
                     p: 3,
+                    borderRadius: 0,
                   }}
                 >
                   <CardContent>
@@ -91,6 +92,7 @@ const Contact_section = () => {
                     minHeight: 250,
                     bgcolor: "#fff",
                     p: 3,
+                    borderRadius: 0,
                   }}
                 >
                   <CardContent>
@@ -124,6 +126,7 @@ const Contact_section = () => {
                     minHeight: 250,
                     bgcolor: "#fff",
                     p: 3,
+                    borderRadius: 0,
                   }}
                 >
                   <CardContent>
@@ -157,6 +160,7 @@ const Contact_section = () => {
                     minHeight: 250,
                     bgcolor: "#fff",
                     p: 3,
+                    borderRadius: 0,
                   }}
                 >
                   <CardContent>
@@ -238,6 +242,7 @@ const Contact_section = () => {
                     "&:hover": {
                       bgcolor: "hsl(357, 62%, 55%)",
                     },
+                    borderRadius: 0,
                   }}
                 >
                   Send Message

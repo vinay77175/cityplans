@@ -267,8 +267,6 @@ a {
   }
 } */
 
-
-
 /* .dotImage_1{
   width: 20%;
   position: absolute;
@@ -282,7 +280,6 @@ a {
   right: 12vw;
   transform: scaleY(-1);
 } */
-
 
 /* contact button css */
 
@@ -466,11 +463,11 @@ a {
   }
 } */
 .homeImage_1 {
-  --s: .71vw; /* size of the frame */
+  --s: 0.71vw; /* size of the frame */
   --b: 2px; /* border thickness */
   --w: 23vw; /* width of the image */
   --c: #ffffff;
-  
+
   width: var(--w);
   aspect-ratio: 1;
   object-fit: cover;
@@ -485,7 +482,7 @@ a {
 }
 
 .homeImage_2 {
-  --s: .7vw; /* size of the frame */
+  --s: 0.7vw; /* size of the frame */
   --b: 0.15vw; /* border thickness */
   --w: 16vw; /* width of the image */
   --c: #ffffff;
@@ -513,6 +510,33 @@ a {
   --_i: calc(100% - 2 * var(--s));
 }
 
+@media (min-width: 1921px) {
+  .sliderImage {
+    width: 1050px !important;
+  }
+  .sliderImageBox {
+    height: 900px !important;
+  }
+  .homeSectionText {
+    margin-top: 80px !important;
+    font-size: 2.5rem;
+  }
+  .homeSectionHeading{
+    font-size: 4.5rem;
+  }
+  .joinBtn {
+    margin-top: 80px !important;
+  }
+  .homeSectionBoxWrapper {
+    padding-top: 120px !important;
+  }
+  .navLogo{
+    width: 350px !important;
+  }
+  .navBtn{
+    font-size: 25px;
+  }
+}
 @media (max-width: 2300px) {
   .homeImage_1 {
     --w: 28vw; /* width of the image */
@@ -521,7 +545,6 @@ a {
   .homeImage_2 {
     --w: 15vw; /* width of the image */
     width: var(--w);
-  
   }
 }
 @media (max-width: 2000px) {
@@ -532,7 +555,6 @@ a {
   .homeImage_2 {
     --w: 18vw; /* width of the image */
     width: var(--w);
-  
   }
 }
 @media (max-width: 1800px) {
@@ -543,7 +565,6 @@ a {
   .homeImage_2 {
     --w: 20vw; /* width of the image */
     width: var(--w);
-  
   }
 }
 @media (max-width: 1660px) {
@@ -554,40 +575,31 @@ a {
   .homeImage_2 {
     --w: 20vw; /* width of the image */
     width: var(--w);
-  
   }
 }
 @media (max-width: 1440px) {
   .homeImage_1 {
     --w: 40vw; /* width of the image */
     width: var(--w);
-   
   }
   .homeImage_2 {
     --w: 20vw; /* width of the image */
     width: var(--w);
-  
   }
 }
 
 @media (max-width: 1200px) {
   .homeImage_1 {
     --w: 40vw; /* width of the image */
-  
-    width: var(--w);
 
-   
+    width: var(--w);
   }
-  
 
   .homeImage_2 {
     --w: 20vw; /* width of the image */
     width: var(--w);
-  
   }
 }
-
-
 
 @media (max-width: 991px) {
   .homeImage_1 {
@@ -648,8 +660,9 @@ a {
     width: var(--w);
     margin-left: -11vw;
   }
-
-
+  /* .sliderImage{
+    width: ;
+  } */
 }
 
 .navLink {
@@ -657,15 +670,15 @@ a {
 }
 
 .selectedNav {
-  color: #b12930;
-  border-color: #b12930;
-  background-color: rgb(255, 255, 255, 0);
+  color: #b12930 !important;
+  border-color: #b12930 !important;
+  background-color: rgb(255, 255, 255, 0) !important;
 }
 .selectedDrawerNav {
-  background-color: #b12930;
-  color: #fff;
+  background-color: #b12930 !important;
+  color: #fff !important;
 }
-.floating{
-  transform: translate(-13vw);
-  fill: #000000;
+.floating {
+  transform: translate(-13vw) !important;
+  fill: #000000 !important;
 }
