@@ -1,4 +1,4 @@
-import { MuiOtpInput } from "mui-one-time-password-input";
+// import { MuiOtpInput } from "mui-one-time-password-input";
 import backImage from "../../../public/Images/CarouselImages/5.jpg";
 import {
   Box,
@@ -50,6 +50,7 @@ const Verification = () => {
                 width={950}
                 alt=""
                 height={500}
+                quality={50}
                 style={{ height: "100vh", width: "100%", zIndex: "-1" }}
               ></Image>
             </Box>
@@ -69,7 +70,7 @@ const Verification = () => {
                     Your Email and Enter OTP for Email verification.
                   </Typography>
                 </Box>
-
+                {/* 
                 <Box my={5} display={"flex"} flexDirection={"column"} gap={5}>
                   <MuiOtpInput
                     value={value}
@@ -79,7 +80,7 @@ const Verification = () => {
                     autoFocus
                     validateChar={(character: string, index: number) => true}
                   />
-                </Box>
+                </Box> */}
                 <Box>
                   <Button
                     variant="contained"

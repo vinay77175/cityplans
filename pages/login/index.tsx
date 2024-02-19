@@ -69,6 +69,7 @@ const Login = () => {
                 src={backImage.src}
                 width={950}
                 alt=""
+                quality={50}
                 height={500}
                 style={{ height: "100vh", width: "100%", zIndex: "-1" }}
               ></Image>
@@ -137,7 +138,7 @@ const Login = () => {
                     <TextField
                       {...register("password", {
                         required: true,
-                        minLength : 8,
+                        minLength: 8,
                       })}
                       id="outlined-adornment-password"
                       type={showPassword ? "text" : "password"}

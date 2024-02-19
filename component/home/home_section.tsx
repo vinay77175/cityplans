@@ -638,7 +638,7 @@ const Home_section = () => {
                       width={750}
                       layout="intrinsic"
                       alt="slider_image"
-                      quality={75}
+                      quality={50}
                       priority={true}
                       style={{ userSelect: "none", minHeight: "100%" }}
                       // sizes="(max-width: 768px) 33vw, (max-width: 1200px) 33vw, 33vw"

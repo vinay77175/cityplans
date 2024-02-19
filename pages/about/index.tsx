@@ -79,9 +79,6 @@ const Contact_us = () => {
             fontSize: {
               xs: "2.5rem",
               sm: "4rem",
-              md: "4.5rem",
-              lg: "4.5rem",
-              xl: "5rem",
             },
           }}
         >
@@ -107,6 +104,7 @@ const Contact_us = () => {
               alignItems: "center",
               justifyContent: "center",
               display: "flex",
+              marginTop: { xs: "50px !important", lg: "0px !important" },
 
               // position: "relative",
               // marginTop: "0vh",
@@ -161,11 +159,10 @@ const Contact_us = () => {
                 color: "white",
                 px: { xs: "3vh", md: "2vh", lg: "0vh" },
                 fontSize: {
-                  xs: "3rem",
-                  sm: "4rem",
-                  md: "4.5rem",
-                  lg: "4rem",
-                  xl: "4.5rem",
+                  xs: "2rem",
+                  sm: "3.7rem",
+                  md: "4rem",
+                  lg: "3.5rem",
                 },
               }}
             >
