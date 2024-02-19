@@ -108,7 +108,6 @@ const Home_section = () => {
           <ListItem disablePadding>
             <ListItemButton
               className={pathname == "/about" ? "selectedDrawerNav" : ""}
-
               sx={{
                 "&:hover": {
                   bgcolor: "#B12930",
@@ -128,7 +127,6 @@ const Home_section = () => {
           <ListItem disablePadding>
             <ListItemButton
               className={pathname == "/products" ? "selectedDrawerNav" : ""}
-
               sx={{
                 "&:hover": {
                   bgcolor: "#B12930",
@@ -149,7 +147,6 @@ const Home_section = () => {
           <ListItem disablePadding>
             <ListItemButton
               className={pathname == "/contact" ? "selectedDrawerNav" : ""}
-
               sx={{
                 "&:hover": {
                   bgcolor: "#B12930",
@@ -553,6 +550,7 @@ const Home_section = () => {
                   sm: "2.5rem",
                   md: "2.9rem",
                   lg: "3.5rem",
+                  xl: "4.5rem",
                 },
                 pr: { xs: 7, sm: 12, md: 0 },
                 fontFamily: "Jacques Francois",
@@ -564,7 +562,12 @@ const Home_section = () => {
             </Typography>
             <Typography
               sx={{
-                fontSize: { xs: "1rem", sm: "1.2rem", lg: "1.5rem" },
+                fontSize: {
+                  xs: "1rem",
+                  sm: "1.2rem",
+                  lg: "1.5rem",
+                  xl: "2.5rem",
+                },
                 pr: { xs: 7, sm: 12, md: 0 },
                 mt: { xs: 6 },
                 userSelect: "none",
@@ -573,7 +576,7 @@ const Home_section = () => {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
               consequat.
             </Typography>
-            <Typography mt={{ xs: 5, sm: 10, md: 5, lg: 10 }}>
+            <Typography mt={{ xs: 5, sm: 10, md: 5, lg: 10, xl: 20 }}>
               <Button
                 variant="contained"
                 sx={{
@@ -609,6 +612,14 @@ const Home_section = () => {
                         sm: "500px",
                         md: "550px",
                         lg: "600px",
+                        xl:"900px"
+                      },
+                      minWidth: {
+                        // xs: "350px",
+                        // sm: "500px",
+                        // md: "550px",
+                        // lg: "600px",
+                        xl:"1500px"
                       },
                       // width: {
                       //   xs: "350px",
