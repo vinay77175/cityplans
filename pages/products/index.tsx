@@ -2080,6 +2080,7 @@ const Product_Details = () => {
                         fontFamily: "Times New Roman ",
                         color: "white",
                         backgroundColor: "#B12930",
+                        borderRadius: "0px",
                         "&:hover": {
                           backgroundColor: "hsl(357,62%,55%)",
                         },
@@ -2094,6 +2095,7 @@ const Product_Details = () => {
                         fontFamily: "Times New Roman ",
                         color: "black",
                         border: "2px solid black",
+                        borderRadius: "0px",
                         "&:hover": {
                           backgroundColor: "black",
                           color: "white",
