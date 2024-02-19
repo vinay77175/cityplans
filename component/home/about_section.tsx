@@ -7,6 +7,7 @@ import backImg1 from "../../public/Images/about_back.png";
 import backImg2 from "../../public/Images/about_image_1.png";
 import backImg3 from "../../public/Images/about_image_2.png";
 import backImg4 from "../../public/Images/about_image_4.png";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 
 const About_section = () => {
   return (
@@ -153,7 +154,7 @@ const About_section = () => {
                       textAlign: { xs: "justify", lg: "justify" },
                     }}
                   >
-                    Sit amet, consectetur adipiscing elit.
+                    &gt; Sit amet, consectetur adipiscing elit.
                   </Typography>
                   <Typography
                     sx={{
@@ -170,7 +171,7 @@ const About_section = () => {
                       textAlign: { xs: "justify", lg: "justify" },
                     }}
                   >
-                    Sit amet, consectetur adipiscing elit.
+                    &gt; Sit amet, consectetur adipiscing elit.
                   </Typography>
                   <Typography
                     sx={{
@@ -187,7 +188,7 @@ const About_section = () => {
                       textAlign: { xs: "justify", lg: "justify" },
                     }}
                   >
-                    Sit amet, consectetur adipiscing elit.
+                    &gt; Sit amet, consectetur adipiscing elit.
                   </Typography>
                 </Grid>
               </Grid>
@@ -211,7 +212,7 @@ const About_section = () => {
                       textAlign: { xs: "justify", lg: "justify" },
                     }}
                   >
-                    Sit amet, consectetur adipiscing elit.
+                    &gt; Sit amet, consectetur adipiscing elit.
                   </Typography>
                   <Typography
                     sx={{
@@ -228,7 +229,7 @@ const About_section = () => {
                       textAlign: { xs: "justify", lg: "justify" },
                     }}
                   >
-                    Sit amet, consectetur adipiscing elit.
+                    &gt; Sit amet, consectetur adipiscing elit.
                   </Typography>
                   <Typography
                     sx={{
@@ -245,7 +246,7 @@ const About_section = () => {
                       textAlign: { xs: "justify", lg: "justify" },
                     }}
                   >
-                    Sit amet, consectetur adipiscing elit.
+                    &gt; Sit amet, consectetur adipiscing elit.
                   </Typography>
                 </Grid>
               </Grid>
@@ -273,6 +274,7 @@ const About_section = () => {
                   "&:hover": {
                     backgroundColor: "#CCC",
                   },
+                  borderRadius: "0px !important",
                 }}
               >
                 View More

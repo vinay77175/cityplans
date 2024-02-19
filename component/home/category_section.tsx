@@ -436,18 +436,17 @@ const Category_section = () => {
                   >
                     <Card
                       sx={{
-                        padding: "1vh 1vh 0vh 1vh",
-                        marginBottom: "4vh",
                         mx: { sm: "1vh" },
-
+                        height: "100%",
                         border: "1px solid #C9C1BA",
+                        borderRadius: "0px",
                       }}
                     >
                       <CardMedia
                         component="img"
                         alt="green iguana"
                         sx={{
-                          height: { xs: "220px", lg: "170px" },
+                          height: "55%",
                         }}
                         src={product.img.src}
                       />
@@ -455,21 +454,18 @@ const Category_section = () => {
                         <Typography
                           component="div"
                           sx={{
-                            marginTop: { xs: "1vh", lg: "2vh" },
-                            fontSize: { xs: "22px", sm: "20px", lg: "22px" },
+                            marginTop: { xs: "1vh" },
+                            fontSize: { xs: "22px" },
                             fontFamily: "Times New Roman",
                           }}
                         >
-                          {isMobile
-                            ? product.heading.slice(0, 20)
-                            : product.heading.slice(0, 20)}
-                          ...
+                          {product.heading}
                         </Typography>
                         <Typography
                           color="#B12930"
                           sx={{
-                            marginTop: { xs: "1vh", lg: "2vh" },
-                            fontSize: { xs: "22px", sm: "20px", lg: "22px" },
+                            marginTop: { xs: "1vh" },
+                            fontSize: { xs: "20px" },
                             fontFamily: "Times New Roman",
                           }}
                         >
@@ -478,7 +474,7 @@ const Category_section = () => {
                         <Box
                           display={"flex"}
                           sx={{
-                            marginTop: "2vh",
+                            marginTop: { xs: "2vh", xl: "1vh" },
                           }}
                         >
                           <Box
@@ -571,17 +567,19 @@ const Category_section = () => {
                           display={"flex"}
                           justifyContent={"space-around"}
                           py="1vh"
+                          // marginBottom={"7vh"}
                         >
                           <Button
                             sx={{
-                              mx: "1vh",
-                              padding: "1vh 2.3vh",
+                              padding: { xs: "1vh 2.3vh" },
+                              marginX: { lg: "0vh" },
                               fontFamily: "Times New Roman ",
                               color: "white",
                               backgroundColor: "#B12930",
                               "&:hover": {
                                 backgroundColor: "hsl(357,62%,55%)",
                               },
+                              borderRadius: "0px",
                             }}
                           >
                             Buy Now
@@ -589,7 +587,8 @@ const Category_section = () => {
                           <Button
                             sx={{
                               mx: "1vh",
-                              padding: "1vh 2vh",
+                              padding: { xs: "1vh 2.3vh", lg: "1vh 2vh" },
+                              marginX: { lg: "0vh" },
                               fontFamily: "Times New Roman ",
                               color: "black",
                               border: "2px solid black",
@@ -597,6 +596,7 @@ const Category_section = () => {
                                 backgroundColor: "black",
                                 color: "white",
                               },
+                              borderRadius: "0px",
                             }}
                           >
                             View More

@@ -379,6 +379,7 @@ const Contact_us = () => {
                   fontFamily: "Times New Roman ",
                   color: "black",
                   backgroundColor: "white",
+                  borderRadius: "0px",
                   "&:hover": {
                     backgroundColor: "rgba(255, 255, 255, 0.7)",
                   },
@@ -503,6 +504,7 @@ const Contact_us = () => {
                   boxShadow: "0px 1px 20px rgb(0 0 0/15%)",
                   marginBottom: "3vh",
                   textAlign: "center",
+                  borderRadius: "0px",
                 }}
               >
                 <CardContent sx={{ padding: "0vh ", cursor: "pointer" }}>
@@ -553,7 +555,6 @@ const Contact_us = () => {
                             lg: ".8vh",
                             xl: ".5vh",
                           },
-                          borderRadius: "5px",
                         }}
                       >
                         <Box>

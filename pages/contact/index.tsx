@@ -233,6 +233,7 @@ const Contact = () => {
                         label="First Name"
                         // placeholder="First Name"
                         InputProps={{
+                          sx: { borderRadius: "0px" },
                           startAdornment: (
                             <InputAdornment position="start">
                               <PersonOutlineSharpIcon
@@ -247,7 +248,6 @@ const Contact = () => {
                             </InputAdornment>
                           ),
                         }}
-                        autoFocus
                       />
                     </Grid>
                     <Grid item xs={12} sm={6}>
@@ -259,6 +259,7 @@ const Contact = () => {
                         name="lastName"
                         autoComplete="family-name"
                         InputProps={{
+                          sx: { borderRadius: "0px" },
                           startAdornment: (
                             <InputAdornment position="start">
                               <PersonOutlineSharpIcon
@@ -284,6 +285,7 @@ const Contact = () => {
                         name="Location"
                         autoComplete="family-name"
                         InputProps={{
+                          sx: { borderRadius: "0px" },
                           startAdornment: (
                             <InputAdornment position="start">
                               <LocationCitySharpIcon
@@ -309,6 +311,7 @@ const Contact = () => {
                         name="Phone Number"
                         autoComplete="family-name"
                         InputProps={{
+                          sx: { borderRadius: "0px" },
                           startAdornment: (
                             <InputAdornment position="start">
                               <LocalPhoneSharpIcon
@@ -333,7 +336,9 @@ const Contact = () => {
                         label="Email"
                         name="Email"
                         autoComplete="family-name"
+                        sx={{ borderRadius: "0px" }}
                         InputProps={{
+                          sx: { borderRadius: "0px" },
                           startAdornment: (
                             <InputAdornment position="start">
                               <MarkEmailUnreadSharpIcon
@@ -358,7 +363,9 @@ const Contact = () => {
                         label="Objectives"
                         name="Objectives"
                         autoComplete="family-name"
+                        sx={{ borderRadius: "0px" }}
                         InputProps={{
+                          sx: { borderRadius: "0px" },
                           startAdornment: (
                             <InputAdornment position="start">
                               <ForumSharpIcon
@@ -383,6 +390,9 @@ const Contact = () => {
                         fullWidth
                         rows={6}
                         multiline
+                        InputProps={{
+                          sx: { borderRadius: "0px" },
+                        }}
                       />
                     </Grid>
                     <Grid
@@ -409,6 +419,7 @@ const Contact = () => {
                               fontFamily: "Times New Roman ",
                               color: "white",
                               backgroundColor: "#B12930",
+                              borderRadius: "0px",
                               "&:hover": {
                                 backgroundColor: "hsl(357,62%,55%)",
                               },

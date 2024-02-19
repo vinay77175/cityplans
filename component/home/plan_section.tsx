@@ -16,14 +16,15 @@ const Plan_section = () => {
               xs: "13vh",
               sm: "8vh",
               md: "10vh",
-              lg: "15vh",
-              xl: "",
+              lg: "13vh",
+              xl: "10vh",
             },
           }}
         >
           <Grid
             item
             xs={12}
+            md={6}
             lg={5}
             sx={{
               backgroundImage: `url(${planImage.src})`,
@@ -40,7 +41,7 @@ const Plan_section = () => {
                 sx={{
                   fontFamily: "Jacques Francois",
                   color: "black",
-                  marginTop: { xs: "4vh", lg: "7vh", xl: "10vh" },
+                  marginTop: { xs: "4vh", lg: "7vh", xl: "4vh" },
                   textAlign: { xs: "center", lg: "center " },
                 }}
               >
@@ -50,11 +51,11 @@ const Plan_section = () => {
                 sx={{
                   fontFamily: "Times New Roman",
                   color: "black",
-                  marginTop: { xs: "4vh", lg: "5vh", xl: "5vh" },
+                  marginTop: { xs: "4vh", lg: "5vh", xl: "3vh" },
                   textAlign: { xs: "justify", lg: "justify" },
-                  paddingX: { xs: "5vh", lg: "4vh", xl: "5vh" },
+                  paddingX: { xs: "5vh", lg: "4vh", xl: "4vh" },
                   marginRight: { xs: "3vh", lg: "0vh" },
-                  fontSize: { xs: "28px", sm: "34px", lg: "40px" },
+                  fontSize: { xs: "28px", sm: "34px", lg: "40px", xl: "34px" },
 
                   fontWeight: 550,
                 }}
@@ -67,8 +68,8 @@ const Plan_section = () => {
                   marginTop: { xs: "5vh", md: "6vh", lg: "5vh" },
                   fontFamily: "Times New Roman",
                   color: "black",
-                  paddingRight: { xs: "14vw", md: "7vw", lg: "5vw" },
-                  paddingLeft: { xs: "5vh", lg: "5.2vh" },
+                  paddingRight: { xs: "14vw", md: "7vw", lg: "5vw", xl: "2vw" },
+                  paddingLeft: { xs: "5vh", lg: "4vh", xl: "4vh" },
                   paddingBottom: { xs: "5vh", xl: "5vh" },
                   textAlign: { xs: "justify", lg: "justify" },
                   fontSize: {
@@ -79,15 +80,17 @@ const Plan_section = () => {
                   letterSpacing: { xl: "1px" },
                 }}
               >
-                Integer pellentesque erat faucibus mollis eleifend.Donec tempor
-                ex ut magna convallis, id cursus mi condimentum.Sed hendrerit
-                arcu vehicula,
+                {`Integer pellentesque erat faucibus mollis eleifend.Donec tempor
+  ex ut magna convallis, id cursus mi condimentum.Sed hendrerit
+  arcu vehicula`.slice(0, 105)}
+                ...
               </Typography>
             </Box>
           </Grid>
           <Grid
             item
             xs={12}
+            md={6}
             lg={7}
             sx={{ marginTop: { xs: "7vh", lg: "5vh" } }}
           >
