@@ -481,7 +481,7 @@ const Product_Details = () => {
   };
   return (
     <Container maxWidth="xl">
-      <ScrollTop/>
+      <ScrollTop />
       <Box sx={{ py: 2 }}>
         <Grid container sx={{ marginLeft: 1 }}>
           {/* <Grid
@@ -600,7 +600,7 @@ const Product_Details = () => {
             xs={12}
             sx={{
               display: "flex",
-              justifyContent: "flex-end",
+              justifyContent: "flex-start",
               marginRight: "3vh",
             }}
           >
@@ -659,8 +659,8 @@ const Product_Details = () => {
                 <Box
                   sx={{
                     ...style,
-                    width: { xs: 300, sm: 400, md: 500, lg: 700 },
-                    height: { xs: 300, sm: 400, md: 500, lg: 600 },
+                    width: { xs: 300, sm: 400, md: 500, lg: 700, xl: 800 },
+                    height: { xs: 300, sm: 400, md: 500, lg: 600, xl: 750 },
                     overflowY: "scroll",
                     position: "relative",
                   }}
@@ -731,7 +731,7 @@ const Product_Details = () => {
                             sm: "12px",
                             md: "14px",
                             lg: "18px",
-                            xl: "2px",
+                            xl: "20px",
                           },
                           fontFamily: "Jacques Francois",
                           marginBottom: "2vh",
@@ -741,7 +741,12 @@ const Product_Details = () => {
                         Lorem ipsum dolor sit amet consectetur, adipisicing
                         elit.
                       </Typography>
-                      <Box sx={{ marginY: "5vh", paddingX: "3vh" }}>
+                      <Box
+                        sx={{
+                          marginY: { xs: "5vh", xl: "2.5vh" },
+                          paddingX: "3vh",
+                        }}
+                      >
                         <Autocomplete
                           id="country-select-demo"
                           sx={{ width: "100%" }}

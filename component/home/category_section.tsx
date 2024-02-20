@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Container, Grid, IconButton, Typography } from "@mui/material";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
@@ -18,6 +18,8 @@ import { categoryList } from "./category_data";
 import { StaticImageData } from "next/image";
 import { useMediaQuery } from "@mui/material";
 import { useRouter } from "next/router";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 const Category_section = () => {
   const route = useRouter();
   const login = false;
@@ -38,6 +40,19 @@ const Category_section = () => {
 
   //   setSelectedCategory(newValue);
   // };
+  const [position, setPosition] = useState(0);
+  const isSmallScreen = useMediaQuery("(max-width:600px)");
+
+  const handlePrevClick = () => {
+    setPosition((prevPosition) => Math.max(prevPosition - 1, 0));
+  };
+
+  const handleNextClick = () => {
+    setPosition((prevPosition) =>
+      Math.min(prevPosition + 1, categoryList.length - 1)
+    );
+  };
+
   const handleCategoryChange = (categoryId: string) => {
     setSelectedCategory(categoryId);
     if (categoryId == "1") {
@@ -306,7 +321,10 @@ const Category_section = () => {
           </Grid>
         </TabContext> */}
         {/* Render buttons for each category */}
-        <Box
+
+        {/* Logic -1 */}
+
+        {/* <Box
           width={"100%"}
           sx={{
             display: "flex",
@@ -412,7 +430,154 @@ const Category_section = () => {
           >
             Garage Suite
           </Button>
-        </Box>
+        </Box> */}
+
+        {/* Logic-2 */}
+        {/* <Box
+          width={"100%"}
+          sx={{
+            overflowX: "auto",
+            display: "flex",
+            justifyContent: "space-between",
+            marginBottom: "3vh",
+            "&::-webkit-scrollbar": {
+              display: "block",
+            },
+          }}
+        >
+          {categoryList.map((category, index) => (
+            <Button
+              key={index}
+              sx={{
+                fontSize: {
+                  xs: "10px",
+                  sm: "18px",
+                  md: "20px",
+                  lg: "24px",
+                },
+                marginX: "1vh",
+                color: selectedCategory === category.id ? "#b12930" : "black",
+                border:
+                  selectedCategory === category.id
+                    ? "2px solid #b12930"
+                    : "2px solid white",
+                fontFamily: "Jacques Francois",
+                ":hover": {
+                  boxShadow: "none",
+                  borderBottom: "2px solid #b12930",
+                  color: "#b12930 !important",
+                },
+              }}
+              onClick={() => handleCategoryChange(category.id)}
+            >
+              {category.name}
+            </Button>
+          ))}
+        </Box> */}
+
+        {/* Logic-3 */}
+        <>
+          {isSmallScreen ? (
+            <Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  marginBottom: "3vh",
+                }}
+              >
+                <IconButton onClick={handlePrevClick} disabled={position === 0}>
+                  <ArrowBackIcon />
+                </IconButton>
+                {categoryList
+                  .slice(position, position + (isSmallScreen ? 2 : 3))
+                  .map((category) => (
+                    <Button
+                      key={category.id}
+                      sx={{
+                        fontSize: {
+                          xs: "10px",
+                          sm: "18px",
+                          md: "20px",
+                          lg: "24px",
+                        },
+                        marginX: "1vh",
+                        color:
+                          selectedCategory === category.id
+                            ? "#b12930"
+                            : "black",
+                        border:
+                          selectedCategory === category.id
+                            ? "2px solid #b12930"
+                            : "2px solid white",
+                        fontFamily: "Jacques Francois",
+                        ":hover": {
+                          boxShadow: "none",
+                          borderBottom: "2px solid #b12930",
+                          color: "#b12930 !important",
+                        },
+                      }}
+                      onClick={() => handleCategoryChange(category.id)}
+                    >
+                      {category.name}
+                    </Button>
+                  ))}
+                <IconButton
+                  onClick={handleNextClick}
+                  disabled={
+                    position === categoryList.length - (isSmallScreen ? 2 : 3)
+                  }
+                >
+                  <ArrowForwardIcon />
+                </IconButton>
+              </Box>
+            </Box>
+          ) : (
+            <Box
+              width={"100%"}
+              sx={{
+                overflowX: "auto",
+                display: "flex",
+                justifyContent: "space-between",
+                marginBottom: "3vh",
+                "&::-webkit-scrollbar": {
+                  display: "block",
+                },
+              }}
+            >
+              {categoryList.map((category, index) => (
+                <Button
+                  key={index}
+                  sx={{
+                    fontSize: {
+                      xs: "10px",
+                      sm: "18px",
+                      md: "20px",
+                      lg: "24px",
+                    },
+                    marginX: "1vh",
+                    color:
+                      selectedCategory === category.id ? "#b12930" : "black",
+                    border:
+                      selectedCategory === category.id
+                        ? "2px solid #b12930"
+                        : "2px solid white",
+                    fontFamily: "Jacques Francois",
+                    ":hover": {
+                      boxShadow: "none",
+                      borderBottom: "2px solid #b12930",
+                      color: "#b12930 !important",
+                    },
+                  }}
+                  onClick={() => handleCategoryChange(category.id)}
+                >
+                  {category.name}
+                </Button>
+              ))}
+            </Box>
+          )}
+        </>
 
         <Box>
           <Grid
