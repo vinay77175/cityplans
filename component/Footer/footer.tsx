@@ -51,7 +51,7 @@ const Footer = () => {
           <Grid item xs={12} sm={6} md={3}>
             <Box component={"img"} src={logo.src}></Box>
             <Typography
-              sx={{ fontFamily: "Jacques Francois", fontSize: "1rem" }}
+              sx={{ fontFamily: "Jacques Francois", fontSize: "1rem",textAlign: "justify"}}
               gutterBottom
             >
               Shop our entire lineup of fine faves in store, get styled and join

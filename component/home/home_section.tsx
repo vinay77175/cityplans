@@ -168,7 +168,7 @@ const Home_section = () => {
   return (
     <Box
       sx={{
-        minHeight: "100vh",
+        minHeight: {lg:"100vh"},
         position: "relative",
       }}
     >

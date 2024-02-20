@@ -1,9 +1,11 @@
+import { Box } from "@mui/material";
 import React from "react";
 import ScrollToTop from "react-scroll-to-top";
 const ScrollTop = () => {
   return (
-    <div>
+    <Box>
       <ScrollToTop
+      className="scrollToTop"
         smooth
         top={600}
         width="50"
@@ -15,9 +17,10 @@ const ScrollTop = () => {
           backgroundColor: "white",
           height: "50px",
           width: "50px",
+          bottom: "60px",
         }}
       />
-    </div>
+    </Box>
   );
 };
 
